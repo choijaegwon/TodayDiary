@@ -7,23 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		155068D34A3ACA5C9A8BB7E0 /* Pods_RxDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */; };
 		D43F1F6D2944BE360017CFD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43F1F6C2944BE360017CFD2 /* AppDelegate.swift */; };
 		D43F1F6F2944BE360017CFD2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43F1F6E2944BE360017CFD2 /* SceneDelegate.swift */; };
-		D43F1F712944BE360017CFD2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43F1F702944BE360017CFD2 /* ViewController.swift */; };
-		D43F1F742944BE360017CFD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43F1F722944BE360017CFD2 /* Main.storyboard */; };
+		D43F1F712944BE360017CFD2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43F1F702944BE360017CFD2 /* MainViewController.swift */; };
 		D43F1F762944BE370017CFD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D43F1F752944BE370017CFD2 /* Assets.xcassets */; };
 		D43F1F792944BE370017CFD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43F1F772944BE370017CFD2 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4BE4DADFBF7980E007410213 /* Pods-RxDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxDiary.release.xcconfig"; path = "Target Support Files/Pods-RxDiary/Pods-RxDiary.release.xcconfig"; sourceTree = "<group>"; };
+		71595E7DE42A12A4445919E7 /* Pods-RxDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxDiary.debug.xcconfig"; path = "Target Support Files/Pods-RxDiary/Pods-RxDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		D43F1F692944BE360017CFD2 /* RxDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D43F1F6C2944BE360017CFD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D43F1F6E2944BE360017CFD2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D43F1F702944BE360017CFD2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D43F1F732944BE360017CFD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D43F1F702944BE360017CFD2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D43F1F752944BE370017CFD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D43F1F782944BE370017CFD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D43F1F7A2944BE370017CFD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				155068D34A3ACA5C9A8BB7E0 /* Pods_RxDiary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B1C43FF7D9610D422D67A14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D43F1F602944BE360017CFD2 = {
 			isa = PBXGroup;
 			children = (
 				D43F1F6B2944BE360017CFD2 /* RxDiary */,
 				D43F1F6A2944BE360017CFD2 /* Products */,
+				EA2C60867B7C01337B28A63D /* Pods */,
+				7B1C43FF7D9610D422D67A14 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +71,22 @@
 			children = (
 				D43F1F6C2944BE360017CFD2 /* AppDelegate.swift */,
 				D43F1F6E2944BE360017CFD2 /* SceneDelegate.swift */,
-				D43F1F702944BE360017CFD2 /* ViewController.swift */,
-				D43F1F722944BE360017CFD2 /* Main.storyboard */,
+				D43F1F702944BE360017CFD2 /* MainViewController.swift */,
 				D43F1F752944BE370017CFD2 /* Assets.xcassets */,
 				D43F1F772944BE370017CFD2 /* LaunchScreen.storyboard */,
 				D43F1F7A2944BE370017CFD2 /* Info.plist */,
 			);
 			path = RxDiary;
+			sourceTree = "<group>";
+		};
+		EA2C60867B7C01337B28A63D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				71595E7DE42A12A4445919E7 /* Pods-RxDiary.debug.xcconfig */,
+				4BE4DADFBF7980E007410213 /* Pods-RxDiary.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +96,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D43F1F7D2944BE370017CFD2 /* Build configuration list for PBXNativeTarget "RxDiary" */;
 			buildPhases = (
+				934054EF4BF3CCF92B763FCE /* [CP] Check Pods Manifest.lock */,
 				D43F1F652944BE360017CFD2 /* Sources */,
 				D43F1F662944BE360017CFD2 /* Frameworks */,
 				D43F1F672944BE360017CFD2 /* Resources */,
+				DEAF1A109531851D9B39E7D8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,18 +151,59 @@
 			files = (
 				D43F1F792944BE370017CFD2 /* LaunchScreen.storyboard in Resources */,
 				D43F1F762944BE370017CFD2 /* Assets.xcassets in Resources */,
-				D43F1F742944BE360017CFD2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		934054EF4BF3CCF92B763FCE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RxDiary-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEAF1A109531851D9B39E7D8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RxDiary/Pods-RxDiary-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RxDiary/Pods-RxDiary-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RxDiary/Pods-RxDiary-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D43F1F652944BE360017CFD2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D43F1F712944BE360017CFD2 /* ViewController.swift in Sources */,
+				D43F1F712944BE360017CFD2 /* MainViewController.swift in Sources */,
 				D43F1F6D2944BE360017CFD2 /* AppDelegate.swift in Sources */,
 				D43F1F6F2944BE360017CFD2 /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +212,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D43F1F722944BE360017CFD2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D43F1F732944BE360017CFD2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D43F1F772944BE370017CFD2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,6 +339,7 @@
 		};
 		D43F1F7E2944BE370017CFD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71595E7DE42A12A4445919E7 /* Pods-RxDiary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -292,7 +350,6 @@
 				INFOPLIST_FILE = RxDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -302,14 +359,18 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chojaegwon.RxDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		D43F1F7F2944BE370017CFD2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BE4DADFBF7980E007410213 /* Pods-RxDiary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -320,7 +381,6 @@
 				INFOPLIST_FILE = RxDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -330,9 +390,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chojaegwon.RxDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
