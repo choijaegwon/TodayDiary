@@ -13,6 +13,9 @@
 		D43F1F712944BE360017CFD2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43F1F702944BE360017CFD2 /* MainViewController.swift */; };
 		D43F1F762944BE370017CFD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D43F1F752944BE370017CFD2 /* Assets.xcassets */; };
 		D43F1F792944BE370017CFD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43F1F772944BE370017CFD2 /* LaunchScreen.storyboard */; };
+		D43F1F822944C1580017CFD2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43F1F812944C1580017CFD2 /* MainView.swift */; };
+		D43F1F842944C91B0017CFD2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43F1F832944C91B0017CFD2 /* Extensions.swift */; };
+		D43F1F872944CB280017CFD2 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43F1F862944CB280017CFD2 /* MainViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		D43F1F752944BE370017CFD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D43F1F782944BE370017CFD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D43F1F7A2944BE370017CFD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D43F1F812944C1580017CFD2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D43F1F832944C91B0017CFD2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D43F1F862944CB280017CFD2 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -69,14 +75,33 @@
 		D43F1F6B2944BE360017CFD2 /* RxDiary */ = {
 			isa = PBXGroup;
 			children = (
+				D43F1F852944CB1B0017CFD2 /* ViewModel */,
+				D43F1F802944C1510017CFD2 /* View */,
+				D43F1F702944BE360017CFD2 /* MainViewController.swift */,
 				D43F1F6C2944BE360017CFD2 /* AppDelegate.swift */,
 				D43F1F6E2944BE360017CFD2 /* SceneDelegate.swift */,
-				D43F1F702944BE360017CFD2 /* MainViewController.swift */,
 				D43F1F752944BE370017CFD2 /* Assets.xcassets */,
 				D43F1F772944BE370017CFD2 /* LaunchScreen.storyboard */,
 				D43F1F7A2944BE370017CFD2 /* Info.plist */,
+				D43F1F832944C91B0017CFD2 /* Extensions.swift */,
 			);
 			path = RxDiary;
+			sourceTree = "<group>";
+		};
+		D43F1F802944C1510017CFD2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D43F1F812944C1580017CFD2 /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D43F1F852944CB1B0017CFD2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D43F1F862944CB280017CFD2 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		EA2C60867B7C01337B28A63D /* Pods */ = {
@@ -85,7 +110,6 @@
 				71595E7DE42A12A4445919E7 /* Pods-RxDiary.debug.xcconfig */,
 				4BE4DADFBF7980E007410213 /* Pods-RxDiary.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -203,9 +227,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D43F1F842944C91B0017CFD2 /* Extensions.swift in Sources */,
 				D43F1F712944BE360017CFD2 /* MainViewController.swift in Sources */,
+				D43F1F822944C1580017CFD2 /* MainView.swift in Sources */,
 				D43F1F6D2944BE360017CFD2 /* AppDelegate.swift in Sources */,
 				D43F1F6F2944BE360017CFD2 /* SceneDelegate.swift in Sources */,
+				D43F1F872944CB280017CFD2 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
