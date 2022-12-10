@@ -1,0 +1,60 @@
+PODS:
+  - DLRadioButton (1.4.12)
+  - FSCalendar (2.8.4)
+  - IQKeyboardManagerSwift (6.5.10)
+  - Realm (10.32.0):
+    - Realm/Headers (= 10.32.0)
+  - Realm/Headers (10.32.0)
+  - RealmSwift (10.32.0):
+    - Realm (= 10.32.0)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+  - SnapKit (5.6.0)
+  - Then (3.0.0)
+  - "UITextView+Placeholder (1.4.0)"
+
+DEPENDENCIES:
+  - DLRadioButton
+  - FSCalendar
+  - IQKeyboardManagerSwift
+  - RealmSwift
+  - RxCocoa (= 6.5.0)
+  - RxSwift (= 6.5.0)
+  - SnapKit
+  - Then
+  - "UITextView+Placeholder"
+
+SPEC REPOS:
+  trunk:
+    - DLRadioButton
+    - FSCalendar
+    - IQKeyboardManagerSwift
+    - Realm
+    - RealmSwift
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SnapKit
+    - Then
+    - "UITextView+Placeholder"
+
+SPEC CHECKSUMS:
+  DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
+  FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
+  IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
+  Realm: a00e93347b8d26d372c7a82f6c0b08d6536a21c8
+  RealmSwift: fe09c29ca409f8f905fe4086f2a52936193f2e3d
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
+  "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
+
+PODFILE CHECKSUM: 898ab9a2dff334d573b88ae326af708b42b36bb5
+
+COCOAPODS: 1.11.3
