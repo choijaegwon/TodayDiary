@@ -136,10 +136,10 @@ class CreateDiaryView: UIView {
     }
     
     func buttonSetting() {
-        let otherButtonArray = [mood1Button, mood2Button, mood3Button, mood4Button, mood5Button, mood6Button, mood7Button]
+        let otherButtons = [mood1Button, mood2Button, mood3Button, mood4Button, mood5Button, mood6Button, mood7Button]
         
         // 하나 누르면 다른 버튼 false되게 만들기
-        for button in otherButtonArray {
+        for button in otherButtons {
             mood0Button.otherButtons.append(button)
         }
         
