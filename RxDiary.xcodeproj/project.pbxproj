@@ -19,6 +19,7 @@
 		D44A31712945173F001C28B7 /* CreateDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A31702945173F001C28B7 /* CreateDiaryViewController.swift */; };
 		D44A317329451926001C28B7 /* CreateDiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A317229451926001C28B7 /* CreateDiaryView.swift */; };
 		D44A31762945F64D001C28B7 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A31752945F64D001C28B7 /* Mood.swift */; };
+		D44A31782946291E001C28B7 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A31772946291E001C28B7 /* Diary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		D44A31702945173F001C28B7 /* CreateDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiaryViewController.swift; sourceTree = "<group>"; };
 		D44A317229451926001C28B7 /* CreateDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiaryView.swift; sourceTree = "<group>"; };
 		D44A31752945F64D001C28B7 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
+		D44A31772946291E001C28B7 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				D44A31752945F64D001C28B7 /* Mood.swift */,
+				D44A31772946291E001C28B7 /* Diary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D44A317329451926001C28B7 /* CreateDiaryView.swift in Sources */,
+				D44A31782946291E001C28B7 /* Diary.swift in Sources */,
 				D44A31762945F64D001C28B7 /* Mood.swift in Sources */,
 				D43F1F842944C91B0017CFD2 /* Extensions.swift in Sources */,
 				D44A31712945173F001C28B7 /* CreateDiaryViewController.swift in Sources */,
