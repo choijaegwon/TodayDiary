@@ -77,6 +77,26 @@ class MainView: UIView {
         $0.text = "개의 각이 생겼어요."
     }
     
+    private let mainquestionBackgourndView = UIView().then {
+        $0.layer.cornerRadius = 20
+        $0.layer.shadowColor = UIColor.black.cgColor
+        $0.layer.shadowOffset = CGSize(width: 0, height: 4)
+        $0.layer.shadowRadius = 10
+        $0.layer.shadowOpacity = 0.3
+        $0.backgroundColor = UIColor.white
+    }
+    
+    // 오늘의 데이터가 있으면 그 데이터로 button이 바뀌어야줘야한다. 또는
+    // 오늘의 데이터가 있으면 이버튼은 hidden으로 숨겨주고 다른 뷰를 띄우게하기.
+    lazy var mainquestionbutton = UIButton().then {
+        $0.setTitle("오늘은 어떤 하루를 보내셨나요?", for: .normal)
+        $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        $0.layer.cornerRadius = 14
+        $0.layer.masksToBounds = true
+        $0.backgroundColor = UIColor.black
+        $0.tintColor = UIColor.white
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
@@ -87,6 +107,8 @@ class MainView: UIView {
         addSubview(leftButton)
         addSubview(rightButton)
         addSubview(labelBackgorund)
+        addSubview(mainquestionBackgourndView)
+        addSubview(mainquestionbutton)
         
         let monthStack = UIStackView(arrangedSubviews: [leftButton, headerMonthLabel, rightButton])
         monthStack.axis = .horizontal
@@ -144,6 +166,21 @@ class MainView: UIView {
             $0.height.equalTo(350)
             $0.width.equalToSuperview()
         }
+        
+        mainquestionBackgourndView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalTo(135)
+            $0.bottom.equalToSuperview()
+        }
+        
+        mainquestionbutton.snp.makeConstraints {
+            $0.width.equalTo(327)
+            $0.height.equalTo(52)
+            $0.top.equalTo(mainquestionBackgourndView.snp.top).offset(22)
+            $0.centerX.equalToSuperview()
+        }
+        
     }
     
     required init?(coder: NSCoder) {

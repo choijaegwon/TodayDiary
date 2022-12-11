@@ -16,6 +16,9 @@
 		D43F1F822944C1580017CFD2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43F1F812944C1580017CFD2 /* MainView.swift */; };
 		D43F1F842944C91B0017CFD2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43F1F832944C91B0017CFD2 /* Extensions.swift */; };
 		D43F1F872944CB280017CFD2 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43F1F862944CB280017CFD2 /* MainViewModel.swift */; };
+		D44A31712945173F001C28B7 /* CreateDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A31702945173F001C28B7 /* CreateDiaryViewController.swift */; };
+		D44A317329451926001C28B7 /* CreateDiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A317229451926001C28B7 /* CreateDiaryView.swift */; };
+		D44A31762945F64D001C28B7 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A31752945F64D001C28B7 /* Mood.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		D43F1F812944C1580017CFD2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D43F1F832944C91B0017CFD2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D43F1F862944CB280017CFD2 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		D44A31702945173F001C28B7 /* CreateDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiaryViewController.swift; sourceTree = "<group>"; };
+		D44A317229451926001C28B7 /* CreateDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiaryView.swift; sourceTree = "<group>"; };
+		D44A31752945F64D001C28B7 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -75,15 +81,16 @@
 		D43F1F6B2944BE360017CFD2 /* RxDiary */ = {
 			isa = PBXGroup;
 			children = (
+				D44A31742945F644001C28B7 /* Model */,
 				D43F1F852944CB1B0017CFD2 /* ViewModel */,
 				D43F1F802944C1510017CFD2 /* View */,
-				D43F1F702944BE360017CFD2 /* MainViewController.swift */,
+				D44A316F294516EA001C28B7 /* Controller */,
 				D43F1F6C2944BE360017CFD2 /* AppDelegate.swift */,
 				D43F1F6E2944BE360017CFD2 /* SceneDelegate.swift */,
+				D43F1F832944C91B0017CFD2 /* Extensions.swift */,
 				D43F1F752944BE370017CFD2 /* Assets.xcassets */,
 				D43F1F772944BE370017CFD2 /* LaunchScreen.storyboard */,
 				D43F1F7A2944BE370017CFD2 /* Info.plist */,
-				D43F1F832944C91B0017CFD2 /* Extensions.swift */,
 			);
 			path = RxDiary;
 			sourceTree = "<group>";
@@ -92,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				D43F1F812944C1580017CFD2 /* MainView.swift */,
+				D44A317229451926001C28B7 /* CreateDiaryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -102,6 +110,23 @@
 				D43F1F862944CB280017CFD2 /* MainViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D44A316F294516EA001C28B7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D43F1F702944BE360017CFD2 /* MainViewController.swift */,
+				D44A31702945173F001C28B7 /* CreateDiaryViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D44A31742945F644001C28B7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D44A31752945F64D001C28B7 /* Mood.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		EA2C60867B7C01337B28A63D /* Pods */ = {
@@ -227,7 +252,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D44A317329451926001C28B7 /* CreateDiaryView.swift in Sources */,
+				D44A31762945F64D001C28B7 /* Mood.swift in Sources */,
 				D43F1F842944C91B0017CFD2 /* Extensions.swift in Sources */,
+				D44A31712945173F001C28B7 /* CreateDiaryViewController.swift in Sources */,
 				D43F1F712944BE360017CFD2 /* MainViewController.swift in Sources */,
 				D43F1F822944C1580017CFD2 /* MainView.swift in Sources */,
 				D43F1F6D2944BE360017CFD2 /* AppDelegate.swift in Sources */,

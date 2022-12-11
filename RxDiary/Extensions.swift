@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DLRadioButton
 
 extension UIColor {
     static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
@@ -14,4 +15,15 @@ extension UIColor {
     
     class var yearTextColor: UIColor? { return UIColor(named: "yearTextColor") }
     class var labelBackgroundColor: UIColor? { return UIColor(named: "labelBackgroundColor")}
+}
+
+extension UIButton {
+    func moodButton(icon: String, iconSelected: String) -> DLRadioButton {
+        let button = DLRadioButton(type: .custom)
+        button.icon = UIImage(named: icon)!
+        button.iconSelected = UIImage(named: iconSelected)!
+        button.backgroundColor = .white
+        button.tintColor = .white
+        return button
+    }
 }

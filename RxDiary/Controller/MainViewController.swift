@@ -11,7 +11,7 @@ import FSCalendar
 import RxSwift
 import RxCocoa
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UISheetPresentationControllerDelegate {
 
     var mainView = MainView()
     var mainViewModel = MainViewModel()
@@ -51,33 +51,61 @@ class MainViewController: UIViewController {
     
     func bindUI() {
         mainViewModel.headerYearLabel
-            .observe(on: MainScheduler.instance)
-            .bind(to: mainView.headerYearLabel.rx.text)
+            .asDriver(onErrorJustReturn: "")
+            .drive(mainView.headerYearLabel.rx.text)
             .disposed(by: disposeBag)
         
         mainViewModel.headerMonthLabel
-            .observe(on: MainScheduler.instance)
-            .bind(to: mainView.headerMonthLabel.rx.text)
+            .asDriver(onErrorJustReturn: "")
+            .drive(mainView.headerMonthLabel.rx.text)
             .disposed(by: disposeBag)
         
         mainViewModel.headerMonthLabel
-            .observe(on: MainScheduler.instance)
-            .bind(to: mainView.monthLabel.rx.text)
+            .asDriver(onErrorJustReturn: "")
+            .drive(mainView.monthLabel.rx.text)
             .disposed(by: disposeBag)
         
         mainViewModel.mainSumMood
-            .observe(on: MainScheduler.instance)
-            .bind(to: mainView.sumMood.rx.text)
+            .asDriver(onErrorJustReturn: "")
+            .drive(mainView.sumMood.rx.text)
             .disposed(by: disposeBag)
     }
     
     func bindTap() {
-        mainView.leftButton.rx.tap.bind {
-            self.mainView.calendar.setCurrentPage(self.mainViewModel.getPreviousMonth(date: self.mainView.calendar.currentPage), animated: true)
-        }.disposed(by: disposeBag)
+        mainView.leftButton.rx.tap
+            .observe(on: MainScheduler.instance)
+            .bind {
+                self.mainView.calendar.setCurrentPage(self.mainViewModel.getPreviousMonth(date: self.mainView.calendar.currentPage), animated: true)
+            }.disposed(by: disposeBag)
         
-        mainView.rightButton.rx.tap.bind {
-            self.mainView.calendar.setCurrentPage(self.mainViewModel.getNextMonth(date: self.mainView.calendar.currentPage), animated: true)
+        mainView.rightButton.rx.tap
+            .observe(on: MainScheduler.instance)
+            .bind {
+                self.mainView.calendar.setCurrentPage(self.mainViewModel.getNextMonth(date: self.mainView.calendar.currentPage), animated: true)
+            }.disposed(by: disposeBag)
+        
+        mainView.mainquestionbutton.rx.tap.bind {
+            print(#function)
+            // 넘어갈 현재날짜.
+            let nowDate = self.dateFormatter.string(from: Date())
+            // 만약 데이터가 있으면 View를 보여주는 화면으로 옮기고
+            // 오늘 데이터가 없으면, 새로 만드는 화면으로 옮겨줘야한다.
+            let createDiaryViewController = CreateDiaryViewController()
+            createDiaryViewController.date = nowDate
+            
+            if let sheet = createDiaryViewController.sheetPresentationController {
+                sheet.delegate = self
+                sheet.detents = [
+                    .custom { context in
+                        return context.maximumDetentValue * 0.85
+                    }
+                ]
+                sheet.preferredCornerRadius = 20
+                
+                //시트 상단에 그래버 표시 (기본 값은 false)
+                sheet.prefersGrabberVisible = true
+            }
+            self.present(createDiaryViewController, animated: true)
         }.disposed(by: disposeBag)
     }
     
@@ -108,8 +136,8 @@ extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         let currentYear = mainViewModel.headerYearDateFormatter.string(from: currentPage)
         let currentMonth = mainViewModel.MonthDateFormatter.string(from: currentPage)
         
-        mainViewModel.headerYearLabel.onNext(currentYear)
-        mainViewModel.headerMonthLabel.onNext(currentMonth)
+        mainViewModel.headerYearLabel.accept(currentYear)
+        mainViewModel.headerMonthLabel.accept(currentMonth)
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {

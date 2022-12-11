@@ -12,9 +12,9 @@ import RxSwift
 class MainViewModel {
     
 //    lazy var headerYearLabel = PublishSubject<String>()
-    lazy var headerYearLabel = BehaviorSubject(value: nowYearLabel)
-    lazy var headerMonthLabel = BehaviorSubject(value: nowMonthLabel)
-    lazy var mainSumMood = BehaviorSubject(value: "0")
+    lazy var headerYearLabel = BehaviorRelay(value: nowYearLabel)
+    lazy var headerMonthLabel = BehaviorRelay(value: nowMonthLabel)
+    lazy var mainSumMood = BehaviorRelay(value: "0")
     private let dateFormatter = DateFormatter()
     
     private lazy var nowYearLabel = nowYear()
@@ -36,6 +36,9 @@ class MainViewModel {
         $0.locale = Locale(identifier: "ko_kr")
         $0.timeZone = TimeZone(identifier: "KST")
     }
+    
+    // mainSumMood에다가 현재 달의 감정개수를 필터링해서 그걸 보여주는걸해야한다.
+    // 배열값을 BehaviorSubject로 받고, .map 써서 객체하나를꺼내고, .map써서 객체안을 접근해가면된다.
     
     // 현재 달
     private func nowMonth() -> String {
