@@ -36,6 +36,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         bindUI()
         bindTap()
         bindEvent()
+        
     }
     
     func configurUI() {

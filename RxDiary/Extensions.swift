@@ -13,6 +13,7 @@ extension UIColor {
         return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
     }
     
+    class var todayColor: UIColor? { return UIColor(named: "todayColor")}
     class var yearTextColor: UIColor? { return UIColor(named: "yearTextColor") }
     class var labelBackgroundColor: UIColor? { return UIColor(named: "labelBackgroundColor")}
 }

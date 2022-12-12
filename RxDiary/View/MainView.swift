@@ -23,10 +23,10 @@ class MainView: UIView {
         calendar.scrollEnabled = true
         calendar.scrollDirection = .horizontal
         calendar.placeholderType = .none
-        calendar.appearance.selectionColor = .clear
         calendar.appearance.titleSelectionColor = .black
-        calendar.appearance.todaySelectionColor = .green //추후변경
-        calendar.appearance.todayColor = .green // 추후 변경
+        calendar.appearance.selectionColor = .clear
+        calendar.appearance.todaySelectionColor = .todayColor
+        calendar.appearance.todayColor = .todayColor
         calendar.calendarWeekdayView.isHidden = true
         return calendar
     }()
@@ -163,7 +163,7 @@ class MainView: UIView {
         calendar.snp.makeConstraints {
             $0.top.equalTo(labelBackgorund.snp.bottom).offset(0)
             $0.left.right.equalToSuperview()
-            $0.height.equalTo(350)
+            $0.height.equalTo(400)
             $0.width.equalToSuperview()
         }
         
