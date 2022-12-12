@@ -19,7 +19,7 @@ class MainView: UIView {
         calendar.locale = Locale(identifier: "ko_KR")
         calendar.backgroundColor = .white
         calendar.calendarHeaderView.isHidden = true
-        calendar.headerHeight = 0
+        calendar.headerHeight = 100
         calendar.scrollEnabled = true
         calendar.scrollDirection = .horizontal
         calendar.placeholderType = .none
@@ -106,7 +106,6 @@ class MainView: UIView {
         addSubview(headerMonthLabel)
         addSubview(leftButton)
         addSubview(rightButton)
-        addSubview(labelBackgorund)
         addSubview(mainquestionBackgourndView)
         addSubview(mainquestionbutton)
         
@@ -126,6 +125,7 @@ class MainView: UIView {
         
         labelBackgorund.addSubview(moonSumStack)
         addSubview(calendar)
+        calendar.addSubview(labelBackgorund)
         
         headerYearLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -150,7 +150,7 @@ class MainView: UIView {
         }
         
         labelBackgorund.snp.makeConstraints {
-            $0.top.equalTo(monthStack.snp.bottom).offset(40)
+            $0.top.equalTo(calendar.snp.top).offset(40)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(moonSumStack.snp.width).offset(16)
             $0.height.equalTo(moonSumStack.snp.height).offset(16)
@@ -161,9 +161,9 @@ class MainView: UIView {
         }
         
         calendar.snp.makeConstraints {
-            $0.top.equalTo(labelBackgorund.snp.bottom).offset(0)
+            $0.top.equalTo(monthStack.snp.bottom).offset(0)
             $0.left.right.equalToSuperview()
-            $0.height.equalTo(400)
+            $0.height.equalTo(390)
             $0.width.equalToSuperview()
         }
         
