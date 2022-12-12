@@ -36,8 +36,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         configurUI()
         bindUI()
         bindTap()
-        bindEvent()
-        
+
     }
     
     func configurUI() {
@@ -114,21 +113,17 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         }.disposed(by: disposeBag)
     }
     
-    func bindEvent() {
-//        mainViewModel.diaryObservable
-//                    .map { $0.sorted(byKeyPath: "date", ascending: true)
-//                        .filter(NSPredicate(format: "date like '\(self.bb)**'")) }
-//                    .subscribe {
-//                        print($0)
-//                    }.disposed(by: disposeBag)
-    }
-    
     @objc func handleSetting() {
         print(#function)
     }
 }
 
 extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+    
+    // 날이 선택되었을떄 메서드
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
+    }
     
     // 주말 요일색 변경
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
@@ -156,10 +151,6 @@ extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         mainViewModel.readRealmDateString.accept(currentFilterDate)
     }
     
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print(#function)
-    }
-    
     // 오늘 날짜 이후로는 클릭이 안된다.(미래시불가능)
     func maximumDate(for calendar: FSCalendar) -> Date {
         return Date()
@@ -176,6 +167,7 @@ extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         return nil
     }
     
+    // 특정 날짜에 숫자 지우기
     func calendar(_ calendar: FSCalendar, titleFor date: Date) -> String? {
         let dateStr = dateFormatter.string(from: date)
         for diary in diarys {
