@@ -11,7 +11,7 @@ import SnapKit
 import DLRadioButton
 import UITextView_Placeholder
 
-class CreateDiaryView: UIView {
+class CreateUpdateDiaryView: UIView {
     
     private let dLRadioButton = DLRadioButton()
     private let mood = Mood()

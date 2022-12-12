@@ -12,7 +12,7 @@ import RealmSwift
 
 class CreateDiaryViewController: UIViewController {
     
-    var createDiaryView = CreateDiaryView()
+    var createDiaryView = CreateUpdateDiaryView()
     var disposeBag = DisposeBag()
     let realm = try! Realm()
     
@@ -44,7 +44,8 @@ class CreateDiaryViewController: UIViewController {
     }
     
     func bindTap() {
-        createDiaryView.saveButton.rx.tap.bind {
+        createDiaryView.saveButton.rx.tap.bind { [weak self] in
+            guard let self = self else { return }
             // 데이터 저장하는 코드
             let diary = Diary()
             diary.date = self.date!

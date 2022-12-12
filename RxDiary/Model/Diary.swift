@@ -12,7 +12,7 @@ class Diary: Object {
     @Persisted var mood: Int = 0
     @Persisted var contents: String = ""
     
-//    override static func primaryKey() -> String? {
-//        return "date"
-//    }
+    override static func primaryKey() -> String? {
+        return "date"
+    }
 }

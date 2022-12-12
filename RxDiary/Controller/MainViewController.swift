@@ -82,7 +82,8 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         // readRealmDateString의 결과값으로 diaryObservable의 값을 필터링해서 해당 달에 해당하는 배열만 가져오도록함.
         mainViewModel.sortedDiaryObservable
             .map { Array($0) } // [Diary]로 바꿔준다.
-            .subscribe (onNext: {
+            .subscribe (onNext: { [weak self] in
+                guard let self = self else { return }
                 self.diarys = $0
             }).disposed(by: disposeBag)
     }
@@ -100,16 +101,26 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
                 self.mainView.calendar.setCurrentPage(self.mainViewModel.getNextMonth(date: self.mainView.calendar.currentPage), animated: true)
             }.disposed(by: disposeBag)
         
-        mainView.mainquestionbutton.rx.tap.bind {
+        mainView.mainquestionbutton.rx.tap.bind { [weak self] in
+            guard let self = self else { return }
             print(#function)
             // 넘어갈 현재날짜.
             let nowDate = self.dateFormatter.string(from: Date())
+            
             // 만약 데이터가 있으면 View를 보여주는 화면으로 옮기고
             // 오늘 데이터가 없으면, 새로 만드는 화면으로 옮겨줘야한다.
-            let createDiaryViewController = CreateDiaryViewController()
-            createDiaryViewController.date = nowDate
-            self.presentationController(createDiaryViewController)
-            self.present(createDiaryViewController, animated: true)
+            if self.diarys.map({ $0.date }).contains(nowDate) {
+                print("대충 뷰보여주는화면")
+                let diaryViewController = DiaryViewController(date: nowDate)
+                self.diaryViewPresentationController(diaryViewController)
+                self.present(diaryViewController, animated: true)
+            } else {
+                let createDiaryViewController = CreateDiaryViewController()
+                createDiaryViewController.date = nowDate
+                self.createDiaryPresentationController(createDiaryViewController)
+                self.present(createDiaryViewController, animated: true)
+            }
+            
         }.disposed(by: disposeBag)
     }
     
@@ -121,8 +132,24 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
 extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
     // 날이 선택되었을떄 메서드
+    
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let seletedDate = dateFormatter.string(from: date)
         
+        // 만약 데이터가 있으면 View를 보여주는 화면으로 옮기고
+        // 오늘 데이터가 없으면, 새로 만드는 화면으로 옮겨줘야한다.
+        if self.diarys.map({ $0.date }).contains(seletedDate) {
+            print("대충 뷰보여주는화면")
+            let diaryViewController = DiaryViewController(date: seletedDate)
+            self.diaryViewPresentationController(diaryViewController)
+            self.present(diaryViewController, animated: true)
+        } else {
+            print("이것도그러나")
+            let createDiaryViewController = CreateDiaryViewController()
+            createDiaryViewController.date = seletedDate
+            self.createDiaryPresentationController(createDiaryViewController)
+            self.present(createDiaryViewController, animated: true)
+        }
     }
     
     // 주말 요일색 변경
@@ -182,8 +209,24 @@ extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
 
 
 extension MainViewController {
-    fileprivate func presentationController(_ createDiaryViewController: CreateDiaryViewController) {
+    fileprivate func createDiaryPresentationController(_ createDiaryViewController: CreateDiaryViewController) {
         if let sheet = createDiaryViewController.sheetPresentationController {
+            sheet.delegate = self
+            sheet.detents = [
+                .custom { context in
+                    return context.maximumDetentValue * 0.85
+                }
+            ]
+            sheet.preferredCornerRadius = 20
+            
+            //시트 상단에 그래버 표시 (기본 값은 false)
+            sheet.prefersGrabberVisible = true
+        }
+    }
+    
+    fileprivate func diaryViewPresentationController(_ diaryViewController: DiaryViewController) {
+        if let sheet = diaryViewController.sheetPresentationController {
+            //크기 변하는거 감지
             sheet.delegate = self
             sheet.detents = [
                 .custom { context in
