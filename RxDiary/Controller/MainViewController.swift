@@ -21,6 +21,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     private let dateFormatter = DateFormatter()
     private lazy var diarys:[Diary] = [] {
         didSet {
+            // 만약 배열안에 오늘이 들어있으면 mainview안에 calnder의 둥근거 없애버리기
             self.mainView.calendar.reloadData()
         }
     }
@@ -73,7 +74,8 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
             .drive(mainView.monthLabel.rx.text)
             .disposed(by: disposeBag)
         
-        mainViewModel.mainSumMood
+        // 해당하는 배열의 합을 가져오게함.
+        mainViewModel.sumMood
             .asDriver(onErrorJustReturn: "")
             .drive(mainView.sumMood.rx.text)
             .disposed(by: disposeBag)
@@ -83,9 +85,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
             .map { Array($0) } // [Diary]로 바꿔준다.
             .subscribe (onNext: {
                 self.diarys = $0
-//                print($0)
             }).disposed(by: disposeBag)
-        // 위에있는 값을 이미지와 스트링으로 각각만들어야하나?
     }
     
     func bindTap() {

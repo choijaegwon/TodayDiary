@@ -26,9 +26,17 @@ class MainViewModel {
     lazy var sortedDiaryObservable =  readRealmDateString
         .flatMap { (filterDate: String) -> Observable<Results<Diary>> in
             return self.diaryObservable
-                .map { $0.sorted(byKeyPath: "date", ascending: true) // 오름차순 정렬
-                    .filter(NSPredicate(format: "date like '\(filterDate)**'")) } // readRealmDateString이 가져온 값
+                            .map { $0.sorted(byKeyPath: "date", ascending: true) // 오름차순 정렬
+                            .filter(NSPredicate(format: "date like '\(filterDate)**'")) } // readRealmDateString이 가져온 값
         }
+    
+    // 달의 개수의 합
+    lazy var sumMood = mainSumMood.flatMap { (b: String) -> Observable<String> in
+        return self.sortedDiaryObservable.map { Array($0) }.map {
+            var moods = $0.map { $0.mood }
+            return String(moods.reduce(0) { $0 + $1 })
+        }
+    }
     
     
 //    lazy var sortedDiaryObservable = self.diaryObservable.map { diary in

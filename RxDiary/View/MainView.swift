@@ -128,7 +128,7 @@ class MainView: UIView {
         calendar.addSubview(labelBackgorund)
         
         headerYearLabel.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().inset(UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0))
             $0.centerX.equalToSuperview()
         }
         
@@ -163,7 +163,7 @@ class MainView: UIView {
         calendar.snp.makeConstraints {
             $0.top.equalTo(monthStack.snp.bottom).offset(0)
             $0.left.right.equalToSuperview()
-            $0.height.equalTo(390)
+            $0.height.equalTo(370)
             $0.width.equalToSuperview()
         }
         
