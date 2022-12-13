@@ -185,6 +185,9 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     
     @objc func handleSetting() {
         print(#function)
+        let settingViewController = SettingViewController()
+        settingViewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(settingViewController, animated: true)
     }
 }
 

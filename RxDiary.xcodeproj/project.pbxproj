@@ -24,6 +24,8 @@
 		D44A31802947907F001C28B7 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A317F2947907F001C28B7 /* DiaryViewController.swift */; };
 		D44A31842947A625001C28B7 /* UpdateDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A31832947A625001C28B7 /* UpdateDiaryViewController.swift */; };
 		D44A318629484674001C28B7 /* UpdateDiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A318529484674001C28B7 /* UpdateDiaryView.swift */; };
+		D4A590D42948D6D800BC98B9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A590D32948D6D800BC98B9 /* SettingViewController.swift */; };
+		D4A590D62948DAD100BC98B9 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A590D52948DAD100BC98B9 /* SettingCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		D44A317F2947907F001C28B7 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		D44A31832947A625001C28B7 /* UpdateDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDiaryViewController.swift; sourceTree = "<group>"; };
 		D44A318529484674001C28B7 /* UpdateDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDiaryView.swift; sourceTree = "<group>"; };
+		D4A590D32948D6D800BC98B9 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		D4A590D52948DAD100BC98B9 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -112,6 +116,7 @@
 				D44A317229451926001C28B7 /* CreateDiaryView.swift */,
 				D44A317D29478F9F001C28B7 /* DiaryView.swift */,
 				D44A318529484674001C28B7 /* UpdateDiaryView.swift */,
+				D4A590D52948DAD100BC98B9 /* SettingCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 				D44A31702945173F001C28B7 /* CreateDiaryViewController.swift */,
 				D44A317F2947907F001C28B7 /* DiaryViewController.swift */,
 				D44A31832947A625001C28B7 /* UpdateDiaryViewController.swift */,
+				D4A590D32948D6D800BC98B9 /* SettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -272,10 +278,12 @@
 				D44A31762945F64D001C28B7 /* Mood.swift in Sources */,
 				D43F1F842944C91B0017CFD2 /* Extensions.swift in Sources */,
 				D44A318629484674001C28B7 /* UpdateDiaryView.swift in Sources */,
+				D4A590D42948D6D800BC98B9 /* SettingViewController.swift in Sources */,
 				D44A31802947907F001C28B7 /* DiaryViewController.swift in Sources */,
 				D44A31712945173F001C28B7 /* CreateDiaryViewController.swift in Sources */,
 				D44A317E29478F9F001C28B7 /* DiaryView.swift in Sources */,
 				D43F1F712944BE360017CFD2 /* MainViewController.swift in Sources */,
+				D4A590D62948DAD100BC98B9 /* SettingCell.swift in Sources */,
 				D43F1F822944C1580017CFD2 /* MainView.swift in Sources */,
 				D43F1F6D2944BE360017CFD2 /* AppDelegate.swift in Sources */,
 				D43F1F6F2944BE360017CFD2 /* SceneDelegate.swift in Sources */,
