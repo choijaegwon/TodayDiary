@@ -10,11 +10,16 @@ import RxCocoa
 import RxSwift
 import RealmSwift
 
+protocol CreateDiaryVCDelegate: AnyObject {
+    func saveButtonTapped()
+}
+
 class CreateDiaryViewController: UIViewController {
     
     var createDiaryView = CreateDiaryView()
     var disposeBag = DisposeBag()
     let realm = try! Realm()
+    weak var delegate: CreateDiaryVCDelegate?
     // 사용할때 언래핑해줘야한다.
     // MainVC에서 날짜데이터를 받는 변수
     var date: String?
@@ -54,7 +59,7 @@ class CreateDiaryViewController: UIViewController {
             try! self.realm.write {
                 self.realm.add(diary)
             }
-            
+            self.delegate?.saveButtonTapped()
             self.dismiss(animated: true)
         }.disposed(by: disposeBag)
     }

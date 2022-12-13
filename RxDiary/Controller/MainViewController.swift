@@ -36,7 +36,6 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         configurUI()
         bindUI()
         bindTap()
-        toastmessage()
 
     }
     
@@ -117,17 +116,13 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
                 self.present(diaryViewController, animated: true)
             } else {
                 let createDiaryViewController = CreateDiaryViewController()
+                createDiaryViewController.delegate = self
                 createDiaryViewController.date = nowDate
                 self.createDiaryPresentationController(createDiaryViewController)
                 self.present(createDiaryViewController, animated: true)
             }
             
         }.disposed(by: disposeBag)
-    }
-    
-    func toastmessage() {
-        print(#function)
-        self.view.makeToast("오늘의 기분을 등록 완료했어요.", duration: 3.0, position: .bottom, image: UIImage(named: "success"), style: .init())
     }
     
     @objc func handleSetting() {
@@ -152,6 +147,7 @@ extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         } else {
             print("이것도그러나")
             let createDiaryViewController = CreateDiaryViewController()
+            createDiaryViewController.delegate = self
             createDiaryViewController.date = seletedDate
             self.createDiaryPresentationController(createDiaryViewController)
             self.present(createDiaryViewController, animated: true)
@@ -212,8 +208,6 @@ extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
     }
 }
 
-
-
 extension MainViewController {
     fileprivate func createDiaryPresentationController(_ createDiaryViewController: CreateDiaryViewController) {
         if let sheet = createDiaryViewController.sheetPresentationController {
@@ -244,5 +238,11 @@ extension MainViewController {
             //시트 상단에 그래버 표시 (기본 값은 false)
             sheet.prefersGrabberVisible = true
         }
+    }
+}
+
+extension MainViewController: CreateDiaryVCDelegate {
+    func saveButtonTapped() {
+        self.view.makeToast("오늘의 기분을 등록 완료했어요.", duration: 3.0, position: .bottom, image: UIImage(named: "success"), style: .init())
     }
 }
