@@ -20,6 +20,7 @@ PODS:
   - RxSwift (6.5.0)
   - SnapKit (5.6.0)
   - Then (3.0.0)
+  - Toast-Swift (5.0.1)
   - "UITextView+Placeholder (1.4.0)"
 
 DEPENDENCIES:
@@ -32,6 +33,7 @@ DEPENDENCIES:
   - RxSwift (= 6.5.0)
   - SnapKit
   - Then
+  - Toast-Swift
   - "UITextView+Placeholder"
 
 SPEC REPOS:
@@ -47,6 +49,7 @@ SPEC REPOS:
     - RxSwift
     - SnapKit
     - Then
+    - Toast-Swift
     - "UITextView+Placeholder"
 
 SPEC CHECKSUMS:
@@ -61,8 +64,9 @@ SPEC CHECKSUMS:
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
-PODFILE CHECKSUM: fea40b0420435bd15892bcba36126fa50d07c488
+PODFILE CHECKSUM: 3ff035c9cca4b9584e53052bcddf8d60b03e5dc7
 
 COCOAPODS: 1.11.3

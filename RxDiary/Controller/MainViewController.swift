@@ -11,7 +11,7 @@ import FSCalendar
 import RxSwift
 import RxCocoa
 import RealmSwift
-
+import Toast_Swift
 
 class MainViewController: UIViewController, UISheetPresentationControllerDelegate {
 
@@ -36,6 +36,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         configurUI()
         bindUI()
         bindTap()
+        toastmessage()
 
     }
     
@@ -122,6 +123,11 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
             }
             
         }.disposed(by: disposeBag)
+    }
+    
+    func toastmessage() {
+        print(#function)
+        self.view.makeToast("오늘의 기분을 등록 완료했어요.", duration: 3.0, position: .bottom, image: UIImage(named: "success"), style: .init())
     }
     
     @objc func handleSetting() {
