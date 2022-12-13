@@ -17,12 +17,13 @@
 		D43F1F842944C91B0017CFD2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43F1F832944C91B0017CFD2 /* Extensions.swift */; };
 		D43F1F872944CB280017CFD2 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43F1F862944CB280017CFD2 /* MainViewModel.swift */; };
 		D44A31712945173F001C28B7 /* CreateDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A31702945173F001C28B7 /* CreateDiaryViewController.swift */; };
-		D44A317329451926001C28B7 /* CreateUpdateDiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A317229451926001C28B7 /* CreateUpdateDiaryView.swift */; };
+		D44A317329451926001C28B7 /* CreateDiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A317229451926001C28B7 /* CreateDiaryView.swift */; };
 		D44A31762945F64D001C28B7 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A31752945F64D001C28B7 /* Mood.swift */; };
 		D44A31782946291E001C28B7 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A31772946291E001C28B7 /* Diary.swift */; };
 		D44A317E29478F9F001C28B7 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A317D29478F9F001C28B7 /* DiaryView.swift */; };
 		D44A31802947907F001C28B7 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A317F2947907F001C28B7 /* DiaryViewController.swift */; };
 		D44A31842947A625001C28B7 /* UpdateDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A31832947A625001C28B7 /* UpdateDiaryViewController.swift */; };
+		D44A318629484674001C28B7 /* UpdateDiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A318529484674001C28B7 /* UpdateDiaryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,12 +40,13 @@
 		D43F1F832944C91B0017CFD2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D43F1F862944CB280017CFD2 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		D44A31702945173F001C28B7 /* CreateDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiaryViewController.swift; sourceTree = "<group>"; };
-		D44A317229451926001C28B7 /* CreateUpdateDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUpdateDiaryView.swift; sourceTree = "<group>"; };
+		D44A317229451926001C28B7 /* CreateDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDiaryView.swift; sourceTree = "<group>"; };
 		D44A31752945F64D001C28B7 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		D44A31772946291E001C28B7 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		D44A317D29478F9F001C28B7 /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
 		D44A317F2947907F001C28B7 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		D44A31832947A625001C28B7 /* UpdateDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDiaryViewController.swift; sourceTree = "<group>"; };
+		D44A318529484674001C28B7 /* UpdateDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDiaryView.swift; sourceTree = "<group>"; };
 		D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -107,8 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				D43F1F812944C1580017CFD2 /* MainView.swift */,
-				D44A317229451926001C28B7 /* CreateUpdateDiaryView.swift */,
+				D44A317229451926001C28B7 /* CreateDiaryView.swift */,
 				D44A317D29478F9F001C28B7 /* DiaryView.swift */,
+				D44A318529484674001C28B7 /* UpdateDiaryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -264,10 +267,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D44A317329451926001C28B7 /* CreateUpdateDiaryView.swift in Sources */,
+				D44A317329451926001C28B7 /* CreateDiaryView.swift in Sources */,
 				D44A31782946291E001C28B7 /* Diary.swift in Sources */,
 				D44A31762945F64D001C28B7 /* Mood.swift in Sources */,
 				D43F1F842944C91B0017CFD2 /* Extensions.swift in Sources */,
+				D44A318629484674001C28B7 /* UpdateDiaryView.swift in Sources */,
 				D44A31802947907F001C28B7 /* DiaryViewController.swift in Sources */,
 				D44A31712945173F001C28B7 /* CreateDiaryViewController.swift in Sources */,
 				D44A317E29478F9F001C28B7 /* DiaryView.swift in Sources */,

@@ -19,20 +19,12 @@ class DiaryViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private let realm = try! Realm()
     private lazy var diary = self.realm.objects(Diary.self)
-    private let date: String
-    
-    init(date: String) {
-        self.date = date
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var date: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(date!)
         configurUI()
         diaryUI()
         bindTap()
@@ -51,8 +43,9 @@ class DiaryViewController: UIViewController {
     }
     
     func diaryUI() {
-        let diary = diary.filter("date == '\(self.date)'")
-        let seletedMood = diary.first!.mood
+        let diary = diary.filter("date == '\(self.date!)'")
+        print(diary)
+        let seletedMood = diary.first!.mood // 예상1
         let seletedContents = diary.first!.contents
         
         self.diaryView.moodImageView.image = UIImage(named: self.mood.moodSeletedImageString[seletedMood])
@@ -63,10 +56,10 @@ class DiaryViewController: UIViewController {
     func bindTap() {
         diaryView.upDateButton.rx.tap.bind { [weak self] in
             guard let self = self else { return }
-            let diary = self.diary.filter("date == '\(self.date)'")
+            
             // 수정 가능한 뷰컨으로 가기
             let updateDiaryViewController = UpdateDiaryViewController()
-            updateDiaryViewController.diary = diary
+            updateDiaryViewController.date = self.date!
             self.updateDiaryPresentationController(updateDiaryViewController)
             self.present(updateDiaryViewController, animated: false, completion: nil)
         }.disposed(by: disposeBag)

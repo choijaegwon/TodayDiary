@@ -1,8 +1,8 @@
 //
-//  CreateDiaryView.swift
+//  UpdateDiaryView().swift
 //  RxDiary
 //
-//  Created by Jae kwon Choi on 2022/12/11.
+//  Created by Jae kwon Choi on 2022/12/13.
 //
 
 import UIKit
@@ -11,7 +11,7 @@ import SnapKit
 import DLRadioButton
 import UITextView_Placeholder
 
-class CreateUpdateDiaryView: UIView {
+class UpdateDiaryView: UIView {
     
     private let dLRadioButton = DLRadioButton()
     private let mood = Mood()
@@ -157,3 +157,4 @@ class CreateUpdateDiaryView: UIView {
         self.selectedButtonLable.text = self.mood.moodLabel[self.tagNumber]
     }
 }
+

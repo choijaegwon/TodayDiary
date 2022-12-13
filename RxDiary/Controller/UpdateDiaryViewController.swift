@@ -12,16 +12,19 @@ import RealmSwift
 
 class UpdateDiaryViewController: UIViewController {
     
-    private lazy var updateDiaryView = CreateUpdateDiaryView()
+    private lazy var updateDiaryView = UpdateDiaryView()
     private var disposeBag = DisposeBag()
     private var mood = Mood()
     private let realm = try! Realm()
-    var diary: Results<Diary>!
+    private lazy var diary = self.realm.objects(Diary.self)
+    var date: String?
+    lazy var seletedNumber = 0
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("hh")
-
+        print("=update 뷰컨=")
+        print("\(date!) 업데이트")
         configurUI()
         diaryUI()
         bindTap()
@@ -50,8 +53,11 @@ class UpdateDiaryViewController: UIViewController {
     }
     
     func diaryUI() {
-        let seletedMood = self.diary.first!.mood
-        let seletedContents = self.diary.first!.contents
+        let diary = diary.filter("date == '\(self.date!)'")
+        let seletedMood = diary.first!.mood
+        self.seletedNumber = seletedMood // DB에 있는 원래값
+        self.updateDiaryView.tagNumber = seletedMood
+        let seletedContents = diary.first!.contents
         
         updateDiaryView.buttonArray[seletedMood].isSelected = true
         updateDiaryView.selectedButtonLable.text = mood.moodLabel[seletedMood]
@@ -61,12 +67,13 @@ class UpdateDiaryViewController: UIViewController {
     func bindTap() {
         updateDiaryView.saveButton.rx.tap.bind { [weak self] in
             guard let self = self else { return }
+            let diaryfilter = self.diary.filter("date == '\(self.date!)'")
+            
             let diary = Diary()
-            diary.date = self.diary.first!.date
-            // 기분은 그대로하고싶은데, 선택을 안하면 그냥 인덱스0이 넘어가버린다.
+            diary.date = diaryfilter.first!.date
             diary.mood = self.updateDiaryView.tagNumber
             diary.contents = self.updateDiaryView.textView.text
-            
+            print(diary)
             try? self.realm.write {
                 self.realm.add(diary, update: .modified)
             }

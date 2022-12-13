@@ -53,7 +53,6 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
         self.navigationController?.navigationBar.tintColor = .black
         
-        // rightBarButtonItem
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "setting"), style: .plain, target: self, action: #selector(handleSetting))
     }
     
@@ -111,7 +110,8 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
             // 오늘 데이터가 없으면, 새로 만드는 화면으로 옮겨줘야한다.
             if self.diarys.map({ $0.date }).contains(nowDate) {
                 print("대충 뷰보여주는화면")
-                let diaryViewController = DiaryViewController(date: nowDate)
+                let diaryViewController = DiaryViewController()
+                diaryViewController.date = nowDate
                 self.diaryViewPresentationController(diaryViewController)
                 self.present(diaryViewController, animated: true)
             } else {
@@ -135,12 +135,12 @@ extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let seletedDate = dateFormatter.string(from: date)
-        
         // 만약 데이터가 있으면 View를 보여주는 화면으로 옮기고
         // 오늘 데이터가 없으면, 새로 만드는 화면으로 옮겨줘야한다.
         if self.diarys.map({ $0.date }).contains(seletedDate) {
-            print("대충 뷰보여주는화면")
-            let diaryViewController = DiaryViewController(date: seletedDate)
+            print("대충 뷰보여주는화면select")
+            let diaryViewController = DiaryViewController()
+            diaryViewController.date = seletedDate
             self.diaryViewPresentationController(diaryViewController)
             self.present(diaryViewController, animated: true)
         } else {
