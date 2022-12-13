@@ -26,6 +26,7 @@
 		D44A318629484674001C28B7 /* UpdateDiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44A318529484674001C28B7 /* UpdateDiaryView.swift */; };
 		D4A590D42948D6D800BC98B9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A590D32948D6D800BC98B9 /* SettingViewController.swift */; };
 		D4A590D62948DAD100BC98B9 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A590D52948DAD100BC98B9 /* SettingCell.swift */; };
+		D4A590D82948E38600BC98B9 /* AlarmViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A590D72948E38600BC98B9 /* AlarmViewContoller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		D44A318529484674001C28B7 /* UpdateDiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDiaryView.swift; sourceTree = "<group>"; };
 		D4A590D32948D6D800BC98B9 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D4A590D52948DAD100BC98B9 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		D4A590D72948E38600BC98B9 /* AlarmViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewContoller.swift; sourceTree = "<group>"; };
 		D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -137,6 +139,7 @@
 				D44A317F2947907F001C28B7 /* DiaryViewController.swift */,
 				D44A31832947A625001C28B7 /* UpdateDiaryViewController.swift */,
 				D4A590D32948D6D800BC98B9 /* SettingViewController.swift */,
+				D4A590D72948E38600BC98B9 /* AlarmViewContoller.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				D43F1F822944C1580017CFD2 /* MainView.swift in Sources */,
 				D43F1F6D2944BE360017CFD2 /* AppDelegate.swift in Sources */,
 				D43F1F6F2944BE360017CFD2 /* SceneDelegate.swift in Sources */,
+				D4A590D82948E38600BC98B9 /* AlarmViewContoller.swift in Sources */,
 				D43F1F872944CB280017CFD2 /* MainViewModel.swift in Sources */,
 				D44A31842947A625001C28B7 /* UpdateDiaryViewController.swift in Sources */,
 			);

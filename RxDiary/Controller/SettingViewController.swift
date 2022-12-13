@@ -36,10 +36,7 @@ class SettingViewController: UIViewController {
     
     func configureNaviBar() {
         self.title = "설정"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
-        self.navigationController?.navigationBar.tintColor = .black
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "leftArrow"), style: .plain, target: self, action: #selector(pop))
+        self.navigationController?.navigationBar.topItem?.title = ""
     }
     
     private func registerCell() {
@@ -75,6 +72,8 @@ extension SettingViewController: UITableViewDataSource {
 
 extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let alarmViewContoller = AlarmViewContoller()
+        alarmViewContoller.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(alarmViewContoller, animated: true)
     }
 }

@@ -16,7 +16,7 @@ class SettingCell: UITableViewCell {
     }
     
     lazy var title = UILabel().then {
-        $0.text = "알람"
+        $0.text = "알림"
         $0.font = .systemFont(ofSize: 16, weight: .medium)
     }
     
