@@ -16,6 +16,7 @@ extension UIColor {
     class var todayColor: UIColor? { return UIColor(named: "todayColor")}
     class var yearTextColor: UIColor? { return UIColor(named: "yearTextColor") }
     class var labelBackgroundColor: UIColor? { return UIColor(named: "labelBackgroundColor")}
+    class var todayContentsColor: UIColor? { return UIColor(named: "todayContentsColor")}
 }
 
 extension UIButton {

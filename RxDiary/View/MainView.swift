@@ -97,6 +97,29 @@ class MainView: UIView {
         $0.tintColor = UIColor.white
     }
     
+    // 오늘 일 배경
+    lazy var todayBackgorund = UIView().then {
+        $0.layer.cornerRadius = 16
+        $0.backgroundColor = .labelBackgroundColor
+    }
+    
+    lazy var todayMoodImage = UIImageView().then {
+        // 그때 그떄 정할 예정 일단 기본이미지.
+        $0.image = UIImage(named: "0")
+    }
+    
+    lazy var todayMoodLabel = UILabel().then {
+        $0.text = "테스트용 라벨 "
+        $0.font = .systemFont(ofSize: 16, weight: .bold)
+    }
+    
+    lazy var todayContentsLabel = UILabel().then {
+        $0.text = "테스트용 컨텐츠 라벨테스트용 컨텐츠 라벨테스트용 컨텐츠 라벨테스트용 컨텐츠 라벨테스트용 컨텐츠 라벨"
+        $0.numberOfLines = 1
+        $0.font = .systemFont(ofSize: 13, weight: .medium)
+        $0.textColor = .todayContentsColor
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
@@ -108,6 +131,8 @@ class MainView: UIView {
         addSubview(rightButton)
         addSubview(mainquestionBackgourndView)
         addSubview(mainquestionbutton)
+        addSubview(todayBackgorund)
+        todayBackgorund.addSubview(todayMoodImage)
         
         let monthStack = UIStackView(arrangedSubviews: [leftButton, headerMonthLabel, rightButton])
         monthStack.axis = .horizontal
@@ -126,6 +151,12 @@ class MainView: UIView {
         labelBackgorund.addSubview(moonSumStack)
         addSubview(calendar)
         calendar.addSubview(labelBackgorund)
+        
+        let todayStack = UIStackView(arrangedSubviews: [todayMoodLabel, todayContentsLabel])
+        todayStack.axis = .vertical
+        todayStack.spacing = 4
+        
+        todayBackgorund.addSubview(todayStack)
         
         headerYearLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0))
@@ -179,6 +210,26 @@ class MainView: UIView {
             $0.height.equalTo(52)
             $0.top.equalTo(mainquestionBackgourndView.snp.top).offset(22)
             $0.centerX.equalToSuperview()
+        }
+        
+        todayBackgorund.snp.makeConstraints {
+            $0.top.equalTo(mainquestionBackgourndView.snp.top).offset(22)
+            $0.width.equalTo(327)
+            $0.height.equalTo(68)
+            $0.centerX.equalToSuperview()
+        }
+        
+        todayMoodImage.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.width.equalTo(40)
+            $0.height.equalTo(40)
+            $0.left.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 13, bottom: 0, right: 0))
+        }
+        
+        todayStack.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.left.equalTo(todayMoodImage.snp.right).offset(13)
+            $0.right.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 15))
         }
         
     }

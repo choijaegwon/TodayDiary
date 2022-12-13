@@ -20,15 +20,32 @@ class MainViewModel {
     lazy var headerMonthLabel = BehaviorRelay(value: nowMonthLabel)
     lazy var mainSumMood = BehaviorRelay(value: "0")
     lazy var readRealmDateString = BehaviorRelay(value: nowYearMonthLabel)
+    lazy var todayRelamDateStirng = BehaviorRelay(value: todayLabel)
     
     // realm에서 가지고있는 배열가져오기
-    lazy var diaryObservable = Observable.collection(from: diary)
+    lazy var diaryObservable = Observable.collection(from: diary).map { $0.sorted(byKeyPath: "date", ascending: true) }
+    
+    // 전체 값을 가져오는 Observable.
+    lazy var fullDiaryObservable = diaryObservable.map { $0.sorted(byKeyPath: "date", ascending: true) }
+    
+    // 특정 달만 가져오는 Observable.
     lazy var sortedDiaryObservable =  readRealmDateString
         .flatMap { (filterDate: String) -> Observable<Results<Diary>> in
             return self.diaryObservable
                             .map { $0.sorted(byKeyPath: "date", ascending: true) // 오름차순 정렬
                             .filter(NSPredicate(format: "date like '\(filterDate)**'")) } // readRealmDateString이 가져온 값
         }
+    
+    // 오늘만 가져오는 Observable.
+    lazy var todayDiaryObservable =  todayRelamDateStirng
+        .flatMap { (filterDate: String) -> Observable<Results<Diary>> in
+            return self.diaryObservable
+                            .map { $0.sorted(byKeyPath: "date", ascending: true) // 오름차순 정렬
+                            .filter(NSPredicate(format: "date like '\(filterDate)'")) } // readRealmDateString이 가져온 값
+        }
+    
+    // 옵져너블 bool값을 가지고 값이 참이면 label숨기기
+    
     
     // 달의 개수의 합
     lazy var sumMood = mainSumMood.flatMap { (b: String) -> Observable<String> in
@@ -47,6 +64,7 @@ class MainViewModel {
     private lazy var nowYearLabel = nowYear()
     private lazy var nowMonthLabel = nowMonth()
     private lazy var nowYearMonthLabel = nowYearMonth()
+    private lazy var todayLabel = today()
     
     let headerYearDateFormatter = DateFormatter().then {
         $0.dateFormat = "YYYY"
@@ -64,6 +82,13 @@ class MainViewModel {
         $0.locale = Locale(identifier: "ko_kr")
         $0.timeZone = TimeZone(identifier: "KST")
     }
+    
+    let todayDateFormatter = DateFormatter().then {
+        $0.dateFormat = "YYYYMMdd"
+        $0.locale = Locale(identifier: "ko_kr")
+        $0.timeZone = TimeZone(identifier: "KST")
+    }
+    
     
     // mainSumMood에다가 현재 달의 감정개수를 필터링해서 그걸 보여주는걸해야한다.
     // 배열값을 BehaviorSubject로 받고, .map 써서 객체하나를꺼내고, .map써서 객체안을 접근해가면된다.
@@ -83,6 +108,11 @@ class MainViewModel {
     // 현재 달
     private func nowMonth() -> String {
         return self.monthDateFormatter.string(from: Date())
+    }
+    
+    // 오늘
+    private func today() -> String {
+        return self.todayDateFormatter.string(from: Date())
     }
     
     func getNextMonth(date:Date)->Date {

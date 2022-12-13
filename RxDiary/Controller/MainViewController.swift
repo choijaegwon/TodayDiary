@@ -18,10 +18,22 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     private var mainView = MainView()
     private var mainViewModel = MainViewModel()
     private var disposeBag = DisposeBag()
+    private var mood = Mood()
     private let dateFormatter = DateFormatter()
-    private lazy var diarys:[Diary] = [] {
+    private lazy var diarys:[Diary] = [] { // 몇년몇월 이렇게 필터링 된 값만 가져오는 배열
         didSet {
             // 만약 배열안에 오늘이 들어있으면 mainview안에 calnder의 둥근거 없애버리기
+            self.mainView.calendar.reloadData()
+        }
+    }
+    private lazy var fullDiary: [Diary] = [] { // 전체 배열을 가져온다.
+        didSet {
+            self.mainView.calendar.reloadData()
+        }
+    }
+    
+    private lazy var todayDiary: [Diary] = [] {
+        didSet {
             self.mainView.calendar.reloadData()
         }
     }
@@ -36,7 +48,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         configurUI()
         bindUI()
         bindTap()
-
+        
     }
     
     func configurUI() {
@@ -85,6 +97,36 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
                 guard let self = self else { return }
                 self.diarys = $0
             }).disposed(by: disposeBag)
+        
+        // 오늘 일기 배열
+        mainViewModel.todayDiaryObservable
+            .map { Array($0) }
+            //여기서 메인으로 바꿔주고,
+            .observe(on: MainScheduler.instance)
+            .subscribe (onNext: { [weak self] in
+                guard let self = self else { return }
+                if $0.isEmpty == true { // 오늘 일기가 비어있으면
+                    self.mainView.todayBackgorund.isHidden = true
+                } else { // 오늘 일기가 있으면 데이터 채워주기
+                    self.mainView.todayBackgorund.isHidden = false
+                    self.mainView.mainquestionbutton.isHidden = true
+                    $0.map { diary in
+                        self.mainView.todayMoodImage.image = UIImage(named: "\(diary.mood)")
+                        self.mainView.todayMoodLabel.text = self.mood.moodLabel[diary.mood]
+                        self.mainView.todayContentsLabel.text = diary.contents
+                    }
+                }
+            }).disposed(by: disposeBag)
+        
+//        diarys.map({ $0.date }).contains(nowDate)
+        // 전체 일기를 가져온다. -> 이걸로 cell 화면 부분 만들기.
+//        mainViewModel.fullDiaryObservable
+//            .map { Array($0) }
+//            .subscribe (onNext: { [weak self] in
+//                guard let self = self else { return }
+//                // 이 배열에 오늘 값이 있으면
+//
+//            }).disposed(by: disposeBag)
     }
     
     func bindTap() {
