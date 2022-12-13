@@ -10,6 +10,9 @@ PODS:
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
+  - RxGesture (4.0.4):
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
   - RxRealm (5.0.4):
     - Realm (~> 10.21)
     - RealmSwift (~> 10.21)
@@ -29,11 +32,12 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - RealmSwift
   - RxCocoa (= 6.5.0)
+  - RxGesture
   - RxRealm
   - RxSwift (= 6.5.0)
   - SnapKit
   - Then
-  - Toast-Swift
+  - Toast-Swift (~> 5.0.1)
   - "UITextView+Placeholder"
 
 SPEC REPOS:
@@ -44,6 +48,7 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - RxCocoa
+    - RxGesture
     - RxRealm
     - RxRelay
     - RxSwift
@@ -59,6 +64,7 @@ SPEC CHECKSUMS:
   Realm: a00e93347b8d26d372c7a82f6c0b08d6536a21c8
   RealmSwift: fe09c29ca409f8f905fe4086f2a52936193f2e3d
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
   RxRealm: 666c8785327fe2fff972a3093b35dc7055c1ca38
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
@@ -67,6 +73,6 @@ SPEC CHECKSUMS:
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
-PODFILE CHECKSUM: 3ff035c9cca4b9584e53052bcddf8d60b03e5dc7
+PODFILE CHECKSUM: 71f42d0c40c45391c20aeb73708a7be4678d6b88
 
 COCOAPODS: 1.11.3

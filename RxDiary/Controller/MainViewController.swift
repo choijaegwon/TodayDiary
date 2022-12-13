@@ -12,6 +12,7 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 import Toast_Swift
+import RxGesture
 
 class MainViewController: UIViewController, UISheetPresentationControllerDelegate {
 
@@ -20,6 +21,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     private var disposeBag = DisposeBag()
     private var mood = Mood()
     private let dateFormatter = DateFormatter()
+    private var todayStrig: String?
     private lazy var diarys:[Diary] = [] { // 몇년몇월 이렇게 필터링 된 값만 가져오는 배열
         didSet {
             // 만약 배열안에 오늘이 들어있으면 mainview안에 calnder의 둥근거 없애버리기
@@ -44,7 +46,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         dateFormatter.dateFormat = "YYYYMMdd"
         mainView.calendar.delegate = self
         mainView.calendar.dataSource = self
-        
+        self.todayStrig = dateFormatter.string(from: Date())
         configurUI()
         bindUI()
         bindTap()
@@ -165,6 +167,20 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
             }
             
         }.disposed(by: disposeBag)
+        
+        // 이뷰가 보인다는건 today가 있다는 소리니까 바로 다이어리뷰를 보여주면 된다.
+        mainView.todayBackgorund.rx
+            .tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                let diaryViewController = DiaryViewController()
+                diaryViewController.date = self.todayStrig
+                self.diaryViewPresentationController(diaryViewController)
+                self.present(diaryViewController, animated: true)
+            })
+            .disposed(by: disposeBag)
+            
     }
     
     @objc func handleSetting() {

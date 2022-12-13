@@ -16,5 +16,6 @@ target 'RxDiary' do
   pod 'RxSwift', '6.5.0'
   pod 'RxCocoa', '6.5.0'
   pod "RxRealm"
-	pod 'Toast-Swift'
+	pod 'Toast-Swift', '~> 5.0.1'
+  pod "RxGesture"
 end
