@@ -47,6 +47,7 @@ class AddAlertViewController: UIViewController {
             $0.top.equalTo(sendButton.snp.bottom).offset(10)
             $0.left.equalToSuperview()
             $0.right.equalToSuperview()
+            $0.height.equalTo(200)
             $0.bottom.equalToSuperview()
         }
         
