@@ -73,8 +73,11 @@ extension AlarmViewContoller: AddAlertViewControllerDelegate {
         dateformatter.dateStyle = .none
         dateformatter.timeStyle = .short
         let date = dateformatter.string(from: pickerDate)
-        print(date)
-        self.alarmSettingView.time.text = date
+        print(date) // -> 이데이터는 이제 noti에 보내줄 데이터값이 된다.
+        // 화면을 그리기때문에 main
+        DispatchQueue.main.async {
+            self.alarmSettingView.time.text = date
+        }
     }
 }
 
