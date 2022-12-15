@@ -26,6 +26,12 @@ class AlarmSettingView: UIView {
         $0.textColor = .todayContentsColor
     }
     
+    lazy var alarmSwitch = UISwitch().then {
+        $0.onTintColor = .switchColor
+        $0.clipsToBounds = true
+        $0.layer.cornerRadius = 15
+    }
+    
     lazy var timeBackView = UIView().then {
         $0.layer.cornerRadius = 20
         $0.backgroundColor = .labelBackgroundColor
@@ -61,6 +67,14 @@ class AlarmSettingView: UIView {
         titleStack.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.left.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 0))
+        }
+        
+        backView.addSubview(alarmSwitch)
+        alarmSwitch.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.width.equalTo(52)
+            $0.height.equalTo(30)
+            $0.right.equalToSuperview().inset(24)
         }
         
         addSubview(timeBackView)

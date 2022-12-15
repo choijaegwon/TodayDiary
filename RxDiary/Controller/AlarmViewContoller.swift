@@ -16,6 +16,7 @@ class AlarmViewContoller: UIViewController {
     
     private let alarmSettingView = AlarmSettingView()
     private var disposeBag = DisposeBag()
+    var date: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
