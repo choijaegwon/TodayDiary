@@ -42,9 +42,7 @@ class AlarmSettingView: UIView {
         $0.font = .systemFont(ofSize: 16, weight: .medium)
     }
     
-    lazy var time = UILabel().then {
-        $0.text = "오전 11:30"
-    }
+    lazy var time = UILabel()
     
     lazy var timeRightImage = UIImageView().then {
         $0.image = UIImage(named: "alarmRight")

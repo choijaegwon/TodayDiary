@@ -15,6 +15,7 @@ import RxCocoa
 class AlarmViewContoller: UIViewController {
     
     private let alarmSettingView = AlarmSettingView()
+    private let alarmSettingViewModel = AlarmSettingViewModel()
     private var disposeBag = DisposeBag()
     var date: String?
     
@@ -22,8 +23,12 @@ class AlarmViewContoller: UIViewController {
         super.viewDidLoad()
         
         configurUI()
-//        datePickerSetting()
-        bundTap()
+        bindUI()
+        bindTap()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
     }
     
     func configurUI() {
@@ -43,25 +48,45 @@ class AlarmViewContoller: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = ""
     }
     
-//    func datePickerSetting() {
-//        datePicker.datePickerMode = .time
-//        datePicker.locale = Locale(identifier: "ko_KR")
-//        datePicker.timeZone = .autoupdatingCurrent
-//        datePicker.preferredDatePickerStyle = .wheels
-//    }
+    func bindUI() {
+        self.alarmSettingViewModel.timeLabel
+            .asDriver(onErrorJustReturn: "오후 10:00")
+            .drive(self.alarmSettingView.time.rx.text)
+            .disposed(by: disposeBag)
+    }
     
-    func bundTap() {
+    func bindTap() {
+        
+        self.alarmSettingView.alarmSwitch.rx.isOn
+            .subscribe(on: MainScheduler.instance)
+            .subscribe(onNext: {
+                if $0 == true {
+                    self.alarmSettingView.timeBackView.layer.opacity = 1.0
+                    print("realm에 데이터 넣어주기")
+                    
+                } else {
+                    // realm에 데이터 삭제하고
+                    self.alarmSettingView.timeBackView.layer.opacity = 0.2
+                    print("터치안되게")
+                    print("삭제기능")
+                }
+            })
+            .disposed(by: disposeBag)
+        
         self.alarmSettingView.timeBackView.rx
             .tapGesture()
             .when(.recognized)
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
-                // 데이터피커가 아래서 숏을 ㅗ켜지고 그 날짜를 선택해서 적용을 누르면
-                // 시간의 text가 와서 저장이 된다.
-                let addAlertViewController = AddAlertViewController()
-                addAlertViewController.delegate = self
-                self.addAlertViewPresentationController(addAlertViewController, self)
-                self.present(addAlertViewController, animated: false, completion: nil)
+                
+                if self.alarmSettingView.alarmSwitch.isOn {
+                    let addAlertViewController = AddAlertViewController()
+                    addAlertViewController.delegate = self
+                    self.addAlertViewPresentationController(addAlertViewController, self)
+                    self.present(addAlertViewController, animated: false, completion: nil)
+                } else {
+                    return
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -74,11 +99,7 @@ extension AlarmViewContoller: AddAlertViewControllerDelegate {
         dateformatter.dateStyle = .none
         dateformatter.timeStyle = .short
         let date = dateformatter.string(from: pickerDate)
-        print(date) // -> 이데이터는 이제 noti에 보내줄 데이터값이 된다.
-        // 화면을 그리기때문에 main
-        DispatchQueue.main.async {
-            self.alarmSettingView.time.text = date
-        }
+        self.alarmSettingViewModel.timeLabel.accept(date)
     }
 }
 
