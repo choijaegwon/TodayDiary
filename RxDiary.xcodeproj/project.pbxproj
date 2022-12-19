@@ -30,6 +30,7 @@
 		D4A590DC294A112E00BC98B9 /* AlarmSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A590DB294A112E00BC98B9 /* AlarmSettingView.swift */; };
 		D4A590DE294A190300BC98B9 /* AddAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A590DD294A190300BC98B9 /* AddAlertViewController.swift */; };
 		D4A590E0294AF95E00BC98B9 /* AlarmSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A590DF294AF95E00BC98B9 /* AlarmSettingViewModel.swift */; };
+		D4CCC41F29500C0E00695420 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC41E29500C0E00695420 /* Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		D4A590DB294A112E00BC98B9 /* AlarmSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSettingView.swift; sourceTree = "<group>"; };
 		D4A590DD294A190300BC98B9 /* AddAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlertViewController.swift; sourceTree = "<group>"; };
 		D4A590DF294AF95E00BC98B9 /* AlarmSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSettingViewModel.swift; sourceTree = "<group>"; };
+		D4CCC41E29500C0E00695420 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -158,6 +160,7 @@
 			children = (
 				D44A31752945F64D001C28B7 /* Mood.swift */,
 				D44A31772946291E001C28B7 /* Diary.swift */,
+				D4CCC41E29500C0E00695420 /* Alert.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				D44A31762945F64D001C28B7 /* Mood.swift in Sources */,
 				D43F1F842944C91B0017CFD2 /* Extensions.swift in Sources */,
 				D4A590E0294AF95E00BC98B9 /* AlarmSettingViewModel.swift in Sources */,
+				D4CCC41F29500C0E00695420 /* Alert.swift in Sources */,
 				D44A318629484674001C28B7 /* UpdateDiaryView.swift in Sources */,
 				D4A590DC294A112E00BC98B9 /* AlarmSettingView.swift in Sources */,
 				D4A590D42948D6D800BC98B9 /* SettingViewController.swift in Sources */,

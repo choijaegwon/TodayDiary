@@ -7,6 +7,7 @@
 
 import UIKit
 import DLRadioButton
+import UserNotifications
 
 extension UIColor {
     static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
@@ -28,5 +29,22 @@ extension UIButton {
         button.backgroundColor = .white
         button.tintColor = .white
         return button
+    }
+}
+
+extension UNUserNotificationCenter {
+    func addNotificationRequest(by alert: Alert) {
+        let content = UNMutableNotificationContent()
+        content.title = "각없는 오늘"
+        content.body = "오늘은 어떤 하루를 보내셨나요?"
+        content.sound = .default
+        content.badge = 1
+        
+        let component = Calendar.current.dateComponents([.hour, .minute], from: alert.date)
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: component, repeats: true)
+        
+        let request = UNNotificationRequest(identifier: alert.id, content: content, trigger: trigger)
+        self.add(request, withCompletionHandler: nil)
     }
 }
