@@ -65,30 +65,33 @@ class AlarmViewContoller: UIViewController {
         self.alarmSettingView.alarmSwitch.rx.isOn
             .subscribe(on: MainScheduler.instance)
             .subscribe(onNext: {
+                // 스위치가 켜져있다면?
                 if $0 == true {
                     self.alarmSettingViewModel.buttonState.accept($0) // 버튼 상태 넣어주기
                     self.alarmSettingView.timeBackView.layer.opacity = 1.0
                     print("스위치켜기")
-                    // 데이터가없으면 현재시간 넣어주기.
-//                    if !self.alarmSettingViewModel.alertisEmpty {
-//                        let alert = Alert()
-//                        // 데이터피커에서 선택한 시간 넣어주는 코드
-//                        alert.date = Date()
-//                        alert.id = "1"
-//                        // noti 예약
-//                        self.userNotificationCenter.addNotificationRequest(by: alert)
-//                        // noti 예약한거 realm에 보내기
-//                        try! self.realm.write {
-//                            self.realm.add(alert, update: .modified)
-//                        }
-//                    }
+                    
+                    let dateString = self.alarmSettingViewModel.timeLabel.value
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateStyle = .none
+                    dateFormatter.timeStyle = .short
+                    let dateDate = dateFormatter.date(from: dateString)!
+                    
+                    // 현재시간을 알람으로 넣어놓기
+                    let alert = Alert()
+                    alert.date = dateDate
+                    alert.id = "1"
+                    try! self.realm.write {
+                        self.realm.add(alert, update: .modified)
+                    }
+                    self.userNotificationCenter.addNotificationRequest(by: alert)
                 } else {
                     // realm에 데이터 삭제하고
                     self.alarmSettingViewModel.buttonState.accept($0) // 버튼 상태 넣어주기
                     self.alarmSettingView.timeBackView.layer.opacity = 0.2
                     print("터치안되게")
                     print("삭제기능")
-//                    self.userNotificationCenter.removePendingNotificationRequests(withIdentifiers: ["1"] )
+                    self.userNotificationCenter.removePendingNotificationRequests(withIdentifiers: ["1"] )
                     try? self.realm.write{
                         self.realm.delete(self.alert)
                     }
@@ -119,17 +122,19 @@ class AlarmViewContoller: UIViewController {
 extension AlarmViewContoller: AddAlertViewControllerDelegate {
     func sendDate(pickerDate: Date) {
         print(#function)
-//        // 보낼 alarm 생성
-//        let alert = Alert()
-//        // 데이터피커에서 선택한 시간 넣어주는 코드
-//        alert.date = pickerDate
-//        alert.id = "1"
-//        // noti 예약
-//        self.userNotificationCenter.addNotificationRequest(by: alert)
-//        // noti 예약한거 realm에 보내기
-//        try! self.realm.write {
-//            self.realm.add(alert, update: .modified)
-//        }
+        
+        // 보낼 alarm 생성
+        let alert = Alert()
+        // 데이터피커에서 선택한 시간 넣어주는 코드
+        alert.date = pickerDate
+        alert.id = "1"
+        // noti 예약
+        // 오늘의 일기가있으면 오늘 알람 보내는걸 없애줘야하는 분기코드를 만들어줘야한다.
+        self.userNotificationCenter.addNotificationRequest(by: alert)
+        // noti 예약한거 realm에 보내기
+        try! self.realm.write {
+            self.realm.add(alert, update: .modified)
+        }
 
         // 시간설정 뷰에 넣어주는 코드들
         let dateformatter = DateFormatter()
