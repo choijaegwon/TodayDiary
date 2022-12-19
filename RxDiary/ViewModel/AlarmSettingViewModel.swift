@@ -14,6 +14,7 @@ import RealmSwift
 class AlarmSettingViewModel {
     
     lazy var timeLabel = BehaviorRelay(value: nowTimeLabel)
+    lazy var buttonState = BehaviorRelay(value: false)
     
     // 이용 현재시간구하기
     private lazy var nowTimeLabel = nowTime()

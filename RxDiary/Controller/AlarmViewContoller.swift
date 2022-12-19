@@ -25,6 +25,7 @@ class AlarmViewContoller: UIViewController {
         configurUI()
         bindUI()
         bindTap()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,19 +54,30 @@ class AlarmViewContoller: UIViewController {
             .asDriver(onErrorJustReturn: "오후 10:00")
             .drive(self.alarmSettingView.time.rx.text)
             .disposed(by: disposeBag)
+        
+//        이거 이용해서 버튼이 isOn인지 아닌지 해주기 noti를 만들어야한다.
+//        처음 킬때, Realm에서 객체를 꺼내와서 true인지 false인지 확인해주고 값을 넣어줘야한다.
+//        위에 값은 VM에서 적용을해야한다.
+//        self.alarmSettingViewModel.buttonState
+//            .asDriver(onErrorJustReturn: false)
+//            .drive(self.alarmSettingView.alarmSwitch.rx.isOn)
+//            .disposed(by: disposeBag)
     }
     
     func bindTap() {
         
+        // 여기서 isOn했는지 안했는지 값을 어떻게 저장하고 불러올것인가?
         self.alarmSettingView.alarmSwitch.rx.isOn
             .subscribe(on: MainScheduler.instance)
             .subscribe(onNext: {
                 if $0 == true {
+                    self.alarmSettingViewModel.buttonState.accept($0) // 버튼 상태 넣어주기
                     self.alarmSettingView.timeBackView.layer.opacity = 1.0
                     print("realm에 데이터 넣어주기")
                     
                 } else {
                     // realm에 데이터 삭제하고
+                    self.alarmSettingViewModel.buttonState.accept($0) // 버튼 상태 넣어주기
                     self.alarmSettingView.timeBackView.layer.opacity = 0.2
                     print("터치안되게")
                     print("삭제기능")
@@ -95,6 +107,8 @@ class AlarmViewContoller: UIViewController {
 
 extension AlarmViewContoller: AddAlertViewControllerDelegate {
     func sendDate(pickerDate: Date) {
+        print(#function)
+        print("여기서 데이터를 받고 relam에 객체 추가시키기.")
         let dateformatter = DateFormatter()
         dateformatter.dateStyle = .none
         dateformatter.timeStyle = .short
