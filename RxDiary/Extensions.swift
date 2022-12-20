@@ -19,6 +19,7 @@ extension UIColor {
     class var labelBackgroundColor: UIColor? { return UIColor(named: "labelBackgroundColor")}
     class var todayContentsColor: UIColor? { return UIColor(named: "todayContentsColor")}
     class var switchColor: UIColor? { return UIColor(named: "switchColor")}
+    class var cellHeaderBGColor: UIColor? { return UIColor(named: "cellHeaderBGColor")}
 }
 
 extension UIButton {

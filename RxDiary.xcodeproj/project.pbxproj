@@ -32,6 +32,7 @@
 		D4A590E0294AF95E00BC98B9 /* AlarmSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A590DF294AF95E00BC98B9 /* AlarmSettingViewModel.swift */; };
 		D4CCC41F29500C0E00695420 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC41E29500C0E00695420 /* Alert.swift */; };
 		D4CCC4212951578000695420 /* FullDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC4202951578000695420 /* FullDiaryViewController.swift */; };
+		D4CCC42629517DF500695420 /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC42529517DF500695420 /* DiaryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		D4A590DF294AF95E00BC98B9 /* AlarmSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSettingViewModel.swift; sourceTree = "<group>"; };
 		D4CCC41E29500C0E00695420 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		D4CCC4202951578000695420 /* FullDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiaryViewController.swift; sourceTree = "<group>"; };
+		D4CCC42529517DF500695420 /* DiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCell.swift; sourceTree = "<group>"; };
 		D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 				D44A318529484674001C28B7 /* UpdateDiaryView.swift */,
 				D4A590D52948DAD100BC98B9 /* SettingCell.swift */,
 				D4A590DB294A112E00BC98B9 /* AlarmSettingView.swift */,
+				D4CCC42529517DF500695420 /* DiaryCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				D44A31782946291E001C28B7 /* Diary.swift in Sources */,
 				D44A31762945F64D001C28B7 /* Mood.swift in Sources */,
 				D43F1F842944C91B0017CFD2 /* Extensions.swift in Sources */,
+				D4CCC42629517DF500695420 /* DiaryCell.swift in Sources */,
 				D4A590E0294AF95E00BC98B9 /* AlarmSettingViewModel.swift in Sources */,
 				D4CCC41F29500C0E00695420 /* Alert.swift in Sources */,
 				D44A318629484674001C28B7 /* UpdateDiaryView.swift in Sources */,
