@@ -15,6 +15,11 @@ private let reuseIdentifier = "DiaryCell"
 
 class FullDiaryViewController: UIViewController {
     
+    private var mainViewModel = MainViewModel()
+    private var disposeBag = DisposeBag()
+    private var mood = Mood()
+    var diary: [Diary] = []
+    
     private let tableView = UITableView().then {
         $0.separatorStyle = .none
 //        $0.backgroundColor = .red
@@ -25,6 +30,7 @@ class FullDiaryViewController: UIViewController {
         
         configurUI()
         registerCell()
+        bindUI()
     }
     
     func configurUI() {
@@ -50,9 +56,22 @@ class FullDiaryViewController: UIViewController {
         // register cell 등록
         tableView.register(DiaryCell.self, forCellReuseIdentifier: reuseIdentifier)
     }
+    
+    func bindUI() {
+        // 전체 일기를 가져온다. -> 이걸로 cell 화면 부분 만들기.
+        mainViewModel.fullDiaryObservable
+            .map { $0.sorted(byKeyPath: "date", ascending: false) } // 최신순으로 정렬
+            .map { Array($0) } // Diary배열로 만들기
+            .subscribe (onNext: { [weak self] in
+                guard let self = self else { return }
+                self.diary = $0
+            }).disposed(by: disposeBag)
+    }
 }
 
 extension FullDiaryViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    // 전체 []에서 202212,202211과 같이 달까지 끊어서 배열을 분리한다음, 각가 그달에 맞춰서 날짜를 넣어줘야한다.
     
     // 섹션의 개수
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -72,12 +91,24 @@ extension FullDiaryViewController: UITableViewDelegate, UITableViewDataSource {
     
     // cell의 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return diary.count
     }
     
     // cell안에 들어갈 내용들
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! DiaryCell
+        // diary[indexPath.row].mood 숫자
+        let moodImage = mood.moodImageString[diary[indexPath.row].mood]
+        let moodLabel = mood.moodLabel[diary[indexPath.row].mood]
+        // date에서 일자만 가져오기
+        let fulldate = diary[indexPath.row].date
+        let day = fulldate[fulldate.index(fulldate.endIndex, offsetBy: -2)...]
+        
+        cell.moodImage.image = UIImage(named: moodImage)
+        cell.moodLabel.text = moodLabel
+        cell.contentsLabel.text = diary[indexPath.row].contents
+        cell.dateLabel.text = String(day)
+
         cell.selectionStyle = .none
         return cell
     }

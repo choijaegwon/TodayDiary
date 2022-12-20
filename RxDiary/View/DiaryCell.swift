@@ -11,7 +11,7 @@ import Then
 
 class DiaryCell: UITableViewCell {
     
-    private let dateLabel = UILabel().then {
+    lazy var dateLabel = UILabel().then {
         $0.textColor = .yearTextColor
         $0.font = UIFont.boldSystemFont(ofSize: 16)
         $0.text = "24" // 나중에 지우기
