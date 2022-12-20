@@ -193,6 +193,9 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     
     @objc func handleSetting2() {
         print(#function)
+        let fullDiaryViewController = FullDiaryViewController()
+        fullDiaryViewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(fullDiaryViewController, animated: true)
         
     }
 }

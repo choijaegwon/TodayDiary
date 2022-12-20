@@ -31,6 +31,7 @@
 		D4A590DE294A190300BC98B9 /* AddAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A590DD294A190300BC98B9 /* AddAlertViewController.swift */; };
 		D4A590E0294AF95E00BC98B9 /* AlarmSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A590DF294AF95E00BC98B9 /* AlarmSettingViewModel.swift */; };
 		D4CCC41F29500C0E00695420 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC41E29500C0E00695420 /* Alert.swift */; };
+		D4CCC4212951578000695420 /* FullDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC4202951578000695420 /* FullDiaryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		D4A590DD294A190300BC98B9 /* AddAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlertViewController.swift; sourceTree = "<group>"; };
 		D4A590DF294AF95E00BC98B9 /* AlarmSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSettingViewModel.swift; sourceTree = "<group>"; };
 		D4CCC41E29500C0E00695420 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		D4CCC4202951578000695420 /* FullDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiaryViewController.swift; sourceTree = "<group>"; };
 		D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -151,6 +153,7 @@
 				D4A590D32948D6D800BC98B9 /* SettingViewController.swift */,
 				D4A590D72948E38600BC98B9 /* AlarmViewContoller.swift */,
 				D4A590DD294A190300BC98B9 /* AddAlertViewController.swift */,
+				D4CCC4202951578000695420 /* FullDiaryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				D44A31802947907F001C28B7 /* DiaryViewController.swift in Sources */,
 				D44A31712945173F001C28B7 /* CreateDiaryViewController.swift in Sources */,
 				D44A317E29478F9F001C28B7 /* DiaryView.swift in Sources */,
+				D4CCC4212951578000695420 /* FullDiaryViewController.swift in Sources */,
 				D43F1F712944BE360017CFD2 /* MainViewController.swift in Sources */,
 				D4A590D62948DAD100BC98B9 /* SettingCell.swift in Sources */,
 				D43F1F822944C1580017CFD2 /* MainView.swift in Sources */,
