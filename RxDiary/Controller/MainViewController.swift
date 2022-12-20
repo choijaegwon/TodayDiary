@@ -68,6 +68,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         self.navigationController?.navigationBar.tintColor = .black
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "setting"), style: .plain, target: self, action: #selector(handleSetting))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "setting"), style: .plain, target: self, action: #selector(handleSetting2))
     }
     
     func bindUI() {
@@ -126,7 +127,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
 //            .map { Array($0) }
 //            .subscribe (onNext: { [weak self] in
 //                guard let self = self else { return }
-//                // 이 배열에 오늘 값이 있으면
+//                print($0)
 //
 //            }).disposed(by: disposeBag)
     }
@@ -188,6 +189,11 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         let settingViewController = SettingViewController()
         settingViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(settingViewController, animated: true)
+    }
+    
+    @objc func handleSetting2() {
+        print(#function)
+        
     }
 }
 
