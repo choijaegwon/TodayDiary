@@ -19,8 +19,14 @@ class FullDiaryViewController: UIViewController {
     private var disposeBag = DisposeBag()
     private var mood = Mood()
     var diary: [Diary] = []
-    var sectionArray: [String] = [] // 202212 202211 202210
-    var testDC: [String : [Diary]] = [:]
+    var sectionArray: [String] = []{ // ["202212", "202211", "202210", "202209", "202208", "202207", "202206"]
+        didSet {
+            // 데이터가들어오면
+            changeyearMonth()
+        }
+    }
+    var sectionTitles: [String] = [] // ["2022년 12월", "2022년 11월", "2022년 10월"]
+    var yearMonthDC: [String : [Diary]] = [:]
     
     private let tableView = UITableView().then {
         $0.separatorStyle = .none
@@ -32,19 +38,18 @@ class FullDiaryViewController: UIViewController {
         configurUI()
         registerCell()
         bindUI()
-        
-        var ee = Dictionary(grouping: diary, by: { d in
-            var e = String(d.date.prefix(6))
-            print(e)
-            if sectionArray.contains(e) {
-                return e
-            } else {
-                return "Other"
-            }
-        } )
-        
-//                var q = ee.sorted(by: {$0.key > $1.key })
-        self.testDC = ee.mapValues { $0.sorted(by: {$0.date > $1.date})}
+    }
+    
+    // ["202212", "202211", "202210", "202209", "202208", "202207", "202206"] 를
+    // ["2022년 12월", "2022년 11월", "2022년 10월", "2022년 08월", "2022년 06월"] 이런 형태로 바꾸기
+    func changeyearMonth() {
+        for dateString in sectionArray {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyyMM"
+            let date = formatter.date(from: dateString)!
+            formatter.dateFormat = "yyyy년 MM월"
+            sectionTitles.append(formatter.string(from: date))
+        }
     }
     
     func configurUI() {
@@ -71,16 +76,16 @@ class FullDiaryViewController: UIViewController {
         tableView.register(DiaryCell.self, forCellReuseIdentifier: reuseIdentifier)
     }
     
-    // init할떄, 배열을 넣어준다면 view가 뜨기전에 배열을 알수있고, 그러면 섹션도 잘나오지 않을까?
     func bindUI() {
-        // 전체 일기를 가져온다. -> 이걸로 cell 화면 부분 만들기.
-//        mainViewModel.fullDiaryObservable
-//            .map { $0.sorted(byKeyPath: "date", ascending: false) } // 최신순으로 정렬
-//            .map { Array($0) } // Diary배열로 만들기
-//            .subscribe (onNext: { [weak self] in
-//                guard let self = self else { return }
-//                self.diary = $0
-//            }).disposed(by: disposeBag)
+        let yearMonth = Dictionary(grouping: diary, by: { diary in
+            let yearMonthFix = String(diary.date.prefix(6))
+            if sectionArray.contains(yearMonthFix) {
+                return yearMonthFix
+            } else {
+                return ""
+            }
+        })
+        self.yearMonthDC = yearMonth.mapValues { $0.sorted(by: {$0.date > $1.date})}
     }
 }
 
@@ -95,7 +100,7 @@ extension FullDiaryViewController: UITableViewDelegate, UITableViewDataSource {
     
     // 섹션의 타이틀
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionArray[section]
+        return sectionTitles[section]
     }
     
     // 헤더의 색과 컬러
@@ -106,8 +111,8 @@ extension FullDiaryViewController: UITableViewDelegate, UITableViewDataSource {
     
     // cell의 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let haha = sectionArray[section] // 앞에6자리숫자
-        return testDC[self.sectionArray[section]]!.count
+//        let haha = sectionArray[section] // 앞에6자리숫자
+        return yearMonthDC[self.sectionArray[section]]!.count
     }
     
     // cell안에 들어갈 내용들
@@ -117,19 +122,19 @@ extension FullDiaryViewController: UITableViewDelegate, UITableViewDataSource {
         // 순서가 반대로 되어있다 해결해야함.
         let haha = sectionArray[indexPath.section]
         print("roroo")
-        print(testDC[haha]![indexPath.row])
+        print(yearMonthDC[haha]![indexPath.row])
         
         
         // diary[indexPath.row].mood 숫자
-        let moodImage = mood.moodImageString[testDC[haha]![indexPath.row].mood]
-        let moodLabel = mood.moodLabel[testDC[haha]![indexPath.row].mood]
+        let moodImage = mood.moodImageString[yearMonthDC[haha]![indexPath.row].mood]
+        let moodLabel = mood.moodLabel[yearMonthDC[haha]![indexPath.row].mood]
         // date에서 일자만 가져오기
-        let fulldate = testDC[haha]![indexPath.row].date
+        let fulldate = yearMonthDC[haha]![indexPath.row].date
         let day = fulldate[fulldate.index(fulldate.endIndex, offsetBy: -2)...]
         
         cell.moodImage.image = UIImage(named: moodImage)
         cell.moodLabel.text = moodLabel
-        cell.contentsLabel.text = testDC[haha]![indexPath.row].contents
+        cell.contentsLabel.text = yearMonthDC[haha]![indexPath.row].contents
         cell.dateLabel.text = String(day)
 
         cell.selectionStyle = .none

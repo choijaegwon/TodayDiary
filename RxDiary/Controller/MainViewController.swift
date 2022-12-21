@@ -23,7 +23,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     private let dateFormatter = DateFormatter()
     private var todayStrig: String?
     private var dateSet: [String] = []
-    private var sendArray: [String] = []
+    private var yearMonths: [String] = [] // ["202212", "202211", "202210", "202209", "202208", "202207", "202206"]
     private lazy var diarys:[Diary] = [] { // 몇년몇월 이렇게 필터링 된 값만 가져오는 배열
         didSet {
             // 만약 배열안에 오늘이 들어있으면 mainview안에 calnder의 둥근거 없애버리기
@@ -32,7 +32,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     }
     private lazy var fullDiary: [Diary] = [] { // 전체 배열을 가져온다.
         didSet {
-            self.sendDate()
+            self.reloadyearMonths()
             self.mainView.calendar.reloadData()
         }
     }
@@ -54,7 +54,6 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         configurUI()
         bindUI()
         bindTap()
-        sendDate()
     }
     
     func configurUI() {
@@ -187,13 +186,15 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
             
     }
     
-    func sendDate() {
+    func reloadyearMonths() {
         fullDiary.map { $0.date }.map {
             self.dateSet.append(String($0.prefix(6)))
         } // [202212, 202212, 202211] 등 년과월들이 다담겨있다.
         // 중복제거
-        self.sendArray = Array(Set(self.dateSet)).sorted(by: >)
+        self.yearMonths = Array(Set(self.dateSet)).sorted(by: >)
     }
+    
+
     
     @objc func handleSetting() {
         print(#function)
@@ -206,7 +207,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         print(#function)
         let fullDiaryViewController = FullDiaryViewController()
         fullDiaryViewController.diary = self.fullDiary
-        fullDiaryViewController.sectionArray = self.sendArray
+        fullDiaryViewController.sectionArray = self.yearMonths
         fullDiaryViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(fullDiaryViewController, animated: true)
         
