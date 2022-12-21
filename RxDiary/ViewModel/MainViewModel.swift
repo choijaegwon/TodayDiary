@@ -43,10 +43,7 @@ class MainViewModel {
                             .map { $0.sorted(byKeyPath: "date", ascending: true) // 오름차순 정렬
                             .filter(NSPredicate(format: "date like '\(filterDate)'")) } // readRealmDateString이 가져온 값
         }
-    
-    // 옵져너블 bool값을 가지고 값이 참이면 label숨기기
-    
-    
+
     // 달의 개수의 합
     lazy var sumMood = mainSumMood.flatMap { (b: String) -> Observable<String> in
         return self.sortedDiaryObservable.map { Array($0) }.map {

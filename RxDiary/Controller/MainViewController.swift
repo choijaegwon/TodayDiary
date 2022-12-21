@@ -266,7 +266,7 @@ extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         let currentYear = mainViewModel.headerYearDateFormatter.string(from: currentPage)
         let currentMonth = mainViewModel.monthDateFormatter.string(from: currentPage)
         let currentFilterDate = mainViewModel.filterDateDateFormatter.string(from: currentPage)
-        
+
         mainViewModel.headerYearLabel.accept(currentYear)
         mainViewModel.headerMonthLabel.accept(currentMonth)
         mainViewModel.readRealmDateString.accept(currentFilterDate)

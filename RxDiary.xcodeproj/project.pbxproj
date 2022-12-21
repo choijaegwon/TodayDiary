@@ -36,6 +36,7 @@
 		D4CCC4282953160000695420 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC4272953160000695420 /* EmptyView.swift */; };
 		D4CCC42A29531D5700695420 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC42929531D5700695420 /* StartViewController.swift */; };
 		D4CCC42C29531D9600695420 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC42B29531D9600695420 /* StartView.swift */; };
+		D4CCC42E295336D500695420 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC42D295336D500695420 /* StartViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		D4CCC4272953160000695420 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		D4CCC42929531D5700695420 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		D4CCC42B29531D9600695420 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		D4CCC42D295336D500695420 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
 		D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -150,6 +152,7 @@
 			children = (
 				D43F1F862944CB280017CFD2 /* MainViewModel.swift */,
 				D4A590DF294AF95E00BC98B9 /* AlarmSettingViewModel.swift */,
+				D4CCC42D295336D500695420 /* StartViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				D44A317329451926001C28B7 /* CreateDiaryView.swift in Sources */,
 				D44A31782946291E001C28B7 /* Diary.swift in Sources */,
 				D44A31762945F64D001C28B7 /* Mood.swift in Sources */,
+				D4CCC42E295336D500695420 /* StartViewModel.swift in Sources */,
 				D43F1F842944C91B0017CFD2 /* Extensions.swift in Sources */,
 				D4CCC42C29531D9600695420 /* StartView.swift in Sources */,
 				D4CCC42629517DF500695420 /* DiaryCell.swift in Sources */,

@@ -16,7 +16,7 @@ class StartView: UIView {
     
     lazy var headerMonthLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 25, weight: .bold)
-        $0.text = "11월"
+        $0.text = "09월"
         $0.textColor = .todayContentsColor
     }
     
