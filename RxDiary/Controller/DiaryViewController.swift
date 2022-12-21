@@ -12,6 +12,10 @@ import RxCocoa
 import RxSwift
 import RealmSwift
 
+protocol DiaryVCDelegate: AnyObject {
+    func buttonTapped()
+}
+
 class DiaryViewController: UIViewController {
     
     private lazy var diaryView = DiaryView()
@@ -20,6 +24,8 @@ class DiaryViewController: UIViewController {
     private let realm = try! Realm()
     private lazy var diary = self.realm.objects(Diary.self)
     var date: String?
+    
+    weak var delegate: DiaryVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +65,7 @@ class DiaryViewController: UIViewController {
             
             // 수정 가능한 뷰컨으로 가기
             let updateDiaryViewController = UpdateDiaryViewController()
+            updateDiaryViewController.delegate = self
             updateDiaryViewController.date = self.date!
             self.updateDiaryPresentationController(updateDiaryViewController)
             self.present(updateDiaryViewController, animated: false, completion: nil)
@@ -81,5 +88,11 @@ extension DiaryViewController: UISheetPresentationControllerDelegate {
             //시트 상단에 그래버 표시 (기본 값은 false)
             sheet.prefersGrabberVisible = true
         }
+    }
+}
+
+extension DiaryViewController: UpdateDiaryVCDelegate {
+    func buttonTapped() {
+        delegate?.buttonTapped()
     }
 }

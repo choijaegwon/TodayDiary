@@ -10,6 +10,10 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 
+protocol UpdateDiaryVCDelegate: AnyObject {
+    func buttonTapped()
+}
+
 class UpdateDiaryViewController: UIViewController {
     
     private lazy var updateDiaryView = UpdateDiaryView()
@@ -20,6 +24,7 @@ class UpdateDiaryViewController: UIViewController {
     var date: String?
     lazy var seletedNumber = 0
     
+    weak var delegate: UpdateDiaryVCDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +75,7 @@ class UpdateDiaryViewController: UIViewController {
             try? self.realm.write {
                 self.realm.add(diary, update: .modified)
             }
+            self.delegate?.buttonTapped()
             self.presentingViewController?.presentingViewController?.dismiss(animated: true)
         }.disposed(by: disposeBag)
     }

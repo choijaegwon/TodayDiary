@@ -151,6 +151,7 @@ extension FullDiaryViewController: UITableViewDelegate, UITableViewDataSource {
         let indexNumber = yearMonthDC[yearMonthDCKey]![indexPath.row]
         
         let diaryViewController = DiaryViewController()
+        diaryViewController.delegate = self
         diaryViewController.date = indexNumber.date
         self.diaryViewPresentationController(diaryViewController)
         self.present(diaryViewController, animated: true)
@@ -171,6 +172,14 @@ extension FullDiaryViewController: UISheetPresentationControllerDelegate {
             
             //시트 상단에 그래버 표시 (기본 값은 false)
             sheet.prefersGrabberVisible = true
+        }
+    }
+}
+
+extension FullDiaryViewController: DiaryVCDelegate {
+    func buttonTapped() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
 }
