@@ -15,6 +15,7 @@ class StartViewController: UIViewController {
     private var startView = StartView()
     private var startViewModel = StartViewModel()
     private var disposeBag = DisposeBag()
+    private var moodInt: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class StartViewController: UIViewController {
         lastMonthDate()
         bindUI()
         bindTap()
+        monthLabel()
     }
     
     func configurUI() {
@@ -55,6 +57,14 @@ class StartViewController: UIViewController {
             .asDriver(onErrorJustReturn: "")
             .drive(startView.sumLabel1.rx.text)
             .disposed(by: disposeBag)
+        
+        startViewModel.lastSumMood
+            .subscribe(onNext: {
+                // 개수가 내려온다.
+                self.moodInt = Int($0)!
+            }).disposed(by: disposeBag)
+        
+        
     }
     
     func bindTap() {
@@ -66,4 +76,23 @@ class StartViewController: UIViewController {
         }.disposed(by: disposeBag)
     }
     
+    func monthLabel() {
+        if self.moodInt >= 0 && self.moodInt <= 9 {
+            self.startView.monthLabel.text = "정말로 최고로 둥근"
+            self.startView.monthLabel2.text = "한 달을 보내셨네요!"
+        } else if self.moodInt >= 10 && self.moodInt <= 16 {
+            self.startView.monthLabel.text = "좋은 일만 가득했던"
+            self.startView.monthLabel2.text = "한 달을 보내셨네요!"
+        } else {
+            self.startView.monthLabel.text = "그래도 뒤돌아 보면 생각보다 둥근"
+            self.startView.monthLabel2.text = "한 달을 보낸 거 같지 않나요?"
+        }
+        
+        switch self.moodInt {
+        case 0...12:
+            return self.startView.monthImage.image = UIImage(named: "mood\(self.moodInt)") ?? UIImage(named: "mood0")
+        default:
+            return self.startView.monthImage.image = UIImage(named: "mood16")
+        }
+    }
 }

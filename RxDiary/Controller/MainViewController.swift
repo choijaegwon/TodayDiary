@@ -188,7 +188,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     
     func day01() {
         let day01 = todayStrig![todayStrig!.index(todayStrig!.endIndex, offsetBy: -2)...]
-        if String(day01) == "01" {
+        if "01" == "01" {
             DispatchQueue.main.async {
                 let nav = UINavigationController(rootViewController: StartViewController())
                 nav.modalPresentationStyle = .fullScreen
