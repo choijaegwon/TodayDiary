@@ -32,10 +32,6 @@ class FullDiaryViewController: UIViewController {
         configurUI()
         registerCell()
         bindUI()
-        print("test")
-        print(diary)
-        print("====")
-        print(sectionArray)
         
         var ee = Dictionary(grouping: diary, by: { d in
             var e = String(d.date.prefix(6))

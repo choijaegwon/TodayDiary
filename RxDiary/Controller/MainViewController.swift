@@ -32,6 +32,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     }
     private lazy var fullDiary: [Diary] = [] { // 전체 배열을 가져온다.
         didSet {
+            self.sendDate()
             self.mainView.calendar.reloadData()
         }
     }
