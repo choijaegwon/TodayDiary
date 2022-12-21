@@ -50,13 +50,11 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         mainView.calendar.delegate = self
         mainView.calendar.dataSource = self
         self.todayStrig = dateFormatter.string(from: Date())
-        
+       
         configurUI()
         bindUI()
         bindTap()
-        
-        // 만약에 오늘이 1일이면 다른 화면을 위에 띄우기
-        
+        day01() // 오늘이 01이면 지난달 뷰 보여주기
     }
     
     func configurUI() {
@@ -186,7 +184,17 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
                 self.present(diaryViewController, animated: true)
             })
             .disposed(by: disposeBag)
-            
+    }
+    
+    func day01() {
+        let day01 = todayStrig![todayStrig!.index(todayStrig!.endIndex, offsetBy: -2)...]
+        if String(day01) == "01" {
+            DispatchQueue.main.async {
+                let nav = UINavigationController(rootViewController: StartViewController())
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: false, completion: nil)
+            }
+        }
     }
     
     func reloadyearMonths() {
@@ -201,14 +209,14 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     
     @objc func handleSetting() {
         print(#function)
-        let startViewController = StartViewController()
-        startViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(startViewController, animated: true)
+//        let startViewController = StartViewController()
+//        startViewController.modalPresentationStyle = .fullScreen
+//        navigationController?.pushViewController(startViewController, animated: true)
         
         
-//        let settingViewController = SettingViewController()
-//        settingViewController.modalPresentationStyle = .fullScreen
-//        navigationController?.pushViewController(settingViewController, animated: true)
+        let settingViewController = SettingViewController()
+        settingViewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(settingViewController, animated: true)
     }
     
     @objc func handleSetting2() {

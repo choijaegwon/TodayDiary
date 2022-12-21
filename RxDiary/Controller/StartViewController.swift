@@ -22,6 +22,7 @@ class StartViewController: UIViewController {
         configurUI()
         lastMonthDate()
         bindUI()
+        bindTap()
     }
     
     func configurUI() {
@@ -54,6 +55,15 @@ class StartViewController: UIViewController {
             .asDriver(onErrorJustReturn: "")
             .drive(startView.sumLabel1.rx.text)
             .disposed(by: disposeBag)
+    }
+    
+    func bindTap() {
+        // 뷰 내리기
+        startView.dismissbutton.rx.tap.bind{ [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true)
+            print(#function)
+        }.disposed(by: disposeBag)
     }
     
 }
