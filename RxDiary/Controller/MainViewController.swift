@@ -22,6 +22,8 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     private var mood = Mood()
     private let dateFormatter = DateFormatter()
     private var todayStrig: String?
+    private var dateSet: [String] = []
+    private var sendArray: [String] = []
     private lazy var diarys:[Diary] = [] { // 몇년몇월 이렇게 필터링 된 값만 가져오는 배열
         didSet {
             // 만약 배열안에 오늘이 들어있으면 mainview안에 calnder의 둥근거 없애버리기
@@ -47,10 +49,11 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         mainView.calendar.delegate = self
         mainView.calendar.dataSource = self
         self.todayStrig = dateFormatter.string(from: Date())
+        
         configurUI()
         bindUI()
         bindTap()
-        
+        sendDate()
     }
     
     func configurUI() {
@@ -122,14 +125,13 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
             }).disposed(by: disposeBag)
         
 //        diarys.map({ $0.date }).contains(nowDate)
-        // 전체 일기를 가져온다. -> 이걸로 cell 화면 부분 만들기.
-//        mainViewModel.fullDiaryObservable
-//            .map { Array($0) }
-//            .subscribe (onNext: { [weak self] in
-//                guard let self = self else { return }
-//                print($0)
-//
-//            }).disposed(by: disposeBag)
+//         전체 일기를 가져온다. -> 이걸로 cell 화면 부분 만들기.
+        mainViewModel.fullDiaryObservable
+            .map { Array($0) }
+            .subscribe (onNext: { [weak self] in
+                guard let self = self else { return }
+                self.fullDiary = $0
+            }).disposed(by: disposeBag)
     }
     
     func bindTap() {
@@ -184,6 +186,14 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
             
     }
     
+    func sendDate() {
+        fullDiary.map { $0.date }.map {
+            self.dateSet.append(String($0.prefix(6)))
+        } // [202212, 202212, 202211] 등 년과월들이 다담겨있다.
+        // 중복제거
+        self.sendArray = Array(Set(self.dateSet)).sorted(by: >)
+    }
+    
     @objc func handleSetting() {
         print(#function)
         let settingViewController = SettingViewController()
@@ -194,6 +204,8 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     @objc func handleSetting2() {
         print(#function)
         let fullDiaryViewController = FullDiaryViewController()
+        fullDiaryViewController.diary = self.fullDiary
+        fullDiaryViewController.sectionArray = self.sendArray
         fullDiaryViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(fullDiaryViewController, animated: true)
         

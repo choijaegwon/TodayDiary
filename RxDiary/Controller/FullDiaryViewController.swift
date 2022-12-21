@@ -19,10 +19,11 @@ class FullDiaryViewController: UIViewController {
     private var disposeBag = DisposeBag()
     private var mood = Mood()
     var diary: [Diary] = []
+    var sectionArray: [String] = [] // 202212 202211 202210
+    var testDC: [String : [Diary]] = [:]
     
     private let tableView = UITableView().then {
         $0.separatorStyle = .none
-//        $0.backgroundColor = .red
     }
     
     override func viewDidLoad() {
@@ -31,6 +32,23 @@ class FullDiaryViewController: UIViewController {
         configurUI()
         registerCell()
         bindUI()
+        print("test")
+        print(diary)
+        print("====")
+        print(sectionArray)
+        
+        var ee = Dictionary(grouping: diary, by: { d in
+            var e = String(d.date.prefix(6))
+            print(e)
+            if sectionArray.contains(e) {
+                return e
+            } else {
+                return "Other"
+            }
+        } )
+        
+//                var q = ee.sorted(by: {$0.key > $1.key })
+        self.testDC = ee.mapValues { $0.sorted(by: {$0.date > $1.date})}
     }
     
     func configurUI() {
@@ -57,15 +75,16 @@ class FullDiaryViewController: UIViewController {
         tableView.register(DiaryCell.self, forCellReuseIdentifier: reuseIdentifier)
     }
     
+    // init할떄, 배열을 넣어준다면 view가 뜨기전에 배열을 알수있고, 그러면 섹션도 잘나오지 않을까?
     func bindUI() {
         // 전체 일기를 가져온다. -> 이걸로 cell 화면 부분 만들기.
-        mainViewModel.fullDiaryObservable
-            .map { $0.sorted(byKeyPath: "date", ascending: false) } // 최신순으로 정렬
-            .map { Array($0) } // Diary배열로 만들기
-            .subscribe (onNext: { [weak self] in
-                guard let self = self else { return }
-                self.diary = $0
-            }).disposed(by: disposeBag)
+//        mainViewModel.fullDiaryObservable
+//            .map { $0.sorted(byKeyPath: "date", ascending: false) } // 최신순으로 정렬
+//            .map { Array($0) } // Diary배열로 만들기
+//            .subscribe (onNext: { [weak self] in
+//                guard let self = self else { return }
+//                self.diary = $0
+//            }).disposed(by: disposeBag)
     }
 }
 
@@ -75,12 +94,12 @@ extension FullDiaryViewController: UITableViewDelegate, UITableViewDataSource {
     
     // 섹션의 개수
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return sectionArray.count
     }
     
     // 섹션의 타이틀
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "2022년 12월" //header의 타이틀을 여기서 정해줘야한다.
+        return sectionArray[section]
     }
     
     // 헤더의 색과 컬러
@@ -91,22 +110,30 @@ extension FullDiaryViewController: UITableViewDelegate, UITableViewDataSource {
     
     // cell의 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return diary.count
+        let haha = sectionArray[section] // 앞에6자리숫자
+        return testDC[self.sectionArray[section]]!.count
     }
     
     // cell안에 들어갈 내용들
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! DiaryCell
+        
+        // 순서가 반대로 되어있다 해결해야함.
+        let haha = sectionArray[indexPath.section]
+        print("roroo")
+        print(testDC[haha]![indexPath.row])
+        
+        
         // diary[indexPath.row].mood 숫자
-        let moodImage = mood.moodImageString[diary[indexPath.row].mood]
-        let moodLabel = mood.moodLabel[diary[indexPath.row].mood]
+        let moodImage = mood.moodImageString[testDC[haha]![indexPath.row].mood]
+        let moodLabel = mood.moodLabel[testDC[haha]![indexPath.row].mood]
         // date에서 일자만 가져오기
-        let fulldate = diary[indexPath.row].date
+        let fulldate = testDC[haha]![indexPath.row].date
         let day = fulldate[fulldate.index(fulldate.endIndex, offsetBy: -2)...]
         
         cell.moodImage.image = UIImage(named: moodImage)
         cell.moodLabel.text = moodLabel
-        cell.contentsLabel.text = diary[indexPath.row].contents
+        cell.contentsLabel.text = testDC[haha]![indexPath.row].contents
         cell.dateLabel.text = String(day)
 
         cell.selectionStyle = .none
