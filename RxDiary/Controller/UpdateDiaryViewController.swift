@@ -28,17 +28,10 @@ class UpdateDiaryViewController: UIViewController {
         configurUI()
         diaryUI()
         bindTap()
-        bindUI()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         disposeBag = DisposeBag()
-    }
-    
-    func bindUI() {
-        // 옵져버블 인트값을 만들고
-        // 옵져버블 인트값을 넣어주고
-        // 옵져버블 인트를 구독한다.
     }
     
     func configurUI() {
@@ -73,7 +66,7 @@ class UpdateDiaryViewController: UIViewController {
             diary.date = diaryfilter.first!.date
             diary.mood = self.updateDiaryView.tagNumber
             diary.contents = self.updateDiaryView.textView.text
-            print(diary)
+            
             try? self.realm.write {
                 self.realm.add(diary, update: .modified)
             }
