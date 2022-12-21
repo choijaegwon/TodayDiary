@@ -54,6 +54,9 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         configurUI()
         bindUI()
         bindTap()
+        
+        // 만약에 오늘이 1일이면 다른 화면을 위에 띄우기
+        
     }
     
     func configurUI() {
@@ -198,9 +201,14 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     
     @objc func handleSetting() {
         print(#function)
-        let settingViewController = SettingViewController()
-        settingViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(settingViewController, animated: true)
+        let startViewController = StartViewController()
+        startViewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(startViewController, animated: true)
+        
+        
+//        let settingViewController = SettingViewController()
+//        settingViewController.modalPresentationStyle = .fullScreen
+//        navigationController?.pushViewController(settingViewController, animated: true)
     }
     
     @objc func handleSetting2() {

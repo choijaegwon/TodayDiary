@@ -34,6 +34,8 @@
 		D4CCC4212951578000695420 /* FullDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC4202951578000695420 /* FullDiaryViewController.swift */; };
 		D4CCC42629517DF500695420 /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC42529517DF500695420 /* DiaryCell.swift */; };
 		D4CCC4282953160000695420 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC4272953160000695420 /* EmptyView.swift */; };
+		D4CCC42A29531D5700695420 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC42929531D5700695420 /* StartViewController.swift */; };
+		D4CCC42C29531D9600695420 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC42B29531D9600695420 /* StartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		D4CCC4202951578000695420 /* FullDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiaryViewController.swift; sourceTree = "<group>"; };
 		D4CCC42529517DF500695420 /* DiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCell.swift; sourceTree = "<group>"; };
 		D4CCC4272953160000695420 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		D4CCC42929531D5700695420 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		D4CCC42B29531D9600695420 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -136,6 +140,7 @@
 				D4A590DB294A112E00BC98B9 /* AlarmSettingView.swift */,
 				D4CCC42529517DF500695420 /* DiaryCell.swift */,
 				D4CCC4272953160000695420 /* EmptyView.swift */,
+				D4CCC42B29531D9600695420 /* StartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 				D4A590D72948E38600BC98B9 /* AlarmViewContoller.swift */,
 				D4A590DD294A190300BC98B9 /* AddAlertViewController.swift */,
 				D4CCC4202951578000695420 /* FullDiaryViewController.swift */,
+				D4CCC42929531D5700695420 /* StartViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -302,9 +308,11 @@
 				D44A31782946291E001C28B7 /* Diary.swift in Sources */,
 				D44A31762945F64D001C28B7 /* Mood.swift in Sources */,
 				D43F1F842944C91B0017CFD2 /* Extensions.swift in Sources */,
+				D4CCC42C29531D9600695420 /* StartView.swift in Sources */,
 				D4CCC42629517DF500695420 /* DiaryCell.swift in Sources */,
 				D4A590E0294AF95E00BC98B9 /* AlarmSettingViewModel.swift in Sources */,
 				D4CCC41F29500C0E00695420 /* Alert.swift in Sources */,
+				D4CCC42A29531D5700695420 /* StartViewController.swift in Sources */,
 				D44A318629484674001C28B7 /* UpdateDiaryView.swift in Sources */,
 				D4A590DC294A112E00BC98B9 /* AlarmSettingView.swift in Sources */,
 				D4A590D42948D6D800BC98B9 /* SettingViewController.swift in Sources */,
