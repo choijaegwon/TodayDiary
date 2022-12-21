@@ -71,7 +71,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         self.navigationController?.navigationBar.tintColor = .black
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "setting"), style: .plain, target: self, action: #selector(handleSetting))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "setting"), style: .plain, target: self, action: #selector(handleSetting2))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "diary"), style: .plain, target: self, action: #selector(handleSetting2))
     }
     
     func bindUI() {

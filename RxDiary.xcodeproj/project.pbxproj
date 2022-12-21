@@ -33,6 +33,7 @@
 		D4CCC41F29500C0E00695420 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC41E29500C0E00695420 /* Alert.swift */; };
 		D4CCC4212951578000695420 /* FullDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC4202951578000695420 /* FullDiaryViewController.swift */; };
 		D4CCC42629517DF500695420 /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC42529517DF500695420 /* DiaryCell.swift */; };
+		D4CCC4282953160000695420 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC4272953160000695420 /* EmptyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		D4CCC41E29500C0E00695420 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		D4CCC4202951578000695420 /* FullDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiaryViewController.swift; sourceTree = "<group>"; };
 		D4CCC42529517DF500695420 /* DiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCell.swift; sourceTree = "<group>"; };
+		D4CCC4272953160000695420 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -133,6 +135,7 @@
 				D4A590D52948DAD100BC98B9 /* SettingCell.swift */,
 				D4A590DB294A112E00BC98B9 /* AlarmSettingView.swift */,
 				D4CCC42529517DF500695420 /* DiaryCell.swift */,
+				D4CCC4272953160000695420 /* EmptyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				D4A590D42948D6D800BC98B9 /* SettingViewController.swift in Sources */,
 				D44A31802947907F001C28B7 /* DiaryViewController.swift in Sources */,
 				D44A31712945173F001C28B7 /* CreateDiaryViewController.swift in Sources */,
+				D4CCC4282953160000695420 /* EmptyView.swift in Sources */,
 				D44A317E29478F9F001C28B7 /* DiaryView.swift in Sources */,
 				D4CCC4212951578000695420 /* FullDiaryViewController.swift in Sources */,
 				D43F1F712944BE360017CFD2 /* MainViewController.swift in Sources */,

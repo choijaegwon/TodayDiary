@@ -17,6 +17,7 @@ class FullDiaryViewController: UIViewController {
     
     private var mainViewModel = MainViewModel()
     private var disposeBag = DisposeBag()
+    private var emptyView = EmptyView()
     private var mood = Mood()
     var diary: [Diary] = []
     var sectionArray: [String] = []{ // ["202212", "202211", "202210", "202209", "202208", "202207", "202206"]
@@ -40,18 +41,6 @@ class FullDiaryViewController: UIViewController {
         makeyearMonthDC()
     }
     
-    // ["202212", "202211", "202210", "202209", "202208", "202207", "202206"] 를
-    // ["2022년 12월", "2022년 11월", "2022년 10월", "2022년 08월", "2022년 06월"] 이런 형태로 바꾸기
-    func changeyearMonth() {
-        for dateString in sectionArray {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyyMM"
-            let date = formatter.date(from: dateString)!
-            formatter.dateFormat = "yyyy년 MM월"
-            sectionTitles.append(formatter.string(from: date))
-        }
-    }
-    
     func configurUI() {
         view.backgroundColor = .white
         
@@ -59,6 +48,17 @@ class FullDiaryViewController: UIViewController {
         tableView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.left.right.bottom.equalToSuperview()
+        }
+        
+        view.addSubview(emptyView)
+        emptyView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        
+        if diary.isEmpty {
+            emptyView.isHidden = false
+        } else {
+            emptyView.isHidden = true
         }
         
         configureNaviBar()
@@ -94,6 +94,18 @@ class FullDiaryViewController: UIViewController {
 //        })
 //        self.yearMonthDC = yearMonth.mapValues { $0.sorted(by: {$0.date > $1.date})}
     }
+    
+    // ["202212", "202211", "202210", "202209", "202208", "202207", "202206"] 를
+    // ["2022년 12월", "2022년 11월", "2022년 10월", "2022년 08월", "2022년 06월"] 이런 형태로 바꾸기
+    func changeyearMonth() {
+        for dateString in sectionArray {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyyMM"
+            let date = formatter.date(from: dateString)!
+            formatter.dateFormat = "yyyy년 MM월"
+            sectionTitles.append(formatter.string(from: date))
+        }
+    }
 }
 
 extension FullDiaryViewController: UITableViewDelegate, UITableViewDataSource {
@@ -125,9 +137,6 @@ extension FullDiaryViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! DiaryCell
         let yearMonthDCKey = sectionArray[indexPath.section]
         let indexNumber = yearMonthDC[yearMonthDCKey]![indexPath.row]
-        print("222")
-        print(indexNumber)
-        print("222")
         let fulldate = indexNumber.date
         
         // cell에 들어갈 내용들
