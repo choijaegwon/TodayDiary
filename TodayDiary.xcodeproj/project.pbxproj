@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		155068D34A3ACA5C9A8BB7E0 /* Pods_RxDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */; };
+		53E2DA78334FD9000AA57DA1 /* Pods_TodayDiary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D87B47BF0FD7DF5F7F098F /* Pods_TodayDiary.framework */; };
 		D43F1F6D2944BE360017CFD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43F1F6C2944BE360017CFD2 /* AppDelegate.swift */; };
 		D43F1F6F2944BE360017CFD2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43F1F6E2944BE360017CFD2 /* SceneDelegate.swift */; };
 		D43F1F712944BE360017CFD2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43F1F702944BE360017CFD2 /* MainViewController.swift */; };
@@ -41,8 +41,11 @@
 
 /* Begin PBXFileReference section */
 		4BE4DADFBF7980E007410213 /* Pods-RxDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxDiary.release.xcconfig"; path = "Target Support Files/Pods-RxDiary/Pods-RxDiary.release.xcconfig"; sourceTree = "<group>"; };
+		55A37E205CDACDA9BA8CBE5D /* Pods-TodayDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayDiary.release.xcconfig"; path = "Target Support Files/Pods-TodayDiary/Pods-TodayDiary.release.xcconfig"; sourceTree = "<group>"; };
+		674E75151B44B3D197B0CAC5 /* Pods-TodayDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayDiary.debug.xcconfig"; path = "Target Support Files/Pods-TodayDiary/Pods-TodayDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		71595E7DE42A12A4445919E7 /* Pods-RxDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxDiary.debug.xcconfig"; path = "Target Support Files/Pods-RxDiary/Pods-RxDiary.debug.xcconfig"; sourceTree = "<group>"; };
-		D43F1F692944BE360017CFD2 /* RxDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7D87B47BF0FD7DF5F7F098F /* Pods_TodayDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D43F1F692944BE360017CFD2 /* TodayDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D43F1F6C2944BE360017CFD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D43F1F6E2944BE360017CFD2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D43F1F702944BE360017CFD2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +76,6 @@
 		D4CCC42929531D5700695420 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		D4CCC42B29531D9600695420 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		D4CCC42D295336D500695420 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
-		D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxDiary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				155068D34A3ACA5C9A8BB7E0 /* Pods_RxDiary.framework in Frameworks */,
+				53E2DA78334FD9000AA57DA1 /* Pods_TodayDiary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +93,7 @@
 		7B1C43FF7D9610D422D67A14 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D6796B529C9E98B81DF2D738 /* Pods_RxDiary.framework */,
+				C7D87B47BF0FD7DF5F7F098F /* Pods_TodayDiary.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -99,7 +101,7 @@
 		D43F1F602944BE360017CFD2 = {
 			isa = PBXGroup;
 			children = (
-				D43F1F6B2944BE360017CFD2 /* RxDiary */,
+				D43F1F6B2944BE360017CFD2 /* TodayDiary */,
 				D43F1F6A2944BE360017CFD2 /* Products */,
 				EA2C60867B7C01337B28A63D /* Pods */,
 				7B1C43FF7D9610D422D67A14 /* Frameworks */,
@@ -109,12 +111,12 @@
 		D43F1F6A2944BE360017CFD2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D43F1F692944BE360017CFD2 /* RxDiary.app */,
+				D43F1F692944BE360017CFD2 /* TodayDiary.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D43F1F6B2944BE360017CFD2 /* RxDiary */ = {
+		D43F1F6B2944BE360017CFD2 /* TodayDiary */ = {
 			isa = PBXGroup;
 			children = (
 				D44A31742945F644001C28B7 /* Model */,
@@ -128,7 +130,7 @@
 				D43F1F772944BE370017CFD2 /* LaunchScreen.storyboard */,
 				D43F1F7A2944BE370017CFD2 /* Info.plist */,
 			);
-			path = RxDiary;
+			path = TodayDiary;
 			sourceTree = "<group>";
 		};
 		D43F1F802944C1510017CFD2 /* View */ = {
@@ -188,6 +190,8 @@
 			children = (
 				71595E7DE42A12A4445919E7 /* Pods-RxDiary.debug.xcconfig */,
 				4BE4DADFBF7980E007410213 /* Pods-RxDiary.release.xcconfig */,
+				674E75151B44B3D197B0CAC5 /* Pods-TodayDiary.debug.xcconfig */,
+				55A37E205CDACDA9BA8CBE5D /* Pods-TodayDiary.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -195,9 +199,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D43F1F682944BE360017CFD2 /* RxDiary */ = {
+		D43F1F682944BE360017CFD2 /* TodayDiary */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D43F1F7D2944BE370017CFD2 /* Build configuration list for PBXNativeTarget "RxDiary" */;
+			buildConfigurationList = D43F1F7D2944BE370017CFD2 /* Build configuration list for PBXNativeTarget "TodayDiary" */;
 			buildPhases = (
 				934054EF4BF3CCF92B763FCE /* [CP] Check Pods Manifest.lock */,
 				D43F1F652944BE360017CFD2 /* Sources */,
@@ -209,9 +213,9 @@
 			);
 			dependencies = (
 			);
-			name = RxDiary;
+			name = TodayDiary;
 			productName = RxDiary;
-			productReference = D43F1F692944BE360017CFD2 /* RxDiary.app */;
+			productReference = D43F1F692944BE360017CFD2 /* TodayDiary.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -229,7 +233,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D43F1F642944BE360017CFD2 /* Build configuration list for PBXProject "RxDiary" */;
+			buildConfigurationList = D43F1F642944BE360017CFD2 /* Build configuration list for PBXProject "TodayDiary" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -242,7 +246,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D43F1F682944BE360017CFD2 /* RxDiary */,
+				D43F1F682944BE360017CFD2 /* TodayDiary */,
 			);
 		};
 /* End PBXProject section */
@@ -275,7 +279,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RxDiary-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-TodayDiary-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -288,15 +292,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RxDiary/Pods-RxDiary-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-TodayDiary/Pods-TodayDiary-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RxDiary/Pods-RxDiary-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-TodayDiary/Pods-TodayDiary-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RxDiary/Pods-RxDiary-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TodayDiary/Pods-TodayDiary-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -466,7 +470,7 @@
 		};
 		D43F1F7E2944BE370017CFD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71595E7DE42A12A4445919E7 /* Pods-RxDiary.debug.xcconfig */;
+			baseConfigurationReference = 674E75151B44B3D197B0CAC5 /* Pods-TodayDiary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -474,7 +478,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 23DK26FW4N;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RxDiary/Info.plist;
+				INFOPLIST_FILE = TodayDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -484,7 +488,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chojaegwon.RxDiary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chojaegwon.TodayDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -497,7 +501,7 @@
 		};
 		D43F1F7F2944BE370017CFD2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4BE4DADFBF7980E007410213 /* Pods-RxDiary.release.xcconfig */;
+			baseConfigurationReference = 55A37E205CDACDA9BA8CBE5D /* Pods-TodayDiary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -505,7 +509,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 23DK26FW4N;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RxDiary/Info.plist;
+				INFOPLIST_FILE = TodayDiary/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -515,7 +519,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chojaegwon.RxDiary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chojaegwon.TodayDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -529,7 +533,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D43F1F642944BE360017CFD2 /* Build configuration list for PBXProject "RxDiary" */ = {
+		D43F1F642944BE360017CFD2 /* Build configuration list for PBXProject "TodayDiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D43F1F7B2944BE370017CFD2 /* Debug */,
@@ -538,7 +542,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D43F1F7D2944BE370017CFD2 /* Build configuration list for PBXNativeTarget "RxDiary" */ = {
+		D43F1F7D2944BE370017CFD2 /* Build configuration list for PBXNativeTarget "TodayDiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D43F1F7E2944BE370017CFD2 /* Debug */,
