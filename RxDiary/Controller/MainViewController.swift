@@ -45,7 +45,6 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(#function)
         
         dateFormatter.dateFormat = "YYYYMMdd"
         mainView.calendar.delegate = self
@@ -151,14 +150,12 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         
         mainView.mainquestionbutton.rx.tap.bind { [weak self] in
             guard let self = self else { return }
-            print(#function)
             // 넘어갈 현재날짜.
             let nowDate = self.dateFormatter.string(from: Date())
             
             // 만약 데이터가 있으면 View를 보여주는 화면으로 옮기고
             // 오늘 데이터가 없으면, 새로 만드는 화면으로 옮겨줘야한다.
             if self.diarys.map({ $0.date }).contains(nowDate) {
-                print("대충 뷰보여주는화면")
                 let diaryViewController = DiaryViewController()
                 diaryViewController.date = nowDate
                 self.diaryViewPresentationController(diaryViewController)
@@ -189,7 +186,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     
     func day01() {
         let day01 = todayStrig![todayStrig!.index(todayStrig!.endIndex, offsetBy: -2)...]
-        if "01" == "01" {
+        if day01 == "01" {
             DispatchQueue.main.async {
                 let nav = UINavigationController(rootViewController: StartViewController())
                 nav.modalPresentationStyle = .fullScreen
@@ -209,19 +206,12 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
 
     
     @objc func handleSetting() {
-        print(#function)
-//        let startViewController = StartViewController()
-//        startViewController.modalPresentationStyle = .fullScreen
-//        navigationController?.pushViewController(startViewController, animated: true)
-        
-        
         let settingViewController = SettingViewController()
         settingViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(settingViewController, animated: true)
     }
     
     @objc func handleSetting2() {
-        print(#function)
         let fullDiaryViewController = FullDiaryViewController()
         fullDiaryViewController.diary = self.fullDiary
         fullDiaryViewController.sectionArray = self.yearMonths
@@ -240,13 +230,11 @@ extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         // 만약 데이터가 있으면 View를 보여주는 화면으로 옮기고
         // 오늘 데이터가 없으면, 새로 만드는 화면으로 옮겨줘야한다.
         if self.diarys.map({ $0.date }).contains(seletedDate) {
-            print("대충 뷰보여주는화면select")
             let diaryViewController = DiaryViewController()
             diaryViewController.date = seletedDate
             self.diaryViewPresentationController(diaryViewController)
             self.present(diaryViewController, animated: true)
         } else {
-            print("이것도그러나")
             let createDiaryViewController = CreateDiaryViewController()
             createDiaryViewController.delegate = self
             createDiaryViewController.date = seletedDate

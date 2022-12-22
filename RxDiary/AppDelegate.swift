@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        print(Realm.Configuration.defaultConfiguration.fileURL)
+        Thread.sleep(forTimeInterval: 0.5)
         
         UNUserNotificationCenter.current().delegate = self
         
@@ -38,8 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.toolbarTintColor = .black
         IQKeyboardManager.shared.toolbarBarTintColor = .white
-//        IQKeyboardManager.shared.enabledToolbarClasses.append(CreateDiaryViewController.self)
-//        IQKeyboardManager.shared.disabledToolbarClasses.append(CreateDiaryViewController.self)
         // 확인 버튼만 나타내기
         IQKeyboardManager.shared.previousNextDisplayMode = .alwaysHide
         IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "확인"
@@ -59,11 +57,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
-    
-    // 앱이 Background 또는 Not-Running 상태에서 Foreground로 들어가기 직전에 호출됩니다.
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        print(#function)
     }
 }
 

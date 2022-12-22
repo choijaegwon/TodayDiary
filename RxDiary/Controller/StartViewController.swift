@@ -72,7 +72,6 @@ class StartViewController: UIViewController {
         startView.dismissbutton.rx.tap.bind{ [weak self] in
             guard let self = self else { return }
             self.dismiss(animated: true)
-            print(#function)
         }.disposed(by: disposeBag)
     }
     

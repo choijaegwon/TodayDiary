@@ -28,8 +28,6 @@ class UpdateDiaryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("=update 뷰컨=")
-        print("\(date!) 업데이트")
         configurUI()
         diaryUI()
         bindTap()

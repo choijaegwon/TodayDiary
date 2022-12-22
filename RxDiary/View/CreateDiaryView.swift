@@ -151,8 +151,6 @@ class CreateDiaryView: UIView {
     }
     
     @objc func moodButtonTapped(_ sender: UIButton) {
-        print(#function)
-        print(sender.tag)
         self.tagNumber = sender.tag
         self.selectedButtonLable.text = self.mood.moodLabel[self.tagNumber]
     }

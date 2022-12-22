@@ -26,8 +26,7 @@ class CreateDiaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(date!)
+    
         configurUI()
         bindTap()
     }

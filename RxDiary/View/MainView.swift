@@ -194,7 +194,7 @@ class MainView: UIView {
         calendar.snp.makeConstraints {
             $0.top.equalTo(monthStack.snp.bottom).offset(0)
             $0.left.right.equalToSuperview()
-            $0.height.equalTo(370)
+            $0.height.equalTo(390)
             $0.width.equalToSuperview()
         }
         
@@ -237,6 +237,5 @@ class MainView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
 }

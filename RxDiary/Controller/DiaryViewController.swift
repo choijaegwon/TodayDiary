@@ -30,7 +30,6 @@ class DiaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(date!)
         configurUI()
         diaryUI()
         bindTap()
@@ -50,7 +49,6 @@ class DiaryViewController: UIViewController {
     
     func diaryUI() {
         let diary = diary.filter("date == '\(self.date!)'")
-        print(diary)
         let seletedMood = diary.first!.mood // 예상1
         let seletedContents = diary.first!.contents
         
