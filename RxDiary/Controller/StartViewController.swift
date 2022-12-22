@@ -88,8 +88,10 @@ class StartViewController: UIViewController {
         }
         
         switch self.moodInt {
-        case 0...12:
-            return self.startView.monthImage.image = UIImage(named: "mood\(self.moodInt)") ?? UIImage(named: "mood0")
+        case 0...2:
+            return self.startView.monthImage.image = UIImage(named: "mood\(self.moodInt)")
+        case 10...15:
+            return self.startView.monthImage.image = UIImage(named: "mood10")
         default:
             return self.startView.monthImage.image = UIImage(named: "mood16")
         }
