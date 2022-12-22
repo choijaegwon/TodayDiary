@@ -60,6 +60,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
+    // 앱이 Background 또는 Not-Running 상태에서 Foreground로 들어가기 직전에 호출됩니다.
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        print(#function)
+    }
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {

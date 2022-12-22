@@ -57,10 +57,10 @@ class DiaryCell: UITableViewCell {
             $0.left.equalToSuperview().inset(20)
         }
         
-        
+        // cellBackgorund의 크기는 cellStack이 결정해준다이걸 이용해야한다.
         cellBackgorund.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.width.equalTo(295)
+            $0.width.greaterThanOrEqualTo(295)
             $0.height.equalTo(68)
             $0.top.bottom.equalToSuperview().inset(10)
             $0.left.equalTo(dateLabel.snp.right).offset(16)
@@ -77,7 +77,6 @@ class DiaryCell: UITableViewCell {
         cellStack.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.left.equalTo(moodImage.snp.right).offset(13)
-            $0.right.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 15))
         }
         
     }

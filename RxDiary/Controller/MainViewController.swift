@@ -45,6 +45,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(#function)
         
         dateFormatter.dateFormat = "YYYYMMdd"
         mainView.calendar.delegate = self
