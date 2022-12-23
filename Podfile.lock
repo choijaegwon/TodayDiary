@@ -1,5 +1,4 @@
 PODS:
-  - Differentiator (5.0.0)
   - DLRadioButton (1.4.12)
   - FSCalendar (2.8.4)
   - IQKeyboardManagerSwift (6.5.10)
@@ -11,10 +10,6 @@ PODS:
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
-  - RxDataSources (5.0.0):
-    - Differentiator (~> 5.0)
-    - RxCocoa (~> 6.0)
-    - RxSwift (~> 6.0)
   - RxGesture (4.0.4):
     - RxCocoa (~> 6.0)
     - RxSwift (~> 6.0)
@@ -37,7 +32,6 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - RealmSwift
   - RxCocoa (= 6.5.0)
-  - RxDataSources (~> 5.0)
   - RxGesture
   - RxRealm
   - RxSwift (= 6.5.0)
@@ -48,14 +42,12 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - Differentiator
     - DLRadioButton
     - FSCalendar
     - IQKeyboardManagerSwift
     - Realm
     - RealmSwift
     - RxCocoa
-    - RxDataSources
     - RxGesture
     - RxRealm
     - RxRelay
@@ -66,14 +58,12 @@ SPEC REPOS:
     - "UITextView+Placeholder"
 
 SPEC CHECKSUMS:
-  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   Realm: a00e93347b8d26d372c7a82f6c0b08d6536a21c8
   RealmSwift: fe09c29ca409f8f905fe4086f2a52936193f2e3d
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
-  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
   RxRealm: 666c8785327fe2fff972a3093b35dc7055c1ca38
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
@@ -83,6 +73,6 @@ SPEC CHECKSUMS:
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
-PODFILE CHECKSUM: b51fd9e8f229bff7a4e52900087c28fa55a53d67
+PODFILE CHECKSUM: 52b4002cb14b56f864e77c7490e3476fdca1d731
 
 COCOAPODS: 1.11.3
