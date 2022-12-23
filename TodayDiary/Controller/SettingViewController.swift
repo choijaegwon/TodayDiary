@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import Then
-import SnapKit
+//import Then
+//import SnapKit
 
 private let reuseIdentifier = "SettingCell"
 
@@ -17,17 +17,17 @@ class SettingViewController: UIViewController {
         $0.separatorStyle = .none
     }
     
-    lazy var reviewbutton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("앱 리뷰 쓰러 가기", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .medium)
-        button.setTitleColor(.black, for: .normal)
-        button.layer.cornerRadius = 8
-        button.layer.masksToBounds = true
-        button.backgroundColor = UIColor.rgb(red: 255, green: 225, blue: 177)
-        button.addTarget(self, action: #selector(reviewButtonTapped), for: .touchUpInside)
-        return button
-    }()
+//    lazy var reviewbutton: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setTitle("앱 리뷰 쓰러 가기", for: .normal)
+//        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .medium)
+//        button.setTitleColor(.black, for: .normal)
+//        button.layer.cornerRadius = 8
+//        button.layer.masksToBounds = true
+//        button.backgroundColor = UIColor.rgb(red: 255, green: 225, blue: 177)
+//        button.addTarget(self, action: #selector(reviewButtonTapped), for: .touchUpInside)
+//        return button
+//    }()
     
     // 모델 풀스크린으로 화면이 넘어와야한다.
     override func viewDidLoad() {
@@ -46,12 +46,12 @@ class SettingViewController: UIViewController {
             $0.edges.equalToSuperview()
         }
         
-        view.addSubview(reviewbutton)
-        reviewbutton.snp.makeConstraints {
-            $0.top.equalTo(250)
-            $0.left.right.equalToSuperview().inset(16)
-            $0.height.equalTo(68)
-        }
+//        view.addSubview(reviewbutton)
+//        reviewbutton.snp.makeConstraints {
+//            $0.top.equalTo(250)
+//            $0.left.right.equalToSuperview().inset(16)
+//            $0.height.equalTo(68)
+//        }
         
         configureNaviBar()
     }
@@ -69,18 +69,18 @@ class SettingViewController: UIViewController {
         tableView.register(SettingCell.self, forCellReuseIdentifier: reuseIdentifier)
     }
     
-    @objc func reviewButtonTapped() {
-        if let appstoreURL = URL(string: "https://apps.apple.com/kr/app/%EA%B0%81%EC%97%86%EB%8A%94-%EC%98%A4%EB%8A%98/id1661072044") {
-            var components = URLComponents(url: appstoreURL, resolvingAgainstBaseURL: false)
-            components?.queryItems = [
-              URLQueryItem(name: "action", value: "write-review")
-            ]
-            guard let writeReviewURL = components?.url else {
-                return
-            }
-            UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
-        }
-    }
+//    @objc func reviewButtonTapped() {
+//        if let appstoreURL = URL(string: "https://apps.apple.com/kr/app/%EA%B0%81%EC%97%86%EB%8A%94-%EC%98%A4%EB%8A%98/id1661072044") {
+//            var components = URLComponents(url: appstoreURL, resolvingAgainstBaseURL: false)
+//            components?.queryItems = [
+//              URLQueryItem(name: "action", value: "write-review")
+//            ]
+//            guard let writeReviewURL = components?.url else {
+//                return
+//            }
+//            UIApplication.shared.open(writeReviewURL, options: [:], completionHandler: nil)
+//        }
+//    }
 }
 
 // MARK: - UITableViewDataSource
