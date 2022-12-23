@@ -60,11 +60,8 @@ class StartViewController: UIViewController {
         
         startViewModel.lastSumMood
             .subscribe(onNext: {
-                // 개수가 내려온다.
                 self.moodInt = Int($0)!
             }).disposed(by: disposeBag)
-        
-        
     }
     
     func bindTap() {
