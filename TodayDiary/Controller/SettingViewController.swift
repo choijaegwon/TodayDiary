@@ -17,6 +17,7 @@ class SettingViewController: UIViewController {
         $0.separatorStyle = .none
     }
     
+//    추후, 리뷰기능 추가
 //    lazy var reviewbutton: UIButton = {
 //        let button = UIButton(type: .system)
 //        button.setTitle("앱 리뷰 쓰러 가기", for: .normal)
