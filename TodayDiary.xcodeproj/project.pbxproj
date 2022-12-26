@@ -60,6 +60,10 @@
 		D4C2E2C92959F1000027DE57 /* BookCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2C82959F1000027DE57 /* BookCreateViewController.swift */; };
 		D4C2E2CB2959F17D0027DE57 /* BookCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2CA2959F17D0027DE57 /* BookCreateView.swift */; };
 		D4C2E2CD2959F7860027DE57 /* AddBookDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2CC2959F7860027DE57 /* AddBookDateViewController.swift */; };
+		D4C2E2CF295A012E0027DE57 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2CE295A012E0027DE57 /* BookViewController.swift */; };
+		D4C2E2D1295A01680027DE57 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2D0295A01680027DE57 /* BookView.swift */; };
+		D4C2E2D3295A03780027DE57 /* UpdateBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2D2295A03780027DE57 /* UpdateBookViewController.swift */; };
+		D4C2E2D5295A04770027DE57 /* UpdateBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2D4295A04770027DE57 /* UpdateBookView.swift */; };
 		D4CCC41F29500C0E00695420 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC41E29500C0E00695420 /* Alert.swift */; };
 		D4CCC4212951578000695420 /* FullDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC4202951578000695420 /* FullDiaryViewController.swift */; };
 		D4CCC42629517DF500695420 /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC42529517DF500695420 /* DiaryCell.swift */; };
@@ -130,6 +134,10 @@
 		D4C2E2C82959F1000027DE57 /* BookCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCreateViewController.swift; sourceTree = "<group>"; };
 		D4C2E2CA2959F17D0027DE57 /* BookCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCreateView.swift; sourceTree = "<group>"; };
 		D4C2E2CC2959F7860027DE57 /* AddBookDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookDateViewController.swift; sourceTree = "<group>"; };
+		D4C2E2CE295A012E0027DE57 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		D4C2E2D0295A01680027DE57 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
+		D4C2E2D2295A03780027DE57 /* UpdateBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBookViewController.swift; sourceTree = "<group>"; };
+		D4C2E2D4295A04770027DE57 /* UpdateBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBookView.swift; sourceTree = "<group>"; };
 		D4CCC41E29500C0E00695420 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		D4CCC4202951578000695420 /* FullDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiaryViewController.swift; sourceTree = "<group>"; };
 		D4CCC42529517DF500695420 /* DiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCell.swift; sourceTree = "<group>"; };
@@ -325,6 +333,8 @@
 				D4C2E2C62959E9610027DE57 /* BookSearchViewController.swift */,
 				D4C2E2C82959F1000027DE57 /* BookCreateViewController.swift */,
 				D4C2E2CC2959F7860027DE57 /* AddBookDateViewController.swift */,
+				D4C2E2CE295A012E0027DE57 /* BookViewController.swift */,
+				D4C2E2D2295A03780027DE57 /* UpdateBookViewController.swift */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -336,6 +346,8 @@
 				D4C2E2C02959E4140027DE57 /* BookCell.swift */,
 				D4C2E2C22959E5DA0027DE57 /* BookViewCell.swift */,
 				D4C2E2CA2959F17D0027DE57 /* BookCreateView.swift */,
+				D4C2E2D0295A01680027DE57 /* BookView.swift */,
+				D4C2E2D4295A04770027DE57 /* UpdateBookView.swift */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -467,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D45C17232956DEAA00E8C9A4 /* MovieSearchViewController.swift in Sources */,
+				D4C2E2CF295A012E0027DE57 /* BookViewController.swift in Sources */,
 				D4C2E2C72959E9610027DE57 /* BookSearchViewController.swift in Sources */,
 				D4A590DE294A190300BC98B9 /* AddAlertViewController.swift in Sources */,
 				D4C2E2BF2959C77F0027DE57 /* BookMainViewModel.swift in Sources */,
@@ -489,6 +502,7 @@
 				D4CCC41F29500C0E00695420 /* Alert.swift in Sources */,
 				D45C17302958621100E8C9A4 /* AddMovieDateViewController.swift in Sources */,
 				D4CCC42A29531D5700695420 /* StartViewController.swift in Sources */,
+				D4C2E2D1295A01680027DE57 /* BookView.swift in Sources */,
 				D45C172E2958374200E8C9A4 /* MovieCreateView.swift in Sources */,
 				D4C2E2B72959BF2A0027DE57 /* Book.swift in Sources */,
 				D44A318629484674001C28B7 /* UpdateDiaryView.swift in Sources */,
@@ -498,6 +512,7 @@
 				D4A590D42948D6D800BC98B9 /* SettingViewController.swift in Sources */,
 				D45C17422958A76A00E8C9A4 /* UpdateMovieView.swift in Sources */,
 				D45C172C295835B300E8C9A4 /* MovieCreateViewController.swift in Sources */,
+				D4C2E2D3295A03780027DE57 /* UpdateBookViewController.swift in Sources */,
 				D44A31802947907F001C28B7 /* DiaryViewController.swift in Sources */,
 				D4C2E2CD2959F7860027DE57 /* AddBookDateViewController.swift in Sources */,
 				D44A31712945173F001C28B7 /* CreateDiaryViewController.swift in Sources */,
@@ -518,6 +533,7 @@
 				D43F1F6F2944BE360017CFD2 /* SceneDelegate.swift in Sources */,
 				D4C2E2A5295989000027DE57 /* EmptyMovieView.swift in Sources */,
 				D45C17212956DC7600E8C9A4 /* MovieMainViewController.swift in Sources */,
+				D4C2E2D5295A04770027DE57 /* UpdateBookView.swift in Sources */,
 				D45C17382958770D00E8C9A4 /* MovieMainViewModel.swift in Sources */,
 				D4A590D82948E38600BC98B9 /* AlarmViewContoller.swift in Sources */,
 				D43F1F872944CB280017CFD2 /* MainViewModel.swift in Sources */,
