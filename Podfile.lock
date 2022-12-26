@@ -1,4 +1,6 @@
 PODS:
+  - Alamofire (5.6.2)
+  - Cosmos (23.0.0)
   - DLRadioButton (1.4.12)
   - FSCalendar (2.8.4)
   - IQKeyboardManagerSwift (6.5.10)
@@ -7,6 +9,11 @@ PODS:
   - Realm/Headers (10.32.0)
   - RealmSwift (10.32.0):
     - Realm (= 10.32.0)
+  - RxAlamofire (6.1.1):
+    - RxAlamofire/Core (= 6.1.1)
+  - RxAlamofire/Core (6.1.1):
+    - Alamofire (~> 5.4)
+    - RxSwift (~> 6.0)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
     - RxSwift (= 6.5.0)
@@ -27,10 +34,13 @@ PODS:
   - "UITextView+Placeholder (1.4.0)"
 
 DEPENDENCIES:
+  - Alamofire (~> 5.2)
+  - Cosmos (~> 23.0)
   - DLRadioButton
   - FSCalendar
   - IQKeyboardManagerSwift
   - RealmSwift
+  - RxAlamofire
   - RxCocoa (= 6.5.0)
   - RxGesture
   - RxRealm
@@ -42,11 +52,14 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - Cosmos
     - DLRadioButton
     - FSCalendar
     - IQKeyboardManagerSwift
     - Realm
     - RealmSwift
+    - RxAlamofire
     - RxCocoa
     - RxGesture
     - RxRealm
@@ -58,11 +71,14 @@ SPEC REPOS:
     - "UITextView+Placeholder"
 
 SPEC CHECKSUMS:
+  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   DLRadioButton: d7c4e225ed0e8013cef7be61455230c7557ad7c1
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   Realm: a00e93347b8d26d372c7a82f6c0b08d6536a21c8
   RealmSwift: fe09c29ca409f8f905fe4086f2a52936193f2e3d
+  RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
   RxRealm: 666c8785327fe2fff972a3093b35dc7055c1ca38
@@ -73,6 +89,6 @@ SPEC CHECKSUMS:
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
-PODFILE CHECKSUM: 52b4002cb14b56f864e77c7490e3476fdca1d731
+PODFILE CHECKSUM: 7626fd2e37718d7316e955c99624982b6317c7cc
 
 COCOAPODS: 1.11.3

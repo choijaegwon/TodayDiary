@@ -212,11 +212,17 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     }
     
     @objc func handleSetting2() {
-        let fullDiaryViewController = FullDiaryViewController()
-        fullDiaryViewController.diary = self.fullDiary
-        fullDiaryViewController.sectionArray = self.yearMonths
-        fullDiaryViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(fullDiaryViewController, animated: true)
+        let movieMainViewController = MovieMainViewController()
+        movieMainViewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(movieMainViewController, animated: true)
+        
+        
+//        원래 코드
+//        let fullDiaryViewController = FullDiaryViewController()
+//        fullDiaryViewController.diary = self.fullDiary
+//        fullDiaryViewController.sectionArray = self.yearMonths
+//        fullDiaryViewController.modalPresentationStyle = .fullScreen
+//        navigationController?.pushViewController(fullDiaryViewController, animated: true)
         
     }
 }

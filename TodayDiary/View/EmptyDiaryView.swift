@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-class EmptyView: UIView {
+class EmptyDiaryView: UIView {
     
     private let emptyLabel = UILabel().then {
         $0.textColor = .black

@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Thread.sleep(forTimeInterval: 0.5)
         
+        print(Realm.Configuration.defaultConfiguration.fileURL)
+        
         UNUserNotificationCenter.current().delegate = self
         
         let authorizationOptions = UNAuthorizationOptions(arrayLiteral: [.alert, .badge, .sound])

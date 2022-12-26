@@ -159,7 +159,7 @@ class MainView: UIView {
         todayBackgorund.addSubview(todayStack)
         
         headerYearLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0))
+            $0.top.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
             $0.centerX.equalToSuperview()
         }
         
@@ -181,7 +181,7 @@ class MainView: UIView {
         }
         
         labelBackgorund.snp.makeConstraints {
-            $0.top.equalTo(calendar.snp.top).offset(40)
+            $0.top.equalTo(calendar.snp.top).offset(70)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(moonSumStack.snp.width).offset(16)
             $0.height.equalTo(moonSumStack.snp.height).offset(16)

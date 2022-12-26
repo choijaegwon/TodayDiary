@@ -17,7 +17,7 @@ class FullDiaryViewController: UIViewController {
     
     private var mainViewModel = MainViewModel()
     private var disposeBag = DisposeBag()
-    private var emptyView = EmptyView()
+    private var emptyView = EmptyDiaryView()
     private var mood = Mood()
     var diary: [Diary] = []
     var sectionArray: [String] = []{ // ["202212", "202211", "202210", "202209", "202208", "202207", "202206"]

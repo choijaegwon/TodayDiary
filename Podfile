@@ -18,4 +18,7 @@ target 'TodayDiary' do
   pod "RxRealm"
 	pod 'Toast-Swift', '~> 5.0.1'
   pod "RxGesture"
+	pod 'Alamofire', '~> 5.2'
+	pod 'RxAlamofire'
+  pod 'Cosmos', '~> 23.0'
 end
