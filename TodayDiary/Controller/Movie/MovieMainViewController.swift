@@ -123,7 +123,7 @@ extension MovieMainViewController: UICollectionViewDataSource {
             }
         }
         
-        var movieDate = String(realmMoive[indexPath.row].movieDate.prefix(13))
+        let movieDate = String(realmMoive[indexPath.row].movieDate.prefix(13))
         
         cell.moviePosterLabel.text = realmMoive[indexPath.row].movieTitle
         cell.movieDateLabel.text = movieDate
