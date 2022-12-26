@@ -48,6 +48,8 @@
 		D4A590E0294AF95E00BC98B9 /* AlarmSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A590DF294AF95E00BC98B9 /* AlarmSettingViewModel.swift */; };
 		D4C2E2A5295989000027DE57 /* EmptyMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2A4295989000027DE57 /* EmptyMovieView.swift */; };
 		D4C2E2B12959B6F60027DE57 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2B02959B6F60027DE57 /* Constants.swift */; };
+		D4C2E2B32959BEAA0027DE57 /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2B22959BEAA0027DE57 /* BookService.swift */; };
+		D4C2E2B72959BF2A0027DE57 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2B62959BF2A0027DE57 /* Book.swift */; };
 		D4CCC41F29500C0E00695420 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC41E29500C0E00695420 /* Alert.swift */; };
 		D4CCC4212951578000695420 /* FullDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC4202951578000695420 /* FullDiaryViewController.swift */; };
 		D4CCC42629517DF500695420 /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC42529517DF500695420 /* DiaryCell.swift */; };
@@ -106,6 +108,8 @@
 		D4A590DF294AF95E00BC98B9 /* AlarmSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSettingViewModel.swift; sourceTree = "<group>"; };
 		D4C2E2A4295989000027DE57 /* EmptyMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyMovieView.swift; sourceTree = "<group>"; };
 		D4C2E2B02959B6F60027DE57 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D4C2E2B22959BEAA0027DE57 /* BookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookService.swift; path = ../../../../../../../../Documents/BookService.swift; sourceTree = "<group>"; };
+		D4C2E2B62959BF2A0027DE57 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Book.swift; path = ../../../../../../../../../Documents/Book.swift; sourceTree = "<group>"; };
 		D4CCC41E29500C0E00695420 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		D4CCC4202951578000695420 /* FullDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiaryViewController.swift; sourceTree = "<group>"; };
 		D4CCC42529517DF500695420 /* DiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCell.swift; sourceTree = "<group>"; };
@@ -222,8 +226,8 @@
 				D44A31752945F64D001C28B7 /* Mood.swift */,
 				D44A31772946291E001C28B7 /* Diary.swift */,
 				D4CCC41E29500C0E00695420 /* Alert.swift */,
-				D45C1727295716AE00E8C9A4 /* Movie.swift */,
-				D45C173329586FEE00E8C9A4 /* RealmMovie.swift */,
+				D4C2E2B42959BEDA0027DE57 /* Movie */,
+				D4C2E2B52959BEEB0027DE57 /* Book */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,6 +237,7 @@
 			children = (
 				D45C172429570EBD00E8C9A4 /* MovieService.swift */,
 				D45C173129586CFB00E8C9A4 /* ImageFileManager.swift */,
+				D4C2E2B22959BEAA0027DE57 /* BookService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -270,6 +275,23 @@
 				D43F1F832944C91B0017CFD2 /* Extensions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		D4C2E2B42959BEDA0027DE57 /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				D45C1727295716AE00E8C9A4 /* Movie.swift */,
+				D45C173329586FEE00E8C9A4 /* RealmMovie.swift */,
+			);
+			path = Movie;
+			sourceTree = "<group>";
+		};
+		D4C2E2B52959BEEB0027DE57 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				D4C2E2B62959BF2A0027DE57 /* Book.swift */,
+			);
+			path = Book;
 			sourceTree = "<group>";
 		};
 		EA2C60867B7C01337B28A63D /* Pods */ = {
@@ -402,6 +424,7 @@
 				D4A590DE294A190300BC98B9 /* AddAlertViewController.swift in Sources */,
 				D45C173A295879B600E8C9A4 /* MovieViewCell.swift in Sources */,
 				D44A317329451926001C28B7 /* CreateDiaryView.swift in Sources */,
+				D4C2E2B32959BEAA0027DE57 /* BookService.swift in Sources */,
 				D45C17402958A6CC00E8C9A4 /* UpdateMovieViewController.swift in Sources */,
 				D44A31782946291E001C28B7 /* Diary.swift in Sources */,
 				D44A31762945F64D001C28B7 /* Mood.swift in Sources */,
@@ -417,6 +440,7 @@
 				D45C17302958621100E8C9A4 /* AddMovieDateViewController.swift in Sources */,
 				D4CCC42A29531D5700695420 /* StartViewController.swift in Sources */,
 				D45C172E2958374200E8C9A4 /* MovieCreateView.swift in Sources */,
+				D4C2E2B72959BF2A0027DE57 /* Book.swift in Sources */,
 				D44A318629484674001C28B7 /* UpdateDiaryView.swift in Sources */,
 				D45C173429586FEE00E8C9A4 /* RealmMovie.swift in Sources */,
 				D4A590DC294A112E00BC98B9 /* AlarmSettingView.swift in Sources */,
