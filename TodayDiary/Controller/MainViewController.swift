@@ -212,10 +212,13 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     }
     
     @objc func handleSetting2() {
-        let movieMainViewController = MovieMainViewController()
-        movieMainViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(movieMainViewController, animated: true)
+        let bookMainViewController = BookMainViewController()
+        bookMainViewController.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(bookMainViewController, animated: true)
         
+//        let movieMainViewController = MovieMainViewController()
+//        movieMainViewController.modalPresentationStyle = .fullScreen
+//        navigationController?.pushViewController(movieMainViewController, animated: true)
         
 //        원래 코드
 //        let fullDiaryViewController = FullDiaryViewController()

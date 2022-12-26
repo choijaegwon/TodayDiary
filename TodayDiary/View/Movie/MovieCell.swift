@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
+// 검색했을때, 뜨는 cell
 class MovieCell: UICollectionViewCell {
     
     // 포스터 이미지
