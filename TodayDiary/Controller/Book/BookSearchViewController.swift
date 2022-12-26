@@ -19,7 +19,7 @@ class BookSearchViewController: UIViewController {
     private let bookService = BookService()
     private let disposeBag = DisposeBag()
     let cellMarginSize: CGFloat = 10.0
-    
+    lazy var realmBook: [RealmBook] = []
     private lazy var books = [Book]() {
         didSet {
             self.collectionView.reloadData()
@@ -47,7 +47,9 @@ class BookSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("test2")
+        print(self.realmBook)
+        print("test2")
         configurUI()
         registerCell()
         bindUI()
@@ -158,12 +160,21 @@ extension BookSearchViewController: BookCreateVCDelegate {
 
 extension BookSearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(#function)
-        let bookCreateViewController = BookCreateViewController()
-        bookCreateViewController.modalPresentationStyle = .fullScreen
-        bookCreateViewController.delegate = self
-        var e = [books[indexPath.row]]
-        bookCreateViewController.book = e
-        navigationController?.pushViewController(bookCreateViewController, animated: true)
+        // 여기서 분기처리를 해줘야한다
+        // 만약에 title이 이미 저배열에 있으면, 알렛띄어주고 그게아니면 이동시킨다.
+        let titleResult = books[indexPath.row].title.components(separatedBy: "(")[0]
+        if self.realmBook.map({$0.bookTitle}).contains(titleResult) {
+            let alert = UIAlertController(title: "이미 책 후기가 있어요.", message: "", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(okAction)
+            present(alert, animated: false, completion: nil)
+        } else {
+            let bookCreateViewController = BookCreateViewController()
+            bookCreateViewController.modalPresentationStyle = .fullScreen
+            bookCreateViewController.delegate = self
+            var e = [books[indexPath.row]]
+            bookCreateViewController.book = e
+            navigationController?.pushViewController(bookCreateViewController, animated: true)
+        }
     }
 }

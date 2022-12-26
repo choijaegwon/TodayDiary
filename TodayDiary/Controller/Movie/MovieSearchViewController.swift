@@ -156,8 +156,7 @@ extension MovieSearchViewController: MovieCreateVCDelegate {
 
 extension MovieSearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
-        print(#function)
+        
         let movieCreateViewController = MovieCreateViewController()
         movieCreateViewController.modalPresentationStyle = .fullScreen
         movieCreateViewController.delegate = self
