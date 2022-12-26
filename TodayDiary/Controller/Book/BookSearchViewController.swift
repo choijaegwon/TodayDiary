@@ -92,7 +92,7 @@ extension BookSearchViewController: UITextFieldDelegate {
     // 완료 버튼을 누르면 키보드가 내려가기만들기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        bookService.fetchBooks(bookName: "엑시트")
+        bookService.fetchBooks(bookName: self.textField.text!)
         return true
     }
 }
@@ -150,8 +150,20 @@ extension BookSearchViewController: UICollectionViewDataSource {
     
 }
 
+extension BookSearchViewController: BookCreateVCDelegate {
+    func saveButtonTapped() {
+        self.navigationController?.popViewController(animated: false)
+    }
+}
+
 extension BookSearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(#function)
+        let bookCreateViewController = BookCreateViewController()
+        bookCreateViewController.modalPresentationStyle = .fullScreen
+        bookCreateViewController.delegate = self
+        var e = [books[indexPath.row]]
+        bookCreateViewController.book = e
+        navigationController?.pushViewController(bookCreateViewController, animated: true)
     }
 }

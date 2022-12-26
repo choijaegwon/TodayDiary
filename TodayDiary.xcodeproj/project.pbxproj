@@ -58,6 +58,8 @@
 		D4C2E2C52959E76C0027DE57 /* RealmBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2C42959E76C0027DE57 /* RealmBook.swift */; };
 		D4C2E2C72959E9610027DE57 /* BookSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2C62959E9610027DE57 /* BookSearchViewController.swift */; };
 		D4C2E2C92959F1000027DE57 /* BookCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2C82959F1000027DE57 /* BookCreateViewController.swift */; };
+		D4C2E2CB2959F17D0027DE57 /* BookCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2CA2959F17D0027DE57 /* BookCreateView.swift */; };
+		D4C2E2CD2959F7860027DE57 /* AddBookDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2CC2959F7860027DE57 /* AddBookDateViewController.swift */; };
 		D4CCC41F29500C0E00695420 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC41E29500C0E00695420 /* Alert.swift */; };
 		D4CCC4212951578000695420 /* FullDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC4202951578000695420 /* FullDiaryViewController.swift */; };
 		D4CCC42629517DF500695420 /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CCC42529517DF500695420 /* DiaryCell.swift */; };
@@ -126,6 +128,8 @@
 		D4C2E2C42959E76C0027DE57 /* RealmBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBook.swift; sourceTree = "<group>"; };
 		D4C2E2C62959E9610027DE57 /* BookSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchViewController.swift; sourceTree = "<group>"; };
 		D4C2E2C82959F1000027DE57 /* BookCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCreateViewController.swift; sourceTree = "<group>"; };
+		D4C2E2CA2959F17D0027DE57 /* BookCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCreateView.swift; sourceTree = "<group>"; };
+		D4C2E2CC2959F7860027DE57 /* AddBookDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookDateViewController.swift; sourceTree = "<group>"; };
 		D4CCC41E29500C0E00695420 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		D4CCC4202951578000695420 /* FullDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDiaryViewController.swift; sourceTree = "<group>"; };
 		D4CCC42529517DF500695420 /* DiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCell.swift; sourceTree = "<group>"; };
@@ -320,6 +324,7 @@
 				D4C2E2B92959C68C0027DE57 /* BookMainViewController.swift */,
 				D4C2E2C62959E9610027DE57 /* BookSearchViewController.swift */,
 				D4C2E2C82959F1000027DE57 /* BookCreateViewController.swift */,
+				D4C2E2CC2959F7860027DE57 /* AddBookDateViewController.swift */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				D4C2E2BC2959C71E0027DE57 /* EmptyBookView.swift */,
 				D4C2E2C02959E4140027DE57 /* BookCell.swift */,
 				D4C2E2C22959E5DA0027DE57 /* BookViewCell.swift */,
+				D4C2E2CA2959F17D0027DE57 /* BookCreateView.swift */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -477,6 +483,7 @@
 				D4CCC42C29531D9600695420 /* StartView.swift in Sources */,
 				D4CCC42629517DF500695420 /* DiaryCell.swift in Sources */,
 				D45C173C2958918D00E8C9A4 /* MovieViewController.swift in Sources */,
+				D4C2E2CB2959F17D0027DE57 /* BookCreateView.swift in Sources */,
 				D4A590E0294AF95E00BC98B9 /* AlarmSettingViewModel.swift in Sources */,
 				D45C172A295737B100E8C9A4 /* MovieCell.swift in Sources */,
 				D4CCC41F29500C0E00695420 /* Alert.swift in Sources */,
@@ -492,6 +499,7 @@
 				D45C17422958A76A00E8C9A4 /* UpdateMovieView.swift in Sources */,
 				D45C172C295835B300E8C9A4 /* MovieCreateViewController.swift in Sources */,
 				D44A31802947907F001C28B7 /* DiaryViewController.swift in Sources */,
+				D4C2E2CD2959F7860027DE57 /* AddBookDateViewController.swift in Sources */,
 				D44A31712945173F001C28B7 /* CreateDiaryViewController.swift in Sources */,
 				D4CCC4282953160000695420 /* EmptyDiaryView.swift in Sources */,
 				D44A317E29478F9F001C28B7 /* DiaryView.swift in Sources */,
