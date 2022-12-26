@@ -19,7 +19,7 @@ class MovieSearchViewController: UIViewController {
     private let movieService = MovieService()
     private let disposeBag = DisposeBag()
     let cellMarginSize: CGFloat = 10.0
-    
+    lazy var realmMoive: [RealmMoive] = []
     private lazy var movies = [Movie]() {
         didSet {
             self.collectionView.reloadData()
@@ -156,12 +156,20 @@ extension MovieSearchViewController: MovieCreateVCDelegate {
 
 extension MovieSearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let movieCreateViewController = MovieCreateViewController()
-        movieCreateViewController.modalPresentationStyle = .fullScreen
-        movieCreateViewController.delegate = self
-        var e = [movies[indexPath.row]]
-        movieCreateViewController.movie = e
-        navigationController?.pushViewController(movieCreateViewController, animated: true)
+
+        let titleResult = movies[indexPath.row].title.replacingOccurrences(of: "</b>", with: "").replacingOccurrences(of: "<b>", with: "")
+        if self.realmMoive.map({$0.movieTitle}).contains(titleResult) {
+            let alert = UIAlertController(title: "이미 영화 후기가 있어요.", message: "", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(okAction)
+            present(alert, animated: false, completion: nil)
+        } else {
+            let movieCreateViewController = MovieCreateViewController()
+            movieCreateViewController.modalPresentationStyle = .fullScreen
+            movieCreateViewController.delegate = self
+            var e = [movies[indexPath.row]]
+            movieCreateViewController.movie = e
+            navigationController?.pushViewController(movieCreateViewController, animated: true)
+        }
     }
 }

@@ -47,9 +47,6 @@ class BookSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("test2")
-        print(self.realmBook)
-        print("test2")
         configurUI()
         registerCell()
         bindUI()

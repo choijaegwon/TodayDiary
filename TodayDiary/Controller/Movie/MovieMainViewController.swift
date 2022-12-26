@@ -104,6 +104,7 @@ class MovieMainViewController: UIViewController {
     @objc func movieAddButton() {
         print(#function)
         let movieSearchViewController = MovieSearchViewController()
+        movieSearchViewController.realmMoive = self.realmMoive
         movieSearchViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(movieSearchViewController, animated: true)
     }
