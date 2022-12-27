@@ -181,7 +181,7 @@ class MainView: UIView {
         }
         
         labelBackgorund.snp.makeConstraints {
-            $0.top.equalTo(calendar.snp.top).offset(70)
+            $0.top.equalTo(calendar.snp.top).offset(45)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(moonSumStack.snp.width).offset(16)
             $0.height.equalTo(moonSumStack.snp.height).offset(16)

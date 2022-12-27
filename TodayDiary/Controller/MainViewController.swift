@@ -50,11 +50,13 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         mainView.calendar.delegate = self
         mainView.calendar.dataSource = self
         self.todayStrig = dateFormatter.string(from: Date())
-       
+        print(#function)
         configurUI()
         bindUI()
         bindTap()
         day01() // 오늘이 01이면 지난달 뷰 보여주기
+        NotificationCenter.default.addObserver(self, selector: #selector(notiReload), name: NSNotification.Name("reload"), object: nil)
+        
     }
     
     func configurUI() {
@@ -227,6 +229,15 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
 //        fullDiaryViewController.modalPresentationStyle = .fullScreen
 //        navigationController?.pushViewController(fullDiaryViewController, animated: true)
         
+    }
+    
+    @objc func notiReload() {
+        print(#function)
+        configurUI()
+        bindUI()
+        bindTap()
+        day01()
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
     }
 }
 
