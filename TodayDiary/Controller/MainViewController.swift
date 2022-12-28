@@ -155,6 +155,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
                 if $0.isEmpty == true { // 오늘 일기가 비어있으면
                     self.mainView.todayBackgorund.isHidden = true
                 } else { // 오늘 일기가 있으면 데이터 채워주기
+                    self.mainView.calendar.appearance.todayColor = .clear
                     self.mainView.todayBackgorund.isHidden = false
                     self.mainView.mainquestionbutton.isHidden = true
                     $0.map { diary in
