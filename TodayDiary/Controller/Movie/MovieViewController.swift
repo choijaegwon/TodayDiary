@@ -16,12 +16,7 @@ class MovieViewController: UIViewController {
     private let movieView = MovieView()
     private let disposeBag = DisposeBag()
     private let realm = try! Realm()
-    lazy var realmMovie = [RealmMoive]() {
-        didSet {
-            print("gga")
-            print(self.realmMovie)
-        }
-    }
+    lazy var realmMovie = [RealmMoive]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +37,7 @@ class MovieViewController: UIViewController {
         
         view.addSubview(movieView)
         movieView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(30)
             $0.left.right.bottom.equalToSuperview()
         }
         
@@ -50,7 +45,7 @@ class MovieViewController: UIViewController {
     }
     
     func configureNaviBar() {
-        self.navigationController?.navigationBar.topItem?.title = ""
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "leftArrow"), style: .plain, target: self, action: #selector(moviePop))
         let rightBarButtonItem = UIBarButtonItem(title: "삭제하기", style: .plain, target: self, action: #selector(movieDelete))
         rightBarButtonItem.tintColor = UIColor.red
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
@@ -65,7 +60,7 @@ class MovieViewController: UIViewController {
         
         movieView.moviePosterLabel.text = realmMovie.first?.movieTitle
         movieView.cosmos.rating = realmMovie.first!.movieCosmos
-        movieView.moviePosterPubDate.text = realmMovie.first?.moviePubDate
+        movieView.moviePosterPubDate.text = realmMovie.first!.moviePubDate
         movieView.moviePosterDirector.text = realmMovie.first?.movieDirector
         movieView.moviePosterActor.text = realmMovie.first?.movieActor
         movieView.movieDateLabel.text = realmMovie.first?.movieDate
@@ -94,9 +89,17 @@ class MovieViewController: UIViewController {
         
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @objc func moviePop() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension MovieViewController: UpdateMovieVCDelegate {
+    func popButtonTapped() {
+        self.navigationController?.popViewController(animated: false)
+    }
+    
     func updateButtonTapped() {
         self.navigationController?.popViewController(animated: false)
     }

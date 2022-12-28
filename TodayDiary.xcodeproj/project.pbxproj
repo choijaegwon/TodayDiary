@@ -277,11 +277,11 @@
 			isa = PBXGroup;
 			children = (
 				D45C17202956DC7600E8C9A4 /* MovieMainViewController.swift */,
+				D45C173B2958918D00E8C9A4 /* MovieViewController.swift */,
 				D45C17222956DEAA00E8C9A4 /* MovieSearchViewController.swift */,
 				D45C172B295835B300E8C9A4 /* MovieCreateViewController.swift */,
-				D45C172F2958621100E8C9A4 /* AddMovieDateViewController.swift */,
-				D45C173B2958918D00E8C9A4 /* MovieViewController.swift */,
 				D45C173F2958A6CC00E8C9A4 /* UpdateMovieViewController.swift */,
+				D45C172F2958621100E8C9A4 /* AddMovieDateViewController.swift */,
 			);
 			path = Movie;
 			sourceTree = "<group>";
@@ -330,11 +330,11 @@
 			isa = PBXGroup;
 			children = (
 				D4C2E2B92959C68C0027DE57 /* BookMainViewController.swift */,
+				D4C2E2CE295A012E0027DE57 /* BookViewController.swift */,
 				D4C2E2C62959E9610027DE57 /* BookSearchViewController.swift */,
 				D4C2E2C82959F1000027DE57 /* BookCreateViewController.swift */,
-				D4C2E2CC2959F7860027DE57 /* AddBookDateViewController.swift */,
-				D4C2E2CE295A012E0027DE57 /* BookViewController.swift */,
 				D4C2E2D2295A03780027DE57 /* UpdateBookViewController.swift */,
+				D4C2E2CC2959F7860027DE57 /* AddBookDateViewController.swift */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -342,12 +342,12 @@
 		D4C2E2BB2959C6FE0027DE57 /* Book */ = {
 			isa = PBXGroup;
 			children = (
-				D4C2E2BC2959C71E0027DE57 /* EmptyBookView.swift */,
-				D4C2E2C02959E4140027DE57 /* BookCell.swift */,
 				D4C2E2C22959E5DA0027DE57 /* BookViewCell.swift */,
+				D4C2E2C02959E4140027DE57 /* BookCell.swift */,
 				D4C2E2CA2959F17D0027DE57 /* BookCreateView.swift */,
 				D4C2E2D0295A01680027DE57 /* BookView.swift */,
 				D4C2E2D4295A04770027DE57 /* UpdateBookView.swift */,
+				D4C2E2BC2959C71E0027DE57 /* EmptyBookView.swift */,
 			);
 			path = Book;
 			sourceTree = "<group>";

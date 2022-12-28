@@ -21,6 +21,7 @@ class BookViewCell: UICollectionViewCell {
     // 포스터 제목
     lazy var bookPosterLabel = UILabel().then {
         $0.text = "책 제목"
+        $0.textAlignment = .center
         $0.numberOfLines = 2
         $0.font = .systemFont(ofSize: 13, weight: .bold)
     }
@@ -28,6 +29,7 @@ class BookViewCell: UICollectionViewCell {
     // 본날짜.
     lazy var bookDateLabel = UILabel().then {
         $0.text = "2022년 12월 24일 토요일"
+        $0.textAlignment = .center
         $0.textColor = .black
         $0.numberOfLines = 1
         $0.font = .systemFont(ofSize: 11, weight: .medium)
@@ -43,7 +45,7 @@ class BookViewCell: UICollectionViewCell {
     // 평점 숫자
     lazy var bookPosterRating = UILabel().then {
         $0.text = "8.98"
-        $0.textColor = .yearTextColor
+        $0.textColor = .black
         $0.font = .systemFont(ofSize: 11, weight: .medium)
     }
     
@@ -66,7 +68,7 @@ class BookViewCell: UICollectionViewCell {
         addSubview(bookDateLabel)
         bookDateLabel.snp.makeConstraints {
             $0.top.equalTo(bookPosterLabel.snp.bottom).offset(2)
-            $0.left.equalTo(bookPosterLabel.snp.left)
+            $0.centerX.equalToSuperview()
         }
         
         addSubview(bookPosterRatingLabel)
@@ -78,7 +80,7 @@ class BookViewCell: UICollectionViewCell {
         addSubview(bookPosterRating)
         bookPosterRating.snp.makeConstraints {
             $0.top.equalTo(bookDateLabel.snp.bottom).offset(2)
-            $0.left.equalTo(bookPosterRatingLabel.snp.right).offset(2)
+            $0.right.equalToSuperview()
         }
 
         

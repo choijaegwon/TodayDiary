@@ -15,13 +15,14 @@ class BookCreateView: UIView {
     // 책 이미지
     lazy var bookPosterImage = UIImageView().then {
         // 그때 그떄 정할 예정 일단 기본이미지.
-        $0.image = UIImage(named: "testbookimage")
+        $0.image = UIImage(named: "noimage")
         $0.contentMode = .scaleAspectFit
     }
     
     // 책 제목
     lazy var bookPosterLabel = UILabel().then {
         $0.text = "책 제목"
+        $0.textAlignment = .center
         $0.numberOfLines = 2
         $0.font = .systemFont(ofSize: 13, weight: .bold)
     }
@@ -32,8 +33,8 @@ class BookCreateView: UIView {
     }
     
     private let bookPosterAuthorLabel = UILabel().then {
-        $0.text = "저자"
-        $0.textColor = .yearTextColor
+        $0.text = "저자: "
+        $0.textColor = .mbTextColor
         $0.numberOfLines = 1
         $0.font = .systemFont(ofSize: 13, weight: .medium)
     }
@@ -45,8 +46,8 @@ class BookCreateView: UIView {
     }
     
     private let bookPosterPublisherLabel = UILabel().then {
-        $0.text = "출판사"
-        $0.textColor = .yearTextColor
+        $0.text = "출판사: "
+        $0.textColor = .mbTextColor
         $0.numberOfLines = 1
         $0.font = .systemFont(ofSize: 13, weight: .medium)
     }
@@ -58,8 +59,8 @@ class BookCreateView: UIView {
     }
     
     private let bookDayLabel = UILabel().then {
-        $0.text = "책본 날짜"
-        $0.textColor = .yearTextColor
+        $0.text = "책본 날짜: "
+        $0.textColor = .mbTextColor
         $0.numberOfLines = 1
         $0.font = .systemFont(ofSize: 13, weight: .medium)
     }
@@ -69,7 +70,7 @@ class BookCreateView: UIView {
         $0.text = "2022년 12월 24일 토요일"
         $0.textColor = .black
         $0.numberOfLines = 1
-        $0.font = .systemFont(ofSize: 13, weight: .medium)
+        $0.font = .systemFont(ofSize: 15, weight: .medium)
     }
     
     var textView = UITextView().then {
@@ -106,27 +107,29 @@ class BookCreateView: UIView {
         addSubview(bookPosterLabel)
         bookPosterLabel.snp.makeConstraints {
             $0.top.equalTo(bookPosterImage.snp.bottom).offset(10)
-            $0.centerX.equalToSuperview()
+            $0.left.equalTo(bookPosterImage.snp.left).offset(5)
+            $0.right.equalTo(bookPosterImage.snp.right).offset(5)
         }
         
         addSubview(cosmos)
         cosmos.snp.makeConstraints {
             $0.top.equalTo(bookPosterLabel.snp.bottom).offset(10)
-            $0.width.equalTo(bookPosterLabel.snp.width)
+            $0.width.equalTo(bookPosterImage.snp.width)
             $0.height.equalTo(30)
             $0.centerX.equalToSuperview()
         }
+        
         // 저자
         addSubview(bookPosterAuthorLabel)
         bookPosterAuthorLabel.snp.makeConstraints {
-            $0.top.equalTo(bookPosterLabel.snp.bottom).offset(30)
+            $0.top.equalTo(bookPosterLabel.snp.bottom).offset(50)
             $0.left.equalToSuperview().inset(15)
         }
         
         // 저자이름
         addSubview(bookPosterAuthor)
         bookPosterAuthor.snp.makeConstraints {
-            $0.top.equalTo(bookPosterLabel.snp.bottom).offset(30)
+            $0.top.equalTo(bookPosterAuthorLabel.snp.top)
             $0.left.equalTo(bookPosterAuthorLabel.snp.right).offset(2)
             $0.right.equalToSuperview().inset(15)
         }
@@ -141,7 +144,7 @@ class BookCreateView: UIView {
         // 출판사이름
         addSubview(bookPosterPublisher)
         bookPosterPublisher.snp.makeConstraints {
-            $0.top.equalTo(bookPosterAuthor.snp.bottom).offset(10)
+            $0.top.equalTo(bookPosterPublisherLabel.snp.top)
             $0.left.equalTo(bookPosterPublisherLabel.snp.right).offset(2)
             $0.right.equalToSuperview().inset(15)
         }
@@ -149,14 +152,14 @@ class BookCreateView: UIView {
         // 본날짜
         addSubview(bookDayLabel)
         bookDayLabel.snp.makeConstraints {
-            $0.top.equalTo(bookPosterPublisher.snp.bottom).offset(10)
+            $0.top.equalTo(bookPosterPublisherLabel.snp.bottom).offset(10)
             $0.left.equalTo(bookPosterPublisherLabel.snp.left)
         }
         
         // yyyy mm  ee eee
         addSubview(bookDateLabel)
         bookDateLabel.snp.makeConstraints {
-            $0.top.equalTo(bookPosterPublisher.snp.bottom).offset(10)
+            $0.top.equalTo(bookDayLabel.snp.top)
             $0.left.equalTo(bookDayLabel.snp.right).offset(4)
         }
         

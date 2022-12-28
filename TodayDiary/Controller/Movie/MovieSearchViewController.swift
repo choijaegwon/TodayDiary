@@ -57,7 +57,7 @@ class MovieSearchViewController: UIViewController {
         
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(18)
             $0.bottom.equalToSuperview()
             $0.left.right.equalToSuperview().inset(18)
         }
@@ -119,7 +119,7 @@ extension MovieSearchViewController: UICollectionViewDataSource {
         }
 
         cell.moviePosterLabel.text = titleResult
-        cell.moviePosterYear.text = movies[indexPath.row].pubDate
+        cell.moviePosterYear.text = movies[indexPath.row].pubDate + "년"
         cell.moviePosterRating.text = movies[indexPath.row].userRating
         return cell
     }

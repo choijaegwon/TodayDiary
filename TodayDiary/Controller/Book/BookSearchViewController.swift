@@ -56,7 +56,7 @@ class BookSearchViewController: UIViewController {
         
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(18)
             $0.bottom.equalToSuperview()
             $0.left.right.equalToSuperview().inset(18)
         }
@@ -78,10 +78,7 @@ class BookSearchViewController: UIViewController {
     
     func bindUI() {
         bookService.bookList.subscribe(onNext: {
-            print("test")
-            print($0)
             self.books = $0
-            print("test")
         }).disposed(by: disposeBag)
     }
 }

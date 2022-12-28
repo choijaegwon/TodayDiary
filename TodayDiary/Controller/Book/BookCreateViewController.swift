@@ -26,12 +26,7 @@ class BookCreateViewController: UIViewController {
     private var nowDate = Date()
     private var dateString: String = "" // 오늘날짜
     weak var delegate: BookCreateVCDelegate?
-    
-    var book = [Book]() {
-        didSet {
-            print(self.book)
-        }
-    }
+    var book = [Book]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,9 +71,14 @@ class BookCreateViewController: UIViewController {
             }
         }
         
+        if authorResult == "" {
+            self.bookCreateView.bookPosterAuthor.text = "저자 정보가 없습니다."
+        } else {
+            self.bookCreateView.bookPosterAuthor.text = authorResult
+        }
+        
         bookCreateView.bookPosterLabel.text = titleResult
         bookCreateView.bookPosterPublisher.text = book.first!.publisher
-        bookCreateView.bookPosterAuthor.text = authorResult
         bookCreateView.bookDateLabel.text = self.dateString
         
         

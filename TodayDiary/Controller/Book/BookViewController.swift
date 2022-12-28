@@ -16,12 +16,7 @@ class BookViewController: UIViewController {
     private let bookView = BookView()
     private let disposeBag = DisposeBag()
     private let realm = try! Realm()
-    lazy var realmBook = [RealmBook]() {
-        didSet {
-            print("gga")
-            print(self.realmBook)
-        }
-    }
+    lazy var realmBook = [RealmBook]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +45,7 @@ class BookViewController: UIViewController {
     }
     
     func configureNaviBar() {
-        self.navigationController?.navigationBar.topItem?.title = ""
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "leftArrow"), style: .plain, target: self, action: #selector(bookPop))
         let rightBarButtonItem = UIBarButtonItem(title: "삭제하기", style: .plain, target: self, action: #selector(bookDelete))
         rightBarButtonItem.tintColor = UIColor.red
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
@@ -93,9 +88,17 @@ class BookViewController: UIViewController {
         
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @objc func bookPop() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension BookViewController: UpdateBookVCDelegate {
+    func popButtonTapped() {
+        self.navigationController?.popViewController(animated: false)
+    }
+    
     func updateButtonTapped() {
         self.navigationController?.popViewController(animated: false)
     }

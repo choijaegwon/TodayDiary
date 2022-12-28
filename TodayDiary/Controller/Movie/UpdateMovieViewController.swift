@@ -13,6 +13,7 @@ import RealmSwift
 
 protocol UpdateMovieVCDelegate: AnyObject {
     func updateButtonTapped()
+    func popButtonTapped()
 }
 
 // 데이터피커 되게 바꿔야함
@@ -32,6 +33,8 @@ class UpdateMovieViewController: UIViewController {
         configurUI()
         bindUI()
         bindTap()
+        
+        
     }
     
     func configurUI() {
@@ -39,9 +42,15 @@ class UpdateMovieViewController: UIViewController {
         
         view.addSubview(updateMovieView)
         updateMovieView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(30)
             $0.right.left.bottom.equalToSuperview()
         }
+        
+        configureNaviBar()
+    }
+    
+    func configureNaviBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "leftArrow"), style: .plain, target: self, action: #selector(movieBack))
     }
     
     func bindUI() {
@@ -92,7 +101,6 @@ class UpdateMovieViewController: UIViewController {
             .when(.recognized)
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
-                print(#function)
                 let addMovieDateViewController = AddMovieDateViewController()
                 addMovieDateViewController.delegate = self
                 self.addMovieDatePresentationController(addMovieDateViewController, self)
@@ -101,6 +109,10 @@ class UpdateMovieViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
+    @objc func movieBack() {
+        self.navigationController?.popViewController(animated: false)
+        self.delegate?.popButtonTapped()
+    }
     
 }
 

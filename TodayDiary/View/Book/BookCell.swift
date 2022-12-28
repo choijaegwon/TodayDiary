@@ -22,6 +22,7 @@ class BookCell: UICollectionViewCell {
     // 책 제목
     lazy var bookPosterLabel = UILabel().then {
         $0.text = "책 제목"
+        $0.textAlignment = .center
         $0.numberOfLines = 2
         $0.font = .systemFont(ofSize: 13, weight: .bold)
     }
@@ -29,7 +30,7 @@ class BookCell: UICollectionViewCell {
     // 책 저자
     lazy var bookPosterAuthorLabel = UILabel().then {
         $0.text = "저자"
-        $0.numberOfLines = 0
+        $0.numberOfLines = 2
         $0.textColor = .black
         $0.font = .systemFont(ofSize: 11, weight: .medium)
     }
@@ -40,6 +41,7 @@ class BookCell: UICollectionViewCell {
         addSubview(bookPosterImage)
         bookPosterImage.snp.makeConstraints {
             $0.top.right.left.equalToSuperview()
+            $0.width.equalTo(110)
             $0.height.equalTo(158)
         }
         

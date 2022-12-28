@@ -15,7 +15,7 @@ class MovieCreateView: UIView {
     // 포스터 이미지
     lazy var moviePosterImage = UIImageView().then {
         // 그때 그떄 정할 예정 일단 기본이미지.
-        $0.image = UIImage(named: "testImage")
+        $0.image = UIImage(named: "noimage")
         $0.contentMode = .scaleAspectFit
     }
     
@@ -31,8 +31,8 @@ class MovieCreateView: UIView {
     }
     
     private let moviePosterPubDateLabel = UILabel().then {
-        $0.text = "개봉년도"
-        $0.textColor = .yearTextColor
+        $0.text = "개봉년도: "
+        $0.textColor = .mbTextColor
         $0.numberOfLines = 1
         $0.font = .systemFont(ofSize: 13, weight: .medium)
     }
@@ -44,8 +44,8 @@ class MovieCreateView: UIView {
     }
     
     private let moviePosterDirectorLabel = UILabel().then {
-        $0.text = "감독"
-        $0.textColor = .yearTextColor
+        $0.text = "감독: "
+        $0.textColor = .mbTextColor
         $0.numberOfLines = 1
         $0.font = .systemFont(ofSize: 13, weight: .medium)
     }
@@ -57,8 +57,8 @@ class MovieCreateView: UIView {
     }
     
     private let moviePosterActorLabel = UILabel().then {
-        $0.text = "배우"
-        $0.textColor = .yearTextColor
+        $0.text = "배우: "
+        $0.textColor = .mbTextColor
         $0.numberOfLines = 1
         $0.font = .systemFont(ofSize: 13, weight: .medium)
     }
@@ -70,8 +70,8 @@ class MovieCreateView: UIView {
     }
     
     private let movieDayLabel = UILabel().then {
-        $0.text = "영화본 날짜"
-        $0.textColor = .yearTextColor
+        $0.text = "영화본 날짜: "
+        $0.textColor = .mbTextColor
         $0.numberOfLines = 1
         $0.font = .systemFont(ofSize: 13, weight: .medium)
     }
@@ -81,7 +81,7 @@ class MovieCreateView: UIView {
         $0.text = "2022년 12월 24일 토요일"
         $0.textColor = .black
         $0.numberOfLines = 1
-        $0.font = .systemFont(ofSize: 13, weight: .medium)
+        $0.font = .systemFont(ofSize: 15, weight: .medium)
     }
     
     var textView = UITextView().then {
@@ -135,7 +135,7 @@ class MovieCreateView: UIView {
         addSubview(moviePosterPubDateStack)
         
         moviePosterPubDateStack.snp.makeConstraints {
-            $0.top.equalTo(moviePosterLabel.snp.bottom).offset(30)
+            $0.top.equalTo(moviePosterLabel.snp.bottom).offset(50)
             $0.left.equalToSuperview().inset(15)
         }
         

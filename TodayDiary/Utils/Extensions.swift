@@ -20,6 +20,7 @@ extension UIColor {
     class var todayContentsColor: UIColor? { return UIColor(named: "todayContentsColor")}
     class var switchColor: UIColor? { return UIColor(named: "switchColor")}
     class var cellHeaderBGColor: UIColor? { return UIColor(named: "cellHeaderBGColor")}
+    class var mbTextColor: UIColor? { return UIColor(named: "mbTextColor")}
 }
 
 extension UIButton {

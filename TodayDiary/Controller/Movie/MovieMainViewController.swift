@@ -54,7 +54,7 @@ class MovieMainViewController: UIViewController {
         
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(18)
             $0.bottom.equalToSuperview()
             $0.left.right.equalToSuperview().inset(18)
         }
@@ -75,10 +75,8 @@ class MovieMainViewController: UIViewController {
     
     func configureNaviBar() {
         self.title = "영화"
-        self.navigationController?.navigationBar.topItem?.title = ""
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
-        self.navigationController?.navigationBar.tintColor = .black
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "leftArrow"), style: .plain, target: self, action: #selector(moviePop))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(movieAddButton))
     }
 
@@ -102,11 +100,14 @@ class MovieMainViewController: UIViewController {
     
     // 영화 더하는 VC으로 이동하는 버튼
     @objc func movieAddButton() {
-        print(#function)
         let movieSearchViewController = MovieSearchViewController()
         movieSearchViewController.realmMoive = self.realmMoive
         movieSearchViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(movieSearchViewController, animated: true)
+    }
+    
+    @objc func moviePop() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -158,7 +159,6 @@ extension MovieMainViewController: UICollectionViewDataSource {
 
 extension MovieMainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(realmMoive[indexPath.row])
         let movieViewController = MovieViewController()
         movieViewController.realmMovie = [realmMoive[indexPath.row]]
         movieViewController.modalPresentationStyle = .fullScreen

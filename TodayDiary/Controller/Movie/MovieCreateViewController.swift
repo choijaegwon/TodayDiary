@@ -26,12 +26,7 @@ class MovieCreateViewController: UIViewController {
     private var nowDate = Date()
     private var dateString: String = "" // 오늘날짜
     weak var delegate: MovieCreateVCDelegate?
-    
-    var movie = [Movie]() {
-        didSet {
-            print(self.movie)
-        }
-    }
+    var movie = [Movie]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +76,7 @@ class MovieCreateViewController: UIViewController {
         }
 
         movieCreateView.moviePosterLabel.text = titleResult
-        movieCreateView.moviePosterPubDate.text = movie.first!.pubDate
+        movieCreateView.moviePosterPubDate.text = movie.first!.pubDate + "년"
         movieCreateView.moviePosterDirector.text = directorResult
         if actorResult == "" {
             self.movieCreateView.moviePosterActor.text = "배우 정보가 없습니다."

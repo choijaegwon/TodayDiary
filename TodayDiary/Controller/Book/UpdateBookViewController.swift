@@ -13,6 +13,7 @@ import RealmSwift
 
 protocol UpdateBookVCDelegate: AnyObject {
     func updateButtonTapped()
+    func popButtonTapped()
 }
 
 // 데이터피커 되게 바꿔야함
@@ -42,6 +43,11 @@ class UpdateBookViewController: UIViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.right.left.bottom.equalToSuperview()
         }
+        configureNaviBar()
+    }
+    
+    func configureNaviBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "leftArrow"), style: .plain, target: self, action: #selector(movieBack))
     }
     
     func bindUI() {
@@ -91,7 +97,6 @@ class UpdateBookViewController: UIViewController {
             .when(.recognized)
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
-                print(#function)
                 let addBookDateViewController = AddBookDateViewController()
                 addBookDateViewController.delegate = self
                 self.addBookDatePresentationController(addBookDateViewController, self)
@@ -100,6 +105,10 @@ class UpdateBookViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
+    @objc func movieBack() {
+        self.navigationController?.popViewController(animated: false)
+        self.delegate?.popButtonTapped()
+    }
     
 }
 

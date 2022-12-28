@@ -14,13 +14,14 @@ class MovieViewCell: UICollectionViewCell {
     // 포스터 이미지
     lazy var moviePosterImage = UIImageView().then {
         // 그때 그떄 정할 예정 일단 기본이미지.
-        $0.image = UIImage(named: "testImage")
+        $0.image = UIImage(named: "noimage")
         $0.contentMode = .scaleAspectFit
     }
     
     // 포스터 제목
     lazy var moviePosterLabel = UILabel().then {
         $0.text = "영화 제목"
+        $0.textAlignment = .center
         $0.numberOfLines = 2
         $0.font = .systemFont(ofSize: 13, weight: .bold)
     }
@@ -28,6 +29,7 @@ class MovieViewCell: UICollectionViewCell {
     // 본날짜.
     lazy var movieDateLabel = UILabel().then {
         $0.text = "2022년 12월 24일 토요일"
+        $0.textAlignment = .center
         $0.textColor = .black
         $0.numberOfLines = 1
         $0.font = .systemFont(ofSize: 11, weight: .medium)
@@ -43,7 +45,7 @@ class MovieViewCell: UICollectionViewCell {
     // 평점 숫자
     lazy var moviePosterRating = UILabel().then {
         $0.text = "8.98"
-        $0.textColor = .yearTextColor
+        $0.textColor = .black
         $0.font = .systemFont(ofSize: 11, weight: .medium)
     }
     
@@ -65,7 +67,7 @@ class MovieViewCell: UICollectionViewCell {
         moviewLabelStack.snp.makeConstraints {
             $0.top.equalTo(moviePosterImage.snp.bottom)
             $0.left.equalToSuperview().inset(5)
-            $0.right.equalToSuperview()
+            $0.right.equalToSuperview().inset(5)
         }
         
         addSubview(moviePosterRatingLabel)
@@ -77,7 +79,7 @@ class MovieViewCell: UICollectionViewCell {
         addSubview(moviePosterRating)
         moviePosterRating.snp.makeConstraints {
             $0.top.equalTo(moviewLabelStack.snp.bottom).offset(2)
-            $0.left.equalTo(moviePosterRatingLabel.snp.right).offset(2)
+            $0.right.equalTo(moviewLabelStack.snp.right)
         }
         
     }
