@@ -58,15 +58,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
-        NotificationCenter.default.post(name: NSNotification.Name("reload"), object: nil)
+//        NotificationCenter.default.post(name: NSNotification.Name("reload"), object: nil)
     }
 
     // 백그라운드 상태로 갔을경우
     func sceneDidEnterBackground(_ scene: UIScene) {
-        // Called as the scene transitions from the foreground to the background.
-        // Use this method to save data, release shared resources, and store enough scene-specific state information
-        // to restore the scene back to its current state.
-//        exit(0)
+        exit(0)
     }
 }
 

@@ -289,9 +289,9 @@
 		D45C17362958768500E8C9A4 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
+				D45C1739295879B600E8C9A4 /* MovieViewCell.swift */,
 				D45C1729295737B100E8C9A4 /* MovieCell.swift */,
 				D45C172D2958374200E8C9A4 /* MovieCreateView.swift */,
-				D45C1739295879B600E8C9A4 /* MovieViewCell.swift */,
 				D45C173D295892F400E8C9A4 /* MovieView.swift */,
 				D45C17412958A76A00E8C9A4 /* UpdateMovieView.swift */,
 				D4C2E2A4295989000027DE57 /* EmptyMovieView.swift */,

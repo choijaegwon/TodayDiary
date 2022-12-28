@@ -13,6 +13,7 @@ import RxCocoa
 import RealmSwift
 import Toast_Swift
 import RxGesture
+import Then
 
 class MainViewController: UIViewController, UISheetPresentationControllerDelegate {
 
@@ -43,6 +44,27 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         }
     }
     
+    // 메뉴 버튼
+    private let menuButtonUI = UIView().then {
+        $0.layer.cornerRadius = 16
+        $0.backgroundColor = .labelBackgroundColor
+    }
+    
+    private let diaryLabel = UILabel().then {
+        $0.text = "일기"
+        $0.font = .systemFont(ofSize: 15, weight: .bold)
+    }
+    
+    private let movieLabel = UILabel().then {
+        $0.text = "영화"
+        $0.font = .systemFont(ofSize: 15, weight: .bold)
+    }
+    
+    private let bookLabel = UILabel().then {
+        $0.text = "책"
+        $0.font = .systemFont(ofSize: 15, weight: .bold)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,8 +77,6 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         bindUI()
         bindTap()
         day01() // 오늘이 01이면 지난달 뷰 보여주기
-        NotificationCenter.default.addObserver(self, selector: #selector(notiReload), name: NSNotification.Name("reload"), object: nil)
-        
     }
     
     func configurUI() {
@@ -67,6 +87,24 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
             $0.right.left.bottom.equalToSuperview()
         }
         configureNaviBar()
+        
+        view.addSubview(menuButtonUI)
+        menuButtonUI.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.left.equalToSuperview().offset(16)
+        }
+        
+        let menuStack = UIStackView(arrangedSubviews: [diaryLabel, movieLabel, bookLabel])
+        menuStack.axis = .vertical
+        menuStack.spacing = 20
+        
+        menuButtonUI.addSubview(menuStack)
+        menuStack.snp.makeConstraints {
+            $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
+            $0.center.equalToSuperview()
+        }
+        
+        menuButtonUI.isHidden = true
     }
     
     func configureNaviBar() {
@@ -184,6 +222,44 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
                 self.present(diaryViewController, animated: true)
             })
             .disposed(by: disposeBag)
+        
+        diaryLabel.rx
+            .tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                let fullDiaryViewController = FullDiaryViewController()
+                fullDiaryViewController.diary = self.fullDiary
+                fullDiaryViewController.sectionArray = self.yearMonths
+                fullDiaryViewController.modalPresentationStyle = .fullScreen
+                self.menuButtonUI.isHidden = true
+                self.navigationController?.pushViewController(fullDiaryViewController, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        movieLabel.rx
+            .tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                let movieMainViewController = MovieMainViewController()
+                movieMainViewController.modalPresentationStyle = .fullScreen
+                self.menuButtonUI.isHidden = true
+                self.navigationController?.pushViewController(movieMainViewController, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        bookLabel.rx
+            .tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                let bookMainViewController = BookMainViewController()
+                bookMainViewController.modalPresentationStyle = .fullScreen
+                self.menuButtonUI.isHidden = true
+                self.navigationController?.pushViewController(bookMainViewController, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
     func day01() {
@@ -214,13 +290,23 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     }
     
     @objc func handleSetting2() {
+        
+        if menuButtonUI.isHidden == true {
+            menuButtonUI.isHidden = false
+        } else {
+            menuButtonUI.isHidden = true
+        }
+        
+//        만약에 이버튼이 눌렀으면 menuButtonUI 버튼을 보여주고 다시 눌리면 menuButtonUI버튼을 숨긴다.
+//        menuButtonUI
+        
 //        let bookMainViewController = BookMainViewController()
 //        bookMainViewController.modalPresentationStyle = .fullScreen
 //        navigationController?.pushViewController(bookMainViewController, animated: true)
         
-        let movieMainViewController = MovieMainViewController()
-        movieMainViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(movieMainViewController, animated: true)
+//        let movieMainViewController = MovieMainViewController()
+//        movieMainViewController.modalPresentationStyle = .fullScreen
+//        navigationController?.pushViewController(movieMainViewController, animated: true)
         
 //        원래 코드
 //        let fullDiaryViewController = FullDiaryViewController()
@@ -231,14 +317,13 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         
     }
     
-    @objc func notiReload() {
-        print(#function)
-        configurUI()
-        bindUI()
-        bindTap()
-        day01()
-        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
-    }
+//    @objc func notiReload() {
+//        print(#function)
+//        configurUI()
+//        bindUI()
+//        bindTap()
+//        day01()
+//    }
 }
 
 extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
