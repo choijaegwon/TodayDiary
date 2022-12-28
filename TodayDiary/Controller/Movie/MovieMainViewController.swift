@@ -23,6 +23,13 @@ class MovieMainViewController: UIViewController {
     
     private lazy var realmMoive: [RealmMoive] = [] { // 전체 배열을 가져온다.
         didSet {
+            DispatchQueue.main.async {
+                if self.realmMoive.isEmpty {
+                    self.emptyMovieView.isHidden = false
+                } else {
+                    self.emptyMovieView.isHidden = true
+                }
+            }
             self.collectionView.reloadData()
         }
     }
@@ -62,12 +69,6 @@ class MovieMainViewController: UIViewController {
         view.addSubview(emptyMovieView)
         emptyMovieView.snp.makeConstraints {
             $0.center.equalToSuperview()
-        }
-        
-        if realmMoive.isEmpty {
-            emptyMovieView.isHidden = false
-        } else {
-            emptyMovieView.isHidden = true
         }
         
         configureNaviBar()
