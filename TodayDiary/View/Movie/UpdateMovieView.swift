@@ -111,7 +111,6 @@ class UpdateMovieView: UIView {
         moviePosterImage.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalToSuperview().inset(0)
-            $0.width.equalTo(110)
             $0.height.equalTo(158)
         }
         

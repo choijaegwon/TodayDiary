@@ -64,7 +64,6 @@ class MovieCell: UICollectionViewCell {
         
         moviePosterImage.snp.makeConstraints {
             $0.top.right.left.equalToSuperview()
-            $0.width.equalTo(110)
             $0.height.equalTo(158)
         }
         
