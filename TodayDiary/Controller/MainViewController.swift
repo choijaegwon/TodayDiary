@@ -297,34 +297,8 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         } else {
             menuButtonUI.isHidden = true
         }
-        
-//        만약에 이버튼이 눌렀으면 menuButtonUI 버튼을 보여주고 다시 눌리면 menuButtonUI버튼을 숨긴다.
-//        menuButtonUI
-        
-//        let bookMainViewController = BookMainViewController()
-//        bookMainViewController.modalPresentationStyle = .fullScreen
-//        navigationController?.pushViewController(bookMainViewController, animated: true)
-        
-//        let movieMainViewController = MovieMainViewController()
-//        movieMainViewController.modalPresentationStyle = .fullScreen
-//        navigationController?.pushViewController(movieMainViewController, animated: true)
-        
-//        원래 코드
-//        let fullDiaryViewController = FullDiaryViewController()
-//        fullDiaryViewController.diary = self.fullDiary
-//        fullDiaryViewController.sectionArray = self.yearMonths
-//        fullDiaryViewController.modalPresentationStyle = .fullScreen
-//        navigationController?.pushViewController(fullDiaryViewController, animated: true)
-        
     }
     
-//    @objc func notiReload() {
-//        print(#function)
-//        configurUI()
-//        bindUI()
-//        bindTap()
-//        day01()
-//    }
 }
 
 extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
