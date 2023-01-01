@@ -82,21 +82,8 @@ class FullDiaryViewController: UIViewController {
             return yearMonthFix
         }).mapValues { $0.sorted(by: {$0.date > $1.date}) }
         self.yearMonthDC = yearMonth
-        
-//        원래 내코드
-//        let yearMonth = Dictionary(grouping: diary, by: { diary in
-//            let yearMonthFix = String(diary.date.prefix(6))
-//            if sectionArray.contains(yearMonthFix) {
-//                return yearMonthFix
-//            } else {
-//                return ""
-//            }
-//        })
-//        self.yearMonthDC = yearMonth.mapValues { $0.sorted(by: {$0.date > $1.date})}
     }
     
-    // ["202212", "202211", "202210", "202209", "202208", "202207", "202206"] 를
-    // ["2022년 12월", "2022년 11월", "2022년 10월", "2022년 08월", "2022년 06월"] 이런 형태로 바꾸기
     func changeyearMonth() {
         for dateString in sectionArray {
             let formatter = DateFormatter()
