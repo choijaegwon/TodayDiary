@@ -303,12 +303,9 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
 
 extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     
-    // 날이 선택되었을떄 메서드
-    
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         let seletedDate = dateFormatter.string(from: date)
-        // 만약 데이터가 있으면 View를 보여주는 화면으로 옮기고
-        // 오늘 데이터가 없으면, 새로 만드는 화면으로 옮겨줘야한다.
+        
         if self.diarys.map({ $0.date }).contains(seletedDate) {
             let diaryViewController = DiaryViewController()
             diaryViewController.date = seletedDate
