@@ -40,6 +40,7 @@
 		D45C173E295892F400E8C9A4 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C173D295892F400E8C9A4 /* MovieView.swift */; };
 		D45C17402958A6CC00E8C9A4 /* UpdateMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C173F2958A6CC00E8C9A4 /* UpdateMovieViewController.swift */; };
 		D45C17422958A76A00E8C9A4 /* UpdateMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C17412958A76A00E8C9A4 /* UpdateMovieView.swift */; };
+		D47DC61C29632C3E006DBEA3 /* BookMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47DC61B29632C3E006DBEA3 /* BookMainViewModel.swift */; };
 		D4A590D42948D6D800BC98B9 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A590D32948D6D800BC98B9 /* SettingViewController.swift */; };
 		D4A590D62948DAD100BC98B9 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A590D52948DAD100BC98B9 /* SettingCell.swift */; };
 		D4A590D82948E38600BC98B9 /* AlarmViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A590D72948E38600BC98B9 /* AlarmViewContoller.swift */; };
@@ -52,7 +53,6 @@
 		D4C2E2B72959BF2A0027DE57 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2B62959BF2A0027DE57 /* Book.swift */; };
 		D4C2E2BA2959C68C0027DE57 /* BookMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2B92959C68C0027DE57 /* BookMainViewController.swift */; };
 		D4C2E2BD2959C71E0027DE57 /* EmptyBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2BC2959C71E0027DE57 /* EmptyBookView.swift */; };
-		D4C2E2BF2959C77F0027DE57 /* BookMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2BE2959C77F0027DE57 /* BookMainViewModel.swift */; };
 		D4C2E2C12959E4140027DE57 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2C02959E4140027DE57 /* BookCell.swift */; };
 		D4C2E2C32959E5DA0027DE57 /* BookViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2C22959E5DA0027DE57 /* BookViewCell.swift */; };
 		D4C2E2C52959E76C0027DE57 /* RealmBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2E2C42959E76C0027DE57 /* RealmBook.swift */; };
@@ -114,6 +114,7 @@
 		D45C173D295892F400E8C9A4 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 		D45C173F2958A6CC00E8C9A4 /* UpdateMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMovieViewController.swift; sourceTree = "<group>"; };
 		D45C17412958A76A00E8C9A4 /* UpdateMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMovieView.swift; sourceTree = "<group>"; };
+		D47DC61B29632C3E006DBEA3 /* BookMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMainViewModel.swift; sourceTree = "<group>"; };
 		D4A590D32948D6D800BC98B9 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D4A590D52948DAD100BC98B9 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		D4A590D72948E38600BC98B9 /* AlarmViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewContoller.swift; sourceTree = "<group>"; };
@@ -126,7 +127,6 @@
 		D4C2E2B62959BF2A0027DE57 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Book.swift; path = ../../../../../../../../../Documents/Book.swift; sourceTree = "<group>"; };
 		D4C2E2B92959C68C0027DE57 /* BookMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookMainViewController.swift; path = ../../../../../../../../../Documents/BookMainViewController.swift; sourceTree = "<group>"; };
 		D4C2E2BC2959C71E0027DE57 /* EmptyBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmptyBookView.swift; path = ../../../../../../../../../Documents/EmptyBookView.swift; sourceTree = "<group>"; };
-		D4C2E2BE2959C77F0027DE57 /* BookMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookMainViewModel.swift; path = "../../../../../../../../.Trash/TodayDiary 33/TodayDiary/ViewModel/BookMainViewModel.swift"; sourceTree = "<group>"; };
 		D4C2E2C02959E4140027DE57 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		D4C2E2C22959E5DA0027DE57 /* BookViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewCell.swift; sourceTree = "<group>"; };
 		D4C2E2C42959E76C0027DE57 /* RealmBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBook.swift; sourceTree = "<group>"; };
@@ -228,7 +228,7 @@
 				D4A590DF294AF95E00BC98B9 /* AlarmSettingViewModel.swift */,
 				D4CCC42D295336D500695420 /* StartViewModel.swift */,
 				D45C17372958770D00E8C9A4 /* MovieMainViewModel.swift */,
-				D4C2E2BE2959C77F0027DE57 /* BookMainViewModel.swift */,
+				D47DC61B29632C3E006DBEA3 /* BookMainViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -482,7 +482,6 @@
 				D4C2E2CF295A012E0027DE57 /* BookViewController.swift in Sources */,
 				D4C2E2C72959E9610027DE57 /* BookSearchViewController.swift in Sources */,
 				D4A590DE294A190300BC98B9 /* AddAlertViewController.swift in Sources */,
-				D4C2E2BF2959C77F0027DE57 /* BookMainViewModel.swift in Sources */,
 				D45C173A295879B600E8C9A4 /* MovieViewCell.swift in Sources */,
 				D44A317329451926001C28B7 /* CreateDiaryView.swift in Sources */,
 				D4C2E2B32959BEAA0027DE57 /* BookService.swift in Sources */,
@@ -490,6 +489,7 @@
 				D4C2E2C32959E5DA0027DE57 /* BookViewCell.swift in Sources */,
 				D44A31782946291E001C28B7 /* Diary.swift in Sources */,
 				D44A31762945F64D001C28B7 /* Mood.swift in Sources */,
+				D47DC61C29632C3E006DBEA3 /* BookMainViewModel.swift in Sources */,
 				D4CCC42E295336D500695420 /* StartViewModel.swift in Sources */,
 				D43F1F842944C91B0017CFD2 /* Extensions.swift in Sources */,
 				D45C173229586CFB00E8C9A4 /* ImageFileManager.swift in Sources */,
