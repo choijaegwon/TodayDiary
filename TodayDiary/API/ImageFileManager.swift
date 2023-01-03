@@ -9,8 +9,6 @@ import UIKit
 
 class ImageFileManager {
     static let shared: ImageFileManager = ImageFileManager()
-    // Save Image
-    // name: ImageName
     func saveImage(image: UIImage, name: String, onSuccess: @escaping ((Bool) -> Void)) {
         guard let data: Data
                 = image.jpegData(compressionQuality: 1)
@@ -64,7 +62,7 @@ class ImageFileManager {
                 }
             }
         } catch let error as NSError {
-            print("Could not deleteImage🥺: \(error), \(error.userInfo)")
+            print("Could not saveImage🥺: \(error), \(error.userInfo)")
             onSuccess(false)
         }
     }

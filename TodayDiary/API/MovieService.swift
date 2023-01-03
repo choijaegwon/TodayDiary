@@ -45,11 +45,4 @@ class MovieService {
             })
             .disposed(by: disposeBag)
     }
-    
-    // url을 이미지로 변환해주는 func 작성
 }
-
-
-// 빠사칸 있으면 빠사칸 후라이드로 없으면
-// 마루쓰리콤보
-
