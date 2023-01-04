@@ -166,8 +166,6 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
                 }
             }).disposed(by: disposeBag)
         
-//        diarys.map({ $0.date }).contains(nowDate)
-//         전체 일기를 가져온다. -> 이걸로 cell 화면 부분 만들기.
         mainViewModel.fullDiaryObservable
             .map { Array($0) }
             .subscribe (onNext: { [weak self] in
@@ -191,11 +189,9 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         
         mainView.mainquestionbutton.rx.tap.bind { [weak self] in
             guard let self = self else { return }
-            // 넘어갈 현재날짜.
+
             let nowDate = self.dateFormatter.string(from: Date())
             
-            // 만약 데이터가 있으면 View를 보여주는 화면으로 옮기고
-            // 오늘 데이터가 없으면, 새로 만드는 화면으로 옮겨줘야한다.
             if self.diarys.map({ $0.date }).contains(nowDate) {
                 let diaryViewController = DiaryViewController()
                 diaryViewController.date = nowDate
@@ -211,7 +207,6 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
             
         }.disposed(by: disposeBag)
         
-        // 이뷰가 보인다는건 today가 있다는 소리니까 바로 다이어리뷰를 보여주면 된다.
         mainView.todayBackgorund.rx
             .tapGesture()
             .when(.recognized)
@@ -277,8 +272,7 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
     func reloadyearMonths() {
         fullDiary.map { $0.date }.map {
             self.dateSet.append(String($0.prefix(6)))
-        } // [202212, 202212, 202211] 등 년과월들이 다담겨있다.
-        // 중복제거
+        } 
         self.yearMonths = Array(Set(self.dateSet)).sorted(by: >)
     }
     
