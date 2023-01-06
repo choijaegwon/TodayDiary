@@ -20,8 +20,6 @@ class CreateDiaryViewController: UIViewController {
     var disposeBag = DisposeBag()
     let realm = try! Realm()
     weak var delegate: CreateDiaryVCDelegate?
-    // 사용할때 언래핑해줘야한다.
-    // MainVC에서 날짜데이터를 받는 변수
     var date: String?
     
     override func viewDidLoad() {

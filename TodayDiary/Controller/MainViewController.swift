@@ -148,13 +148,12 @@ class MainViewController: UIViewController, UISheetPresentationControllerDelegat
         // 오늘 일기 배열
         mainViewModel.todayDiaryObservable
             .map { Array($0) }
-            //여기서 메인으로 바꿔주고,
             .observe(on: MainScheduler.instance)
             .subscribe (onNext: { [weak self] in
                 guard let self = self else { return }
-                if $0.isEmpty == true { // 오늘 일기가 비어있으면
+                if $0.isEmpty == true {
                     self.mainView.todayBackgorund.isHidden = true
-                } else { // 오늘 일기가 있으면 데이터 채워주기
+                } else {
                     self.mainView.calendar.appearance.todayColor = .clear
                     self.mainView.todayBackgorund.isHidden = false
                     self.mainView.mainquestionbutton.isHidden = true
@@ -340,12 +339,10 @@ extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         mainViewModel.readRealmDateString.accept(currentFilterDate)
     }
     
-    // 오늘 날짜 이후로는 클릭이 안된다.(미래시불가능)
     func maximumDate(for calendar: FSCalendar) -> Date {
         return Date()
     }
     
-    // 특정 날짜에 이미지 세팅
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
         let dateStr = dateFormatter.string(from: date)
         for diary in diarys {
@@ -356,7 +353,6 @@ extension MainViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalend
         return nil
     }
     
-    // 특정 날짜에 숫자 지우기
     func calendar(_ calendar: FSCalendar, titleFor date: Date) -> String? {
         let dateStr = dateFormatter.string(from: date)
         for diary in diarys {
@@ -379,14 +375,13 @@ extension MainViewController {
             ]
             sheet.preferredCornerRadius = 20
             
-            //시트 상단에 그래버 표시 (기본 값은 false)
             sheet.prefersGrabberVisible = true
         }
     }
     
     fileprivate func diaryViewPresentationController(_ diaryViewController: DiaryViewController) {
         if let sheet = diaryViewController.sheetPresentationController {
-            //크기 변하는거 감지
+
             sheet.delegate = self
             sheet.detents = [
                 .custom { context in
@@ -394,8 +389,7 @@ extension MainViewController {
                 }
             ]
             sheet.preferredCornerRadius = 20
-            
-            //시트 상단에 그래버 표시 (기본 값은 false)
+
             sheet.prefersGrabberVisible = true
         }
     }
