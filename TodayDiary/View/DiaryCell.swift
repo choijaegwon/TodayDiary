@@ -14,7 +14,7 @@ class DiaryCell: UITableViewCell {
     lazy var dateLabel = UILabel().then {
         $0.textColor = .yearTextColor
         $0.font = UIFont.boldSystemFont(ofSize: 16)
-        $0.text = "24" // 나중에 지우기
+        $0.text = "24" 
     }
     
     lazy var cellBackgorund = UIView().then {
@@ -23,7 +23,6 @@ class DiaryCell: UITableViewCell {
     }
     
     lazy var moodImage = UIImageView().then {
-        // 그때 그떄 정할 예정 일단 기본이미지.
         $0.image = UIImage(named: "0")
     }
     

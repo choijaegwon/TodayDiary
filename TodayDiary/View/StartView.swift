@@ -144,7 +144,7 @@ class StartView: UIView {
             $0.top.equalTo(monthLabel2.snp.bottom).offset(93)
             $0.centerX.equalToSuperview()
         }
-//18
+
         addSubview(dismissbutton)
         dismissbutton.snp.makeConstraints {
             $0.top.equalTo(fixLabel.snp.bottom).offset(18)
