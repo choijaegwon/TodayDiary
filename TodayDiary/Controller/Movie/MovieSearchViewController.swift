@@ -13,7 +13,6 @@ import SnapKit
 
 private let reuseIdentifier = "MovieCell"
 
-// 여기서 영화검색을 하고, 데이터를 받아온후, 컬렉션 뷰에 나타내 주어야한다.
 class MovieSearchViewController: UIViewController {
 
     private let movieService = MovieService()
@@ -41,7 +40,6 @@ class MovieSearchViewController: UIViewController {
         flowlayout.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: flowlayout)
         cv.showsVerticalScrollIndicator = false
-//        cv.backgroundColor = .red
         return cv
     }()
     
@@ -73,7 +71,6 @@ class MovieSearchViewController: UIViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
-        // register cell 등록
         collectionView.register(MovieCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
@@ -86,7 +83,6 @@ class MovieSearchViewController: UIViewController {
 
 extension MovieSearchViewController: UITextFieldDelegate {
     
-    // 완료 버튼을 누르면 키보드가 내려가기만들기
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         movieService.fetchMovies(movieName: self.textField.text!)
@@ -102,11 +98,9 @@ extension MovieSearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MovieCell
         
-        // 검색결과가 자꾸 <b> </b>가 포함된 결과가 나와서 제거해줌.
         let titleResult = movies[indexPath.row].title.replacingOccurrences(of: "</b>", with: "").replacingOccurrences(of: "<b>", with: "")
         
         if movies[indexPath.row].image == "" {
-            // 형한테 추후 이미지가 없다는거 간단하게 만들어달라하고 넣자.
             cell.moviePosterImage.image = UIImage(named: "noimage")
         } else {
             let url = URL(string: movies[indexPath.row].image)
@@ -123,8 +117,7 @@ extension MovieSearchViewController: UICollectionViewDataSource {
         cell.moviePosterRating.text = movies[indexPath.row].userRating
         return cell
     }
-    
-    // 셀 크기 지정
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width
         let numberOfItemsPerRow: CGFloat = 3
@@ -135,12 +128,10 @@ extension MovieSearchViewController: UICollectionViewDataSource {
         return CGSize(width: itemDimension, height: 230)
     }
     
-    // 그리드의 항목 줄 사이에 사용할 최소 간격 위아래
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return self.cellMarginSize
     }
 
-    // 같은 행에 있는 항목 사이에 사용할 최소 간격 옆간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 4
     }
