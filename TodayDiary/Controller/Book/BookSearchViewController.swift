@@ -41,7 +41,6 @@ class BookSearchViewController: UIViewController {
         flowlayout.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: flowlayout)
         cv.showsVerticalScrollIndicator = false
-//        cv.backgroundColor = .red
         return cv
     }()
     
@@ -105,7 +104,6 @@ extension BookSearchViewController: UICollectionViewDataSource {
         let titleResult = books[indexPath.row].title.components(separatedBy: "(")[0]
         
         if books[indexPath.row].image == "" {
-            // 형한테 추후 이미지가 없다는거 간단하게 만들어달라하고 넣자.
             cell.bookPosterImage.image = UIImage(named: "noimage")
         } else {
             let url = URL(string: books[indexPath.row].image)

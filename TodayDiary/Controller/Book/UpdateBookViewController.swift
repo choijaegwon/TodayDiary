@@ -88,7 +88,6 @@ class UpdateBookViewController: UIViewController {
             
             self.navigationController?.popViewController(animated: false)
             self.delegate?.updateButtonTapped()
-            // full이라 Dismiss가 아니다.
             
         }.disposed(by: disposeBag)
         
@@ -117,7 +116,7 @@ extension UpdateBookViewController: AddBookDateVCDelegate {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_kr")
         dateFormatter.timeZone = TimeZone(identifier: "KST")
-        dateFormatter.dateFormat = "yyyy년 MM월 dd일 E요일" // 2020.08.13 오후 04시 30분
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일 E요일"
         DispatchQueue.main.async {
             self.updateBookView.bookDateLabel.text = dateFormatter.string(from: pickerDate)
         }

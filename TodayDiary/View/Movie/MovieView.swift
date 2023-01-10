@@ -14,7 +14,6 @@ class MovieView: UIView {
     
     // 포스터 이미지
     lazy var moviePosterImage = UIImageView().then {
-        // 그때 그떄 정할 예정 일단 기본이미지.
         $0.image = UIImage(named: "noimage")
         $0.contentMode = .scaleAspectFit
     }
@@ -181,8 +180,6 @@ class MovieView: UIView {
             $0.left.right.equalToSuperview().inset(15)
         }
         
-        // 저장하면 -> 이미지, 년도, 감독, 배우, textView내용 다 저장한후, 본날짜를 저장해준다.
-        // 본날짜는 배우 아래에서 피커뷰로 클릭할수있게 만들어야한다.
         upDateButton.snp.makeConstraints {
             $0.top.equalTo(textView.snp.bottom).offset(20)
             $0.centerX.equalToSuperview()

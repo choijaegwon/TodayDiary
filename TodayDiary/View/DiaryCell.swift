@@ -56,7 +56,6 @@ class DiaryCell: UITableViewCell {
             $0.left.equalToSuperview().inset(20)
         }
         
-        // cellBackgorund의 크기는 cellStack이 결정해준다이걸 이용해야한다.
         cellBackgorund.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.width.greaterThanOrEqualTo(295)

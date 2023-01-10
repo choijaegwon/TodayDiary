@@ -13,7 +13,6 @@ class BookViewCell: UICollectionViewCell {
     
     // 책 이미지
     lazy var bookPosterImage = UIImageView().then {
-        // 그때 그떄 정할 예정 일단 기본이미지.
         $0.image = UIImage(named: "noimage")
         $0.contentMode = .scaleAspectFit
     }

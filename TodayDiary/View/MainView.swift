@@ -86,8 +86,6 @@ class MainView: UIView {
         $0.backgroundColor = UIColor.white
     }
     
-    // 오늘의 데이터가 있으면 그 데이터로 button이 바뀌어야줘야한다. 또는
-    // 오늘의 데이터가 있으면 이버튼은 hidden으로 숨겨주고 다른 뷰를 띄우게하기.
     lazy var mainquestionbutton = UIButton().then {
         $0.setTitle("오늘은 어떤 하루를 보내셨나요?", for: .normal)
         $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
@@ -104,7 +102,6 @@ class MainView: UIView {
     }
     
     lazy var todayMoodImage = UIImageView().then {
-        // 그때 그떄 정할 예정 일단 기본이미지.
         $0.image = UIImage(named: "0")
     }
     

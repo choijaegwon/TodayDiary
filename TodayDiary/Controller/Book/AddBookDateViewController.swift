@@ -37,7 +37,6 @@ class AddBookDateViewController: UIViewController {
         
         view.addSubview(sendButton)
         sendButton.snp.makeConstraints {
-//            $0.center.equalToSuperview()
             $0.right.equalToSuperview().inset(30)
             $0.top.equalToSuperview().inset(24)
         }

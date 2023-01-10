@@ -13,7 +13,6 @@ import RealmSwift
 
 private let reuseIdentifier = "BookViewCell"
 
-// 여기서 책 정보를 다가져오고 뿌려준다.
 class BookMainViewController: UIViewController {
 
     private let emptyBookView = EmptyBookView()
@@ -21,7 +20,7 @@ class BookMainViewController: UIViewController {
     private var disposeBag = DisposeBag()
     let cellMarginSize: CGFloat = 10.0
     
-    private lazy var realmBook: [RealmBook] = [] { // 전체 배열을 가져온다.
+    private lazy var realmBook: [RealmBook] = [] {
         didSet {
             if realmBook.isEmpty {
                 emptyBookView.isHidden = false
@@ -96,8 +95,6 @@ class BookMainViewController: UIViewController {
             }).disposed(by: disposeBag)
     }
     
-    
-    // 영화 더하는 VC으로 이동하는 버튼
     @objc func bookAddButton() {
         print(#function)
         let bookSearchViewController = BookSearchViewController()
@@ -159,7 +156,6 @@ extension BookMainViewController: UICollectionViewDataSource {
 
 extension BookMainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print(realmMoive[indexPath.row])
         let bookViewController = BookViewController()
         bookViewController.realmBook = [realmBook[indexPath.row]]
         bookViewController.modalPresentationStyle = .fullScreen

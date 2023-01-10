@@ -67,24 +67,4 @@ class StartViewModel {
         $0.locale = Locale(identifier: "ko_kr")
         $0.timeZone = TimeZone(identifier: "KST")
     }
-    
-    func MonthLabel() {
-
-    }
-    
-//    var MonthLabel1: String {
-//        switch  {
-//        case 0...9:
-//            return "정말 최고로 둥근"
-//        case 10...15:
-//            return "좋은 일만 가득했던"
-//        case 16...250:
-//            return "그래도 뒤돌아 보면 생각보다 둥근"
-//        default:
-//            return "정말 최고로 둥근"
-//        }
-//    }
-//    
-//    var MonthLabel1 = ["정말 최고로 둥근", "좋은 일만 가득했던", "그래도 뒤돌아 보면 생각보다 둥근"]
-//    var MonthLabel2 = ["한 달을 보내셨네요!", "한 달을 보내셨네요!", "한 달을 보낸 거 같지 않나요?"]
 }

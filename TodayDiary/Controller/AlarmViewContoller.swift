@@ -124,15 +124,11 @@ extension AlarmViewContoller: AddAlertViewControllerDelegate {
         // 데이터피커에서 선택한 시간 넣어주는 코드
         alert.date = pickerDate
         alert.id = "1"
-        // noti 예약
-        // 오늘의 일기가있으면 오늘 알람 보내는걸 없애줘야하는 분기코드를 만들어줘야한다.
         self.userNotificationCenter.addNotificationRequest(by: alert)
-        // noti 예약한거 realm에 보내기
         try! self.realm.write {
             self.realm.add(alert, update: .modified)
         }
 
-        // 시간설정 뷰에 넣어주는 코드들
         let dateformatter = DateFormatter()
         dateformatter.dateStyle = .none
         dateformatter.timeStyle = .short

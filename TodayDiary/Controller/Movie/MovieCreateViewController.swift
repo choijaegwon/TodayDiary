@@ -115,8 +115,6 @@ class MovieCreateViewController: UIViewController {
             try! self.realm.write {
                 self.realm.add(realmMovie)
             }
-            // 저장하기전에 이미 있는 영화제목이번 알렛을 띄여줘야한다.
-            // 팝이 두번되어야한다.
             self.navigationController?.popViewController(animated: false)
             self.delegate?.saveButtonTapped()
         }.disposed(by: disposeBag)
@@ -143,7 +141,7 @@ extension MovieCreateViewController: AddMovieDateVCDelegate {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_kr")
         dateFormatter.timeZone = TimeZone(identifier: "KST")
-        dateFormatter.dateFormat = "yyyy년 MM월 dd일 E요일" // 2020.08.13 오후 04시 30분
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일 E요일" 
         DispatchQueue.main.async {
             self.movieCreateView.movieDateLabel.text = dateFormatter.string(from: pickerDate)
         }

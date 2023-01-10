@@ -52,11 +52,6 @@ class MainViewModel {
         }
     }
     
-    
-//    lazy var sortedDiaryObservable = self.diaryObservable.map { diary in
-//        return diary.sorted(byKeyPath: "date", ascending: true)
-//    }
-    
     private let dateFormatter = DateFormatter()
     private lazy var nowYearLabel = nowYear()
     private lazy var nowMonthLabel = nowMonth()
@@ -85,11 +80,6 @@ class MainViewModel {
         $0.locale = Locale(identifier: "ko_kr")
         $0.timeZone = TimeZone(identifier: "KST")
     }
-    
-    
-    // mainSumMood에다가 현재 달의 감정개수를 필터링해서 그걸 보여주는걸해야한다.
-    // 배열값을 BehaviorSubject로 받고, .map 써서 객체하나를꺼내고, .map써서 객체안을 접근해가면된다.
-    
     
     let filterDateDateFormatter = DateFormatter().then {
         $0.dateFormat = "YYYYMM"

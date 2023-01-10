@@ -115,7 +115,6 @@ extension FullDiaryViewController: UITableViewDelegate, UITableViewDataSource {
     
     // cell의 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        let haha = sectionArray[section] // 앞에6자리숫자
         return yearMonthDC[self.sectionArray[section]]!.count
     }
     

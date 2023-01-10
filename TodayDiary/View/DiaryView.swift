@@ -31,7 +31,6 @@ class DiaryView: UIView {
         $0.backgroundColor = .labelBackgroundColor
     }
     
-    // 둥근뷰안에 텍스트 이걸 합쳐서 사용할 방법이 없을까?
     // 버튼의 기분 텍스트
     var selectedButtonLable = UILabel().then {
         $0.textColor = .black
@@ -75,8 +74,6 @@ class DiaryView: UIView {
         addSubview(textView)
         addSubview(upDateButton)
 
-        
-        // 질문 텍스트
         questionLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(50)
             $0.centerX.equalToSuperview()
@@ -97,7 +94,6 @@ class DiaryView: UIView {
             $0.top.equalTo(moodImageView.snp.bottom).offset(23)
         }
         
-        // 오늘은 좋은일만 가득했어요 문장
         selectedButtonLable.snp.makeConstraints {
             $0.center.equalToSuperview()
         }

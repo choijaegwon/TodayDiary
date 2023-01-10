@@ -43,7 +43,6 @@ class DiaryViewController: UIViewController {
         diaryView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        // 텍스트 뷰 보기만 하게하는 메서드
         diaryView.textView.isUserInteractionEnabled = false
     }
     
